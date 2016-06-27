@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@import "./vars";
+
+// Import Modules
+//@import '../_modules/link/link';
+
+// Styling on warning for users on IE7 or below
+.browsehappy {
+    width: 100%;
+    height: 100%;
+    padding: 0.5em 0;
+    margin: 0;
+    background: #50aaa6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    text-align: center;
+    color: #fff;
+
+    strong {
+        color: #324b4b;
+    }
+
+    a {
+        color: #f0d200;
+    }
+}

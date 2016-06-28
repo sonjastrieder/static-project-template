@@ -36,7 +36,9 @@ This project uses [Gulp](http://gulpjs.com) to run automated tasks for developme
 The tasks are as follows:
 
 `gulp`: Compiles preprocessors and boots up development server
-`gulp --open`: Same as `gulp` but will also open up site/app in your default browser
+
+`gulp --open`: Same as `gulp` but will also open up site in your default browser
+
 `gulp --production`: Same as `gulp` but will run all production tasks so you can view the site in it's final optimized form
 
 `gulp test`: Lints all `*.js` file in the `source` folder using eslint

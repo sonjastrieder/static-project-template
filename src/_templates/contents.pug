@@ -9,6 +9,6 @@ mixin contents(context)
     else if context.group
         +includes(context.group, context)
     else if context.element
-        +includes(context.element)
+        +includes(context.element, context)
     else if context.content
         != context.content

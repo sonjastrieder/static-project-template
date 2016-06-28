@@ -52,7 +52,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                         }
 
                         if (/[\\/]pages[\\/]/.test(file)) {
-                            let fileName = file.replace(/^[\w\\/]+\\([\w-]+)\.(?:json|ya?ml)$/, '$1');
+                            let fileName = file.replace(/^[\w\\/]+[\\/]([\w-]+)\.(?:json|ya?ml)$/, '$1');
                             let filePath = json.path || fileName;
 
                             pages.push({

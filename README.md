@@ -1,12 +1,4 @@
-# Static Project Template readme
-
-Generated on 2016-06-27 using
-[generator-yeogurt@1.5.3](https://github.com/larsonjj/generator-yeogurt)
-
-## Description
-
-This is an example readme file.
-Describe your site/app here.
+# Static Project Template
 
 ## Technologies used
 
@@ -43,12 +35,12 @@ Code Management
 This project uses [Gulp](http://gulpjs.com) to run automated tasks for development and production builds.
 The tasks are as follows:
 
-`gulp --production`: Same as `gulp serve --production` also run `gulp test` and  not boot up production server
-
-`gulp serve`: Compiles preprocessors and boots up development server
-`gulp serve --open`: Same as `gulp serve` but will also open up site/app in your default browser
-`gulp serve --production`: Same as `gulp serve` but will run all production tasks so you can view the site/app in it's final optimized form
+`gulp`: Compiles preprocessors and boots up development server
+`gulp --open`: Same as `gulp` but will also open up site/app in your default browser
+`gulp --production`: Same as `gulp` but will run all production tasks so you can view the site in it's final optimized form
 
 `gulp test`: Lints all `*.js` file in the `source` folder using eslint
+
+`gulp build --production`: Same as `gulp --production` but will not boot up server
 
 ***Adding the `--debug` option to any gulp task displays extra debugging information (ex. data being loaded into your templates)***

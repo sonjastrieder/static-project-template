@@ -39,13 +39,8 @@ wrench.readdirSyncRecursive('./gulp')
         require('./gulp/' + file)(gulp, plugins, args, config, taskTarget, browserSync);
     });
 
-// Default task
-gulp.task('default', ['clean'], () => {
-    gulp.start('serve');
-});
-
 // Build production-ready code
-gulp.task('build', [
+gulp.task('forge', [
     'copy',
     'imagemin',
     'jade',
@@ -54,7 +49,7 @@ gulp.task('build', [
 ]);
 
 // Server tasks with watch
-gulp.task('serve', [
+gulp.task('draft', [
     'imagemin',
     'copy',
     'jade',
@@ -66,3 +61,12 @@ gulp.task('serve', [
 
 // Testing
 gulp.task('test', ['eslint']);
+
+gulp.task('build', ['clean'], () => {
+    gulp.start('forge');
+});
+
+// Default task
+gulp.task('default', ['clean'], () => {
+    gulp.start('draft');
+});

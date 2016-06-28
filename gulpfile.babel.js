@@ -43,7 +43,7 @@ wrench.readdirSyncRecursive('./gulp')
 gulp.task('forge', [
     'copy',
     'imagemin',
-    'jade',
+    'pug',
     'sass',
     'browserify'
 ]);
@@ -52,7 +52,7 @@ gulp.task('forge', [
 gulp.task('draft', [
     'imagemin',
     'copy',
-    'jade',
+    'pug',
     'sass',
     'browserify',
     'browserSync',

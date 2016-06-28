@@ -4,7 +4,7 @@ import _ from 'lodash';
 import fs from 'fs';
 import path from 'path';
 import foldero from 'foldero';
-import jade from 'jade';
+import pug from 'pug';
 import yaml from 'js-yaml';
 
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
@@ -32,7 +32,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         }
     }
 
-    gulp.task('jade', () => {
+    gulp.task('pug', () => {
         let data = {};
         let pages = [];
         
@@ -57,7 +57,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
                             pages.push({
                                 'data': json,
-                                'template': path.join('src', '_pages', `${json.template}.jade`),
+                                'template': path.join('src', '_pages', `${json.template}.pug`),
                                 'path': path.join(dest, filePath, 'index.html')
                             });
                         }
@@ -73,7 +73,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         }
 
         let options = {
-            'jade': jade,
+            'pug': pug,
             'pretty': true
         };
         let locals = {
@@ -91,7 +91,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             pages.forEach((page) => {
                 ensureDirectoryExistence(page.path);
 
-                fs.writeFileSync(page.path, jade.renderFile(page.template, _.merge(merged, {'page': page.data})))
+                fs.writeFileSync(page.path, pug.renderFile(page.template, _.merge(merged, {'page': page.data})))
             });
         }
 
@@ -106,12 +106,12 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
         return gulp
             .src([
-                path.join(dirs.source, '**/*.jade'),
+                path.join(dirs.source, '**/*.pug'),
                 '!' + path.join(dirs.source, '{**/\_*,**/\_*/**}')
             ])
             .pipe(plugins.changed(dest))
             .pipe(plugins.plumber())
-            .pipe(plugins.jade(_.extend(options, {'locals': locals})))
+            .pipe(plugins.pug(_.extend(options, {'locals': locals})))
             .pipe(plugins.htmlmin({
                 'collapseBooleanAttributes': true,
                 'conservativeCollapse': true,

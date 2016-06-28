@@ -1,0 +1,8 @@
+mixin hero(context)
+    .container-fluid(class= config.prefix + '-hero')
+        .row
+            .container
+                .row
+                    .col-xs-12.col-md-6
+                        h1= context.headline
+                        p.lead= context.paragraph

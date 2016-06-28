@@ -1,0 +1,10 @@
+mixin contents(context)
+    if context.contents
+        each item in context.contents
+            +contents(item)
+
+    else if context.template
+        +includes(context)
+    
+    else if context.content
+        != context.content

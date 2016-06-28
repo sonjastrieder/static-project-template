@@ -3,7 +3,7 @@
     "title": "Static Project Template | Baz",
     "contents": [
         {
-            "component": "components/example",
+            "template": "components/example",
             "foo": "bar"
         }
     ]

@@ -1,4 +1,5 @@
 extends ../layouts/shell
+include ../components/hero
 
 block content
-    section= page.content
+    +hero(page.hero)

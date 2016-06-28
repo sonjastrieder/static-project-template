@@ -75,6 +75,7 @@
     "entries": {
       "js": "main**.js",
       "css": "main**.scss"
-    }
+    },
+    "prefix": "fs"
   }
 }

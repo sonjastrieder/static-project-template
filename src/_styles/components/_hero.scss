@@ -1,0 +1,9 @@
+.#{$prefix}-hero {
+    background: url('http://placehold.it/1200x450') no-repeat center;
+    background-size: cover;
+
+    [class*="col-"] {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}

@@ -1,5 +1,60 @@
 {
-    "page": "example",
+    "layout": "shell",
     "title": "Static Project Template | Foo",
-    "content": "Foo!"
+    "contents": [
+        {
+            "template": "components/hero",
+            "headline": "Lorem Ipsum",
+            "paragraph": "Sed ac purus quis eros viverra pulvinar vel lacinia ipsum. Etiam luctus porta nibh, quis placerat purus venenatis ut. Mauris id quam nec massa aliquam accumsan."
+        },
+        {
+            "template": "components/grid",
+            "rows": [
+                {
+                    "columns": [
+                        {
+                            "__class": "col-xs-12 col-sm-6 col-md-3",
+                            "contents": [
+                                {
+                                    "template": "components/tile",
+                                    "headline": "Quis posuere",
+                                    "paragraph": "Proin quis enim eget urna molestie aliquam."
+                                }
+                            ]
+                        },
+                        {
+                            "__class": "col-xs-12 col-sm-6 col-md-3",
+                            "contents": [
+                                {
+                                    "template": "components/tile",
+                                    "headline": "Egestas quam",
+                                    "paragraph": "Proin quis enim eget urna molestie aliquam."
+                                }
+                            ]
+                        },
+                        {
+                            "__class": "col-xs-12 col-sm-6 col-md-3",
+                            "contents": [
+                                {
+                                    "template": "components/tile",
+                                    "headline": "Praesent sed",
+                                    "paragraph": "Proin quis enim eget urna molestie aliquam."
+                                }
+                            ]
+                        },
+                        {
+                            "__class": "col-xs-12 col-sm-6 col-md-3",
+                            "contents": [
+                                {
+                                    "template": "components/tile",
+                                    "headline": "Nunc pulvinar",
+                                    "paragraph": "Proin quis enim eget urna molestie aliquam."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

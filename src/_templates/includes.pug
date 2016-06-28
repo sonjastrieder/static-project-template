@@ -1,9 +1,0 @@
-mixin includes(template, context)
-    case template
-        when 'components/example'
-            //- Static content that doesn't require context can simply be included.
-            include components/example
-            //- Dynamic data needs to be passed into a mixing to correctly scope.
-            +example(context)
-        default
-            div Template include #{template} not setup.

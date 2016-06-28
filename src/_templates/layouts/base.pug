@@ -4,6 +4,9 @@ block config
     //- Otherwise default to relative pathing
     - baseUrl = config.baseUrl || './'
 
+include ../common/contents
+include ../common/includes
+
 doctype html
 
 <!--[if lt IE 9]>
@@ -13,13 +16,13 @@ doctype html
 <html class="no-js" lang="en">
 <!--<![endif]-->
 
-include ../groups/head
+include ../common/head
 
 body
     include ../groups/legacy
 
     block body
 
-    include ../groups/foot
+    include ../common/foot
 
 </html>

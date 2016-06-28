@@ -1,0 +1,22 @@
+mixin includes(context)
+    case context.template
+        when 'components/example'
+            //- Static content that doesn't require context can simply be included.
+            include ../components/example
+            //- Dynamic data needs to be passed into a mixin to correctly scope.
+            +example-component(context)
+
+        when 'components/hero'
+            include ../components/hero
+            +hero(context)
+
+        when 'components/grid'
+            include ../components/grid
+            +grid(context)
+
+        when 'components/tile'
+            include ../components/tile
+            +tile(context)
+
+        default
+            div Template include "#{context.template}" has not been setup.

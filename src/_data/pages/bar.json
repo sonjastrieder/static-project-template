@@ -2,5 +2,8 @@
     "path": "foo/bar",
     "page": "example",
     "title": "Static Project Template | Bar",
-    "content": "Bar?"
+    "hero": {
+        "headline": "Vestibulum purus",
+        "paragraph": "Donec rhoncus sapien nunc. Curabitur bibendum, magna et viverra facilisis, massa libero porttitor ante, eu tempor risus odio sagittis sem."
+    }
 }

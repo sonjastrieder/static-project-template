@@ -1,0 +1,9 @@
+mixin tile(context)
+    div(class= config.prefix + '-tile')
+        figure.figure
+            img.figure-img.img-fluid(src="http://placehold.it/600x350", alt="")
+            figcaption.figure-caption Copyright &copy; 1901
+        h4= context.headline
+        p= context.paragraph
+        a.btn.btn-default(href="javascript:void(0)")
+            span Read more

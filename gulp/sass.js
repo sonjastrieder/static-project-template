@@ -18,8 +18,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                 'outputStyle': 'expanded',
                 'precision': 10,
                 'includePaths': [
-                    path.join(dirs.source, dirs.styles),
-                    path.join(dirs.source, dirs.modules)
+                    path.join(dirs.source, dirs.styles)
                 ]
             }))
             .on('error', (err) => {

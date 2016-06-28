@@ -69,9 +69,6 @@
       "//": "Directories relative to `source` directory",
       "data": "_data",
       "images": "_images",
-      "layouts": "_layouts",
-      "modules": "_modules",
-      "pages": "_pages",
       "styles": "_styles",
       "scripts": "_scripts"
     },

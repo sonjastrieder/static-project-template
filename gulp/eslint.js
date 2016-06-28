@@ -8,9 +8,8 @@ import gulpif from 'gulp-if';
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let dirs = config.directories;
 
-    // ESLint
     gulp.task('eslint', () => {
-        gulp
+        return gulp
             .src([
                 path.join('gulpfile.js'),
                 path.join(dirs.source, '**/*.js'),

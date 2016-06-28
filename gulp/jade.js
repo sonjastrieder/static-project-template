@@ -32,7 +32,6 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         }
     }
 
-    // Jade template compile
     gulp.task('jade', () => {
         let data = {};
         let pages = [];
@@ -52,14 +51,14 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                             json = JSON.parse(fs.readFileSync(file, 'utf8'));
                         }
 
-                        if (/\\pages\\/.test(file)) {
-                            let fileName = file.replace(/^[\w\\]+\\([\w-]+)\.(?:json|ya?ml)$/, '$1');
-                            let filePath = json.path ? `${json.path}\\` : `${fileName}\\`;
+                        if (/[\\/]pages[\\/]/.test(file)) {
+                            let fileName = file.replace(/^[\w\\/]+\\([\w-]+)\.(?:json|ya?ml)$/, '$1');
+                            let filePath = json.path || fileName;
 
                             pages.push({
                                 'data': json,
-                                'template': `src\\_pages\\${json.template}.jade`,
-                                'path': `${dest}\\${filePath}index.html`
+                                'template': path.join('src', '_pages', `${json.template}.jade`),
+                                'path': path.join(dest, filePath, 'index.html')
                             });
                         }
                     } catch(e) {
@@ -84,10 +83,15 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         };
 
         if (pages.length) {
+            let merged = _.merge(options, locals, {
+                'debug': false,
+                'compileDebug': false
+            })
+
             pages.forEach((page) => {
                 ensureDirectoryExistence(page.path);
 
-                fs.writeFileSync(page.path, jade.renderFile(page.template, _.merge(options, locals, {'compileDebug': false, 'page': page.data})))
+                fs.writeFileSync(page.path, jade.renderFile(page.template, _.merge(merged, {'page': page.data})))
             });
         }
 

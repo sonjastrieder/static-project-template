@@ -20,7 +20,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             let dest = path.resolve(taskTarget);
 
             // Options
-            let customOpts = {
+            let options = {
                 'entries': [entry],
                 'debug': true,
                 'transform': [
@@ -29,11 +29,11 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                 ]
             };
 
-            let bundler = browserify(customOpts);
+            let bundler = browserify(options);
 
             if (!args.production) {
                 // Setup Watchify for faster builds
-                let opts = _.assign({}, watchify.args, customOpts);
+                let opts = _.assign({}, watchify.args, options);
 
                 bundler = watchify(browserify(opts));
             }

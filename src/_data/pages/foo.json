@@ -1,4 +1,5 @@
 {
-    "template": "foo",
-    "title": "Static Project Template | Foo"
+    "template": "example",
+    "title": "Static Project Template | Foo",
+    "content": "Foo!"
 }

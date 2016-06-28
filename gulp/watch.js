@@ -5,7 +5,6 @@ import path from 'path';
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let dirs = config.directories;
 
-    // Watch task
     gulp.task('watch', () => {
         if (!args.production) {
             // Styles

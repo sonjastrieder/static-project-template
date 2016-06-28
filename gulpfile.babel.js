@@ -41,12 +41,11 @@ wrench.readdirSyncRecursive('./gulp')
 
 // Default task
 gulp.task('default', ['clean'], () => {
-    gulp.start('build');
+    gulp.start('serve');
 });
 
 // Build production-ready code
 gulp.task('build', [
-    'clean',
     'copy',
     'imagemin',
     'jade',
@@ -56,7 +55,6 @@ gulp.task('build', [
 
 // Server tasks with watch
 gulp.task('serve', [
-    'clean',
     'imagemin',
     'copy',
     'jade',

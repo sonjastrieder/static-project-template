@@ -8,7 +8,6 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let dirs = config.directories;
     let dest = path.join(taskTarget, dirs.images.replace(/^_/, ''));
 
-    // Imagemin
     gulp.task('imagemin', () => {
         return gulp
             .src(path.join(dirs.source, dirs.images, '**/*.{jpg,jpeg,gif,svg,png}'))

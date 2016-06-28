@@ -53,13 +53,13 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
                         if (/[\\/]pages[\\/]/.test(file)) {
                             let fileName = file.replace(/^[\w\\/]+[\\/]([\w-]+)\.(?:json|ya?ml)$/, '$1');
-                            let filePath = json.path || fileName;
-                            let fileTemp = json.page || json.layout;
+
+                            json.path = json.path || fileName;
 
                             pages.push({
                                 'data': json,
-                                'template': path.join('src', '_templates', (json.page ? 'pages' : 'layouts'), `${fileTemp}.pug`),
-                                'path': path.join(dest, filePath, 'index.html')
+                                'template': path.join('src', '_templates', (json.page ? 'pages' : 'layouts'), `${json.page || json.layout}.pug`),
+                                'path': path.join(dest, json.path, 'index.html')
                             });
                         }
                     } catch(e) {

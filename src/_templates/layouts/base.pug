@@ -1,10 +1,8 @@
-include ../elements/link
-
 //- Custom Configuration
 block config
     //- Setup site's base URL to match the "baseUrl" key within `package.json`
     //- Otherwise default to relative pathing
-    - var baseUrl = config.baseUrl || './'
+    - baseUrl = config.baseUrl || './'
 
 doctype html
 
@@ -18,14 +16,7 @@ doctype html
 include ../groups/head
 
 body
-    <!--[if lt IE 9]>
-    p.browsehappy
-        | You are using an 
-        strong outdated
-        |  browser. Please 
-        | #[+link({'text': 'upgrade your browser'})(href="http://browsehappy.com/")]
-        |  to improve your experience.
-    <![endif]-->
+    include ../groups/legacy
 
     block body
 

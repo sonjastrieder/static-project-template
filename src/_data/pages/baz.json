@@ -1,0 +1,10 @@
+{
+    "layout": "shell",
+    "title": "Static Project Template | Baz",
+    "contents": [
+        {
+            "component": "components/example",
+            "foo": "bar"
+        }
+    ]
+}

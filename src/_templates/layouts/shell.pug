@@ -1,7 +1,9 @@
 extends ./base
+include ../contents
 
 block body
     include ../components/header
     main
         block content
+            +contents(page)
     include ../components/footer

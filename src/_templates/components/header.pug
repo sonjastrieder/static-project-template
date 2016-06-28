@@ -1,1 +1,10 @@
-header Header
+mixin nav-item(context, text)
+    li.nav-item(class= (!page && text == 'home') || (page && context.path == page.path) ? 'active' : '')
+        a.nav-link(href= baseUrl + context.path)= text
+
+header
+    nav.navbar.navbar-light.bg-faded
+        ul.nav.navbar-nav
+            +nav-item({'path': ''}, 'home')
+            each item, key in data.pages
+                +nav-item(item, key)

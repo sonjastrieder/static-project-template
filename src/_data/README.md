@@ -44,12 +44,26 @@ They would be converted to the following object:
 }
 ```
 
-And would then be injected into your template within the `site.data` property
+And would then be injected into your template within the `data` property
 so you could access your data like so:
 
 ```jade
-h1= site.data.global.siteName //- Sample
+h1= data.global.siteName //- Sample
 ul.menu
-  each val in site.data.menu
+  each val in data.menu
     li= val.name //- Home, About
 ```
+
+## Pages
+
+The data files found in the pages folder are handled uniquely. To allow for dynamic page generation with generic templates create a data file in the pages folder.
+
+Required properties: `page` or `layout`
+
+These properties' value (string) point at a template file in the cooresponding folders. Choose one.
+
+Optional properties: `path`, `title`
+
+The path for a page defaults to the data file's name. This can be overwritten via the `path` property. Set a folder structure string, ex: "/foo/bar"
+
+The page title defaults to the global title but can be page specific by using the `title` property.

@@ -61,7 +61,7 @@
     "//": "Entry files",
     "host": "localhost",
     "port": "9000",
-    "baseUrl": "./",
+    "baseUrl": "/",
     "directories": {
       "source": "src",
       "destination": "build",

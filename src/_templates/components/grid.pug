@@ -1,4 +1,4 @@
-mixin grid(context)
+mixin c-grid(context)
     .container-fluid(class= context.__class)&attributes(context.attributes)
         .row
             .container
@@ -6,4 +6,4 @@ mixin grid(context)
                     .row&attributes(row.attributes)
                         each column in row.columns
                             div(class= column.__class)&attributes(column.attributes)
-                                +contents(column)
+                                +u-contents(column)

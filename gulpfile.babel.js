@@ -43,6 +43,7 @@ wrench.readdirSyncRecursive('./gulp')
 gulp.task('forge', [
     'copy',
     'imagemin',
+    'inject',
     'pug',
     'sass',
     'browserify'
@@ -50,8 +51,9 @@ gulp.task('forge', [
 
 // Server tasks with watch
 gulp.task('draft', [
-    'imagemin',
     'copy',
+    'imagemin',
+    'inject',
     'pug',
     'sass',
     'browserify',

@@ -1,9 +1,8 @@
 {
-    "layout": "shell",
     "title": "Static Project Template | Baz",
     "contents": [
         {
-            "template": "components/example",
+            "template": "c-example",
             "foo": "bar"
         }
     ]

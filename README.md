@@ -10,7 +10,7 @@ Styles
 - [Sass](http://sass-lang.com/) via ([node-sass](https://github.com/sass/node-sass))
 
 Markup
-- [Pug](http://jade-lang.com/) - [Breaking changes](https://github.com/pugjs/pug/issues/2305) from Jade
+- [Pug](http://jade-lang.com/)
 
 Optimization
 - [Imagemin](https://github.com/imagemin/imagemin)

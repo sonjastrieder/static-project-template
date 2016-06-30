@@ -58,7 +58,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
                             pages.push({
                                 'data': json,
-                                'template': path.join('src', '_templates', (json.page ? 'pages' : 'layouts'), `${json.page || json.layout}.pug`),
+                                'template': path.join('src', '_templates', 'layouts', `${json.layout || path.join('generic', 'shell')}.pug`),
                                 'path': path.join(dest, json.path, 'index.html')
                             });
                         }

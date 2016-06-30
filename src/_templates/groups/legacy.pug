@@ -1,11 +1,10 @@
-include ../elements/link
-
-<!--[if lt IE 9]>
-p.legacy
-    | You are using an 
-    strong outdated
-    |  browser. Please 
-    +link()(href="http://browsehappy.com/")
-        | upgrade your browser
-    |  to improve your experience.
-<![endif]-->
+mixin g-legacy
+    <!--[if lt IE 9]>
+    p.legacy
+        | You are using an 
+        strong outdated
+        |  browser. Please 
+        +e-link()(href="http://browsehappy.com/")
+            | upgrade your browser
+        |  to improve your experience.
+    <![endif]-->

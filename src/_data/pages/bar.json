@@ -1,6 +1,6 @@
 {
     "path": "foo/bar",
-    "page": "example",
+    "layout": "specific/example",
     "title": "Static Project Template | Bar",
     "hero": {
         "headline": "Vestibulum purus",

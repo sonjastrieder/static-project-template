@@ -16,7 +16,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             gulp.watch([
                 path.join(dirs.source, '**/*.pug'),
                 path.join(dirs.source, dirs.data, '**/*.{json,yaml,yml}')
-            ], ['pug']);
+            ], ['inject', 'pug']);
 
             // Copy
             gulp.watch([

@@ -3,7 +3,7 @@ mixin c-header
         li.nav-item(class= (!page && text == 'home') || (page && context.path == page.path) ? 'active' : '')
             a.nav-link(href= baseUrl + context.path)= text
     
-    header
+    header(class= prefix('header'))
         nav.navbar.navbar-light.bg-faded
             ul.nav.navbar-nav
                 +nav-item({'path': ''}, 'home')

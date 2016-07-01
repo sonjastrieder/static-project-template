@@ -5,6 +5,7 @@ block config
     - baseUrl = config.baseUrl || './'
 
 include ../../utilities/includes
+include ../../utilities/helpers
 include ../../utilities/contents
 
 doctype html
@@ -36,7 +37,7 @@ body
 
     block body
 
-block scripts
-    script(src= baseUrl + "scripts/main.js")
+    block scripts
+        script(src= baseUrl + "scripts/main.js")
 
 </html>

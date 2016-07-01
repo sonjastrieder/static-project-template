@@ -1,0 +1,8 @@
+-
+    function prefix(...strings) {
+        return strings
+            .map(function(str) {
+                return config.prefix + '-' + str;
+            })
+            .join(' ')
+    }

@@ -14,13 +14,13 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
     let ensureDirectoryExistence = (filePath) => {
         let dirname = path.dirname(filePath);
-        
+
         if (directoryExists(dirname)) {
             return true;
         }
-        
+
         ensureDirectoryExistence(dirname);
-        
+
         fs.mkdirSync(dirname);
     }
 
@@ -35,7 +35,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     gulp.task('pug', () => {
         let data = {};
         let pages = [];
-        
+
         if (fs.existsSync(dataPath)) {
             // Convert directory to JS Object
             data = foldero(dataPath, {
@@ -43,7 +43,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                 'whitelist': '(.*/)*.+\.(json|ya?ml)$',
                 loader: (file) => {
                     let json = {};
-                    
+
                     try {
                         if (path.extname(file).match(/^.ya?ml$/)) {
                             json = yaml.safeLoad(fs.readFileSync(file, 'utf8'));
@@ -92,7 +92,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             pages.forEach((page) => {
                 ensureDirectoryExistence(page.path);
 
-                fs.writeFileSync(page.path, pug.renderFile(page.template, _.merge(merged, {'page': page.data})))
+                fs.writeFileSync(page.path, pug.renderFile(page.template, _.merge({}, merged, {'page': page.data})))
             });
         }
 

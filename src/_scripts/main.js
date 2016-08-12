@@ -6,3 +6,5 @@ import 'browsernizr/test/css/rgba';
 import Modernizr from 'browsernizr';
 
 import $ from 'jquery';
+
+import 'eqcss';

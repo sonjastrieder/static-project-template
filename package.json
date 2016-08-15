@@ -4,7 +4,9 @@
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
     "browsernizr": "^2.1.0",
-    "jquery": "~3.0.0"
+    "eqcss": "^1.2.1",
+    "jquery": "~3.0.0",
+    "picturefill": "^3.0.2"
   },
   "devDependencies": {
     "autoprefixer": "~6.3.1",

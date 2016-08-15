@@ -2,6 +2,12 @@
 
 @import "./vars";
 
+// components
+@import "./components/header";
 @import "./components/hero";
 
+// groups
 @import "./groups/legacy";
+
+// elements
+@import "./elements/picture";

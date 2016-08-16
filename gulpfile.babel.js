@@ -64,11 +64,11 @@ gulp.task('draft', [
 // Testing
 gulp.task('test', ['eslint']);
 
-gulp.task('build', ['clean'], () => {
+gulp.task('build', ['clean', 'icons'], () => {
     gulp.start('forge');
 });
 
 // Default task
-gulp.task('default', ['clean'], () => {
+gulp.task('default', ['clean', 'icons'], () => {
     gulp.start('draft');
 });

@@ -5,22 +5,17 @@ import svgSprite from 'gulp-svg-sprite';
 
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let svgConfig = {
-        // mode: {
-        //     symbol: { // symbol mode to build the SVG
-        //         sprite: 'sprite.svg', //sprite name
-        //         example: true // Build sample page
-        //     }
-        // },
         mode: {
             // Create a «css» sprite
             css: {
                 prefix: '.fs-icon-%s',
                 sprite: 'sprite.svg',
                 bust: false,
+                layout: 'vertical',
                 render: {
                     // Render a Sass stylesheet
                     scss: {
-                        template: 'gulp/sprite.scss'
+                        template: 'gulp/icons/sprite.scss'
                     }
                 }
             }
@@ -28,6 +23,40 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         svg: {
             xmlDeclaration: false, // strip out the XML attribute
             doctypeDeclaration: false // don't include the !DOCTYPE declaration
+            // ,
+            // transform the svg sprite
+            // transform:[
+            //     function(svg) {
+            //         var DOMParser = require('xmldom').DOMParser;
+            //         svg = new DOMParser().parseFromString(svg);
+            //         svg.documentElement.setAttribute('width','120');
+            //         return svg.toString();
+            //     }
+            // ]
+        },
+        shape: {
+            dimension: {
+                maxWidth: 10
+            },
+            spacing: {
+                padding: 0
+            },
+            // center icons
+            align: 'gulp/icons/shape.yaml'
+            // ,
+            // this didn't work, but seems close to working, so keeping it for now
+            // transform: [
+            //     {
+            //         custom: function(shape, sprite, callback) {
+            //             var DOMParser = require('xmldom').DOMParser;
+            //             var svg = new DOMParser().parseFromString(shape.svg.current);
+            //             svg.documentElement.setAttribute('width','10');
+            //             shape.svg.current = svg.toString();
+            //             // console.log(shape);
+            //             callback(null);
+            //         }
+            //     }
+            // ]
         }
     };
 

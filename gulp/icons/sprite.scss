@@ -2,6 +2,7 @@
 {{^hasMixin}}{{#hasCommon}}.{{/hasCommon}}{{^hasCommon}}%{{/hasCommon}}{{commonName}} {
     background-image: url("/images/icons/css/{{{sprite}}}");
     background-repeat: no-repeat;
+    background-size: 100%;
     height: 0;
 }
 

@@ -1,7 +1,13 @@
 'use strict';
 
+// generates an svg sprite and an accompanying sass file
+// the sprite is located in tmp/images/icons/css/
+
 import path from 'path';
 import svgSprite from 'gulp-svg-sprite';
+import cheerio from 'gulp-cheerio';
+import xmldom from 'xmldom';
+
 
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let svgConfig = {
@@ -43,26 +49,30 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             },
             // center icons
             align: 'gulp/icons/shape.yaml'
-            // ,
-            // this didn't work, but seems close to working, so keeping it for now
-            // transform: [
-            //     {
-            //         custom: function(shape, sprite, callback) {
-            //             var DOMParser = require('xmldom').DOMParser;
-            //             var svg = new DOMParser().parseFromString(shape.svg.current);
-            //             svg.documentElement.setAttribute('width','10');
-            //             shape.svg.current = svg.toString();
-            //             // console.log(shape);
-            //             callback(null);
-            //         }
-            //     }
-            // ]
         }
     };
 
     gulp.task('icons', () => {
         return gulp
             .src('./src/_images/icons/**/*.svg')
+            // set widths and heights of svgs
+            // .pipe(cheerio({
+            //     run: function ($, file) {
+            //         var svg = $('svg');
+            //         console.log(svg);
+            //         var viewbox = svg[0].attribs.viewbox;
+            //         var coordinates = viewbox.split(" ");
+            //         var width = coordinates[2];
+            //         var height = coordinates[3];
+            //         var newHeight = Math.round(height/width * 10).toString();
+            //         svg[0].attribs.width = "10";
+            //         coordinates[2] = "10";
+            //         svg[0].attribs.height = newHeight;
+            //         coordinates[3] = newHeight;
+            //         console.log('coordinates are ' + coordinates);
+            //         console.log('coordinates string is ' + coordinates.join(" "));
+            //         svg[0].attribs.viewbox = coordinates.join(" ");
+            // }}))
             .pipe(svgSprite(svgConfig))
             .pipe(gulp.dest('./tmp/images/icons'));
     });

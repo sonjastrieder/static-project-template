@@ -29,13 +29,25 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         },
         shape: {
             dimension: {
-                maxWidth: 10
+                maxWidth: 10,
+                precision: 20
             },
             spacing: {
                 padding: 0
             },
             // center icons
             align: 'gulp/icons/shape.yaml'
+            ,
+            transform: [
+                {
+                    svgo: {
+                        plugins: [
+                            {removeStyleElement: true},
+                            {removeUselessDefs: true}
+                        ]
+                    }
+                }
+            ]
         }
     };
 

@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="39" viewBox="0 0 32 39">
   <defs>
     <style>
       .cls-1 {
-        fill: #00234f;
+        fill: #08bcff;
         fill-rule: evenodd;
       }
     </style>
   </defs>
-  <path id="Polygon_1_copy_2" data-name="Polygon 1 copy 2" class="cls-1" d="M-0.013,23.02V-0.005L20,11.507Z"/>
+  <path id="Polygon_2" data-name="Polygon 2" class="cls-1" d="M0.012,39.012V0l32,19.507Z"/>
 </svg>

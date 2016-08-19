@@ -29,10 +29,13 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         },
         shape: {
             dimension: {
-                maxWidth: 10,
-                precision: 20
+                maxWidth: 10
+                // ,
+                // precision: 20
             },
             spacing: {
+                // without this amount of padding, there are many overlap issues where a different icon bleeds into current icon
+                // try setting to zero and running this task
                 padding: 0
             },
             // center icons

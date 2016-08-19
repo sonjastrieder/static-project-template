@@ -1,15 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19">
-  <defs>
-    <style>
-      .cls-1, .cls-2 {
-        fill: #fff;
-      }
-
-      .cls-1 {
-        fill-rule: evenodd;
-      }
-    </style>
-  </defs>
-  <path id="Polygon_3_copy" data-name="Polygon 3 copy" class="cls-1" d="M13,9.983L-0.007,18.992V0.974Z"/>
-  <rect id="Rectangle_23_copy" data-name="Rectangle 23 copy" class="cls-2" x="13" y="1" width="3" height="17.969"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 16 18" style="enable-background:new 0 0 16 18;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<path id="Polygon_3_copy" class="st0" d="M13,9L0,18V0L13,9z"/>
+<rect id="Rectangle_23_copy" x="13" class="st0" width="3" height="18"/>
 </svg>

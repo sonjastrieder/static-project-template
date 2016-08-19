@@ -2,7 +2,8 @@
 {{^hasMixin}}{{#hasCommon}}.{{/hasCommon}}{{^hasCommon}}%{{/hasCommon}}{{commonName}} {
     background-image: url("/images/icons/css/{{{sprite}}}");
     background-repeat: no-repeat;
-    background-size: 100%;
+    // this works in combination with the shape.spacing.padding being set to 1 in icons.js to prevent image overflow issues
+    background-size: 106%;
     height: 0;
 }
 

@@ -30,13 +30,12 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         shape: {
             dimension: {
                 maxWidth: 10
-                // ,
-                // precision: 20
             },
             spacing: {
                 // without this amount of padding, there are many overlap issues where a different icon bleeds into current icon
-                // try setting to zero and running this task
-                padding: 0
+                // works in conjunction with the background-size being set to 110% in gulp/icons/sprite.scss
+                // try setting to zero and running this task, view in win10 FF or some Android devices
+                padding: 1
             },
             // center icons
             align: 'gulp/icons/shape.yaml'

@@ -3,7 +3,6 @@
 'use strict';
 
 import path from 'path';
-import gulpif from 'gulp-if';
 
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let dirs = config.directories;
@@ -16,12 +15,15 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                 // Ignore all vendor folder files
                 '!' + path.join('**/vendor/**', '*')
             ])
-            .pipe(browserSync.reload({stream: true, once: true}))
+            .pipe(browserSync.reload({
+                'stream': true,
+                'once': true
+            }))
             .pipe(plugins.eslint({
                 'useEslintrc': true
             }))
             .pipe(plugins.eslint.format())
-            .pipe(gulpif(!browserSync.active, plugins.eslint.failAfterError()))
+            .pipe(plugins.if(!browserSync.active, plugins.eslint.failAfterError()))
             .on('error', () => {
                 if (!browserSync.active) {
                     process.exit(1);

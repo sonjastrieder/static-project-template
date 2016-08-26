@@ -1,19 +1,15 @@
-
 {{^hasMixin}}{{#hasCommon}}.{{/hasCommon}}{{^hasCommon}}%{{/hasCommon}}{{commonName}} {
-    background-image: url("/images/icons/css/{{{sprite}}}");
-    background-repeat: no-repeat;
-    // this works in combination with the shape.spacing.padding being set to 1 in icons.js to prevent image overflow issues
-    background-size: 106%;
     height: 0;
+    background-image: url("../images/{{{sprite}}}");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
-
 {{/hasMixin}}
 
 {{#shapes}}{{#selector.shape}}{{expression}}{{^last}},
 {{/last}}{{/selector.shape}} {
-    {{^hasCommon}}{{#hasMixin}}@include {{mixinName}};{{/hasMixin}}{{^hasMixin}}@extend %{{commonName}};{{/hasMixin}}
-    {{/hasCommon}}background-position: {{position.relative.xy}};
-    padding-bottom: calc( ({{height.outer}}/{{width.outer}}) * 100% );
+    {{^hasCommon}}{{#hasMixin}}@include {{mixinName}};{{/hasMixin}}{{^hasMixin}}@extend %{{commonName}};{{/hasMixin}}{{/hasCommon}}
+    padding-bottom: calc(({{height.outer}}/{{width.outer}}) * 100%);
+    background-position: {{position.relative.xy}};
 }
-
 {{/shapes}}

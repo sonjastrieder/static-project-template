@@ -3,9 +3,10 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSyncLib from 'browser-sync';
-import pjson from './package.json';
 import minimist from 'minimist';
 import wrench from 'wrench';
+
+import json from './package.json';
 
 // Load all gulp plugins based on their names
 // EX: gulp-copy -> copy
@@ -20,7 +21,7 @@ const defaultNotification = function(err) {
     };
 };
 
-let config = Object.assign({}, pjson.config, defaultNotification);
+let config = Object.assign({}, json.config, defaultNotification);
 
 let args = minimist(process.argv.slice(2));
 let dirs = config.directories;
@@ -39,36 +40,24 @@ wrench.readdirSyncRecursive('./gulp')
         require('./gulp/' + file)(gulp, plugins, args, config, taskTarget, browserSync);
     });
 
-// Build production-ready code
-gulp.task('forge', [
+gulp.task('compile', [
     'copy',
-    'imagemin',
-    'inject',
+    'images',
     'pug',
     'sass',
     'browserify'
 ]);
 
-// Server tasks with watch
-gulp.task('draft', [
-    'copy',
-    'imagemin',
-    'inject',
-    'pug',
-    'sass',
-    'browserify',
-    'browserSync',
-    'watch'
-]);
+gulp.task('dev', ['compile', 'browserSync', 'watch']);
 
 // Testing
 gulp.task('test', ['eslint']);
 
-gulp.task('build', ['clean', 'icons'], () => {
-    gulp.start('forge');
+gulp.task('build', ['clean'], () => {
+    gulp.start('compile');
 });
 
 // Default task
-gulp.task('default', ['clean', 'icons'], () => {
-    gulp.start('draft');
+gulp.task('default', ['clean'], () => {
+    gulp.start('dev');
 });

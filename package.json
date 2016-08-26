@@ -62,7 +62,6 @@
   },
   "//": "CUSTOM CONFIGURATION",
   "config": {
-    "//": "Entry files",
     "host": "localhost",
     "port": "9000",
     "baseUrl": "/",
@@ -70,7 +69,6 @@
       "source": "src",
       "destination": "build",
       "temporary": "tmp",
-      "//": "Directories relative to `source` directory",
       "data": "_data",
       "images": "_images",
       "styles": "_styles",

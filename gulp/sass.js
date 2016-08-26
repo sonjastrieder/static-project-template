@@ -2,14 +2,13 @@
 
 import path from 'path';
 import autoprefixer from 'autoprefixer';
-import gulpif from 'gulp-if';
 
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let dirs = config.directories;
     let entries = config.entries;
     let dest = path.join(taskTarget, dirs.styles.replace(/^_/, ''));
 
-    gulp.task('sass', () => {
+    gulp.task('sass', ['icons'], () => {
         return gulp
             .src(path.join(dirs.source, dirs.styles, entries.css))
             .pipe(plugins.plumber())
@@ -33,7 +32,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                 // Ex: 'src/_styles' --> '/styles'
                 path.dirname = path.dirname.replace(dirs.source, '').replace('_', '');
             }))
-            .pipe(gulpif(args.production, plugins.cssnano({
+            .pipe(plugins.if(args.production, plugins.cssnano({
                 'rebase': false
             })))
             .pipe(plugins.sourcemaps.write('./'))

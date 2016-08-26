@@ -9,14 +9,15 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         if (!args.production) {
             // Styles
             gulp.watch([
-                path.join(dirs.source, dirs.styles, '**/*.{scss,sass}')
+                path.join(dirs.source, dirs.styles, '**/*.{scss,sass}'),
+                path.join(dirs.source, dirs.images, 'icons', '**', '*.svg')
             ], ['sass']);
 
             // Pug Templates
             gulp.watch([
                 path.join(dirs.source, '**/*.pug'),
                 path.join(dirs.source, dirs.data, '**/*.{json,yaml,yml}')
-            ], ['inject', 'pug']);
+            ], ['pug']);
 
             // Copy
             gulp.watch([
@@ -27,8 +28,9 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
             // Images
             gulp.watch([
-                path.join(dirs.source, dirs.images, '**/*.{jpg,jpeg,gif,svg,png}')
-            ], ['imagemin']);
+                path.join(dirs.source, dirs.images, '**/*.{jpg,jpeg,gif,svg,png}'),
+                '!' + path.join(dirs.source, dirs.images, 'icons', '**', '*.svg')
+            ], ['images']);
 
             // All other files
             gulp.watch([

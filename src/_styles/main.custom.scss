@@ -2,13 +2,13 @@
 
 @import "./vars";
 
-// components
-@import "./components/header";
-@import "./components/hero";
+// elements
+@import "./elements/picture";
+@import "./elements/sprite";
 
 // groups
 @import "./groups/legacy";
 
-// elements
-@import "./elements/picture";
-@import "./elements/icon";
+// components
+@import "./components/header";
+@import "./components/hero";

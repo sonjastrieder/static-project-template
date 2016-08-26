@@ -1,0 +1,82 @@
+%svg-common {
+    height: 0;
+    background-image: url("../images/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.#{$prefix}-icon-account {
+    @extend %svg-common;
+    padding-bottom: calc((17/12) * 100%);
+    background-position: 50% 0;
+}
+.#{$prefix}-icon-add-to-playlist {
+    @extend %svg-common;
+    padding-bottom: calc((9.37/12) * 100%);
+    background-position: 50% 9.570455441085402%;
+}
+.#{$prefix}-icon-cancel {
+    @extend %svg-common;
+    padding-bottom: calc((12.48/12) * 100%);
+    background-position: 50% 15.471006188402475%;
+}
+.#{$prefix}-icon-caret-down {
+    @extend %svg-common;
+    padding-bottom: calc((10.46/12) * 100%);
+    background-position: 50% 22.657754616517504%;
+}
+.#{$prefix}-icon-caret-left {
+    @extend %svg-common;
+    padding-bottom: calc((13.82/12) * 100%);
+    background-position: 50% 29.44912807483543%;
+}
+.#{$prefix}-icon-caret-right {
+    @extend %svg-common;
+    padding-bottom: calc((12/12) * 100%);
+    background-position: 50% 37.142857142857146%;
+}
+.#{$prefix}-icon-ellipsis {
+    @extend %svg-common;
+    padding-bottom: calc((4.41/12) * 100%);
+    background-position: 50% 42.17098417218906%;
+}
+.#{$prefix}-icon-heart {
+    @extend %svg-common;
+    padding-bottom: calc((10.75/12) * 100%);
+    background-position: 50% 46.52482269503546%;
+}
+.#{$prefix}-icon-heart-outline {
+    @extend %svg-common;
+    padding-bottom: calc((10.89/12) * 100%);
+    background-position: 50% 52.80790415081483%;
+}
+.#{$prefix}-icon-play {
+    @extend %svg-common;
+    padding-bottom: calc((14.19/12) * 100%);
+    background-position: 50% 60.18170244777501%;
+}
+.#{$prefix}-icon-player-back {
+    @extend %svg-common;
+    padding-bottom: calc((13.25/12) * 100%);
+    background-position: 50% 68.48920863309353%;
+}
+.#{$prefix}-icon-player-forward {
+    @extend %svg-common;
+    padding-bottom: calc((13.25/12) * 100%);
+    background-position: 50% 76.54676258992805%;
+}
+.#{$prefix}-icon-player-pause {
+    @extend %svg-common;
+    padding-bottom: calc((19.14/12) * 100%);
+    background-position: 50% 87.57297748123436%;
+}
+.#{$prefix}-icon-search {
+    @extend %svg-common;
+    padding-bottom: calc((12/12) * 100%);
+    background-position: 50% 95.42857142857143%;
+}
+.#{$prefix}-icon-share {
+    @extend %svg-common;
+    padding-bottom: calc((8/12) * 100%);
+    background-position: 50% 100%;
+}

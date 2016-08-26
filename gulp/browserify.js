@@ -1,15 +1,14 @@
 'use strict';
 
+import _ from 'lodash';
 import path from 'path';
 import glob from 'glob';
 import browserify from 'browserify';
 import watchify from 'watchify';
 import envify from 'envify';
 import babelify from 'babelify';
-import _ from 'lodash';
 import vsource from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
-import gulpif from 'gulp-if';
 
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let dirs = config.directories;
@@ -58,7 +57,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                     .pipe(plugins.sourcemaps.init({
                         'loadMaps': true
                     }))
-                    .pipe(gulpif(args.production, plugins.uglify()))
+                    .pipe(plugins.if(args.production, plugins.uglify()))
                     .on('error', plugins.notify.onError(config.defaultNotification))
                     .pipe(plugins.rename((filepath) => {
                         // Remove 'source' directory as well as prefixed folder underscores

@@ -1,5 +1,21 @@
-.#{$prefix}-icon-cancel {
-    svg {
-        fill: currentColor;
-    }
+.#{$prefix}-icon-caret-left {
+    color: yellow;
+}
+
+.#{$prefix}-icon-caret-right {
+    color: green;
+}
+
+.#{$prefix}-icon-caret-down {
+    color: purple;
+}
+
+.#{$prefix}-icon-caret-left,
+.#{$prefix}-icon-caret-right,
+.#{$prefix}-icon-caret-down {
+    width: 2em;
+
+    &:hover {
+        color: white;
+    }   
 }

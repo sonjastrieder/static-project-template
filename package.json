@@ -6,7 +6,8 @@
     "browsernizr": "^2.1.0",
     "eqcss": "^1.2.1",
     "jquery": "~3.0.0",
-    "picturefill": "^3.0.2"
+    "picturefill": "^3.0.2",
+    "svg4everybody": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "~6.3.1",

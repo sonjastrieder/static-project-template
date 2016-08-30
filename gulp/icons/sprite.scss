@@ -1,15 +1,33 @@
-{{^hasMixin}}{{#hasCommon}}.{{/hasCommon}}{{^hasCommon}}%{{/hasCommon}}{{commonName}} {
-    height: 0;
-    background-image: url("../images/{{{sprite}}}");
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-{{/hasMixin}}
+%sprite-icon {
+    width: 1em;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
 
-{{#shapes}}{{#selector.shape}}{{expression}}{{^last}},
-{{/last}}{{/selector.shape}} {
-    {{^hasCommon}}{{#hasMixin}}@include {{mixinName}};{{/hasMixin}}{{^hasMixin}}@extend %{{commonName}};{{/hasMixin}}{{/hasCommon}}
-    padding-bottom: calc(({{height.outer}}/{{width.outer}}) * 100%);
-    background-position: {{position.relative.xy}};
+    &:after {
+        content: '';
+        width: 100%;
+        height: 0;
+        display: block;
+    }
+
+    svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+{{#shapes}}
+.#{$prefix}-{{name}} {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: ({{height.outer}}/{{width.outer}}) * 100%;
+    }
 }
 {{/shapes}}

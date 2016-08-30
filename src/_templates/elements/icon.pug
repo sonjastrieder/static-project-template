@@ -1,3 +1,4 @@
-//- see gulp/icons.js for details about how the svg icons work
 mixin e-icon(name)
-    div(class= prefix('icon', `icon-${name}`))
+    i(class= prefix(`icon-${name}`))
+        svg
+            use(xlink:href= `#icon-${name}`)

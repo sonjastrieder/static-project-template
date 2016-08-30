@@ -17,16 +17,13 @@ doctype html
 <html class="no-js" lang="en">
 <!--<![endif]-->
 
-- title = data.global.title || ''
-- description = data.global.description || ''
-
 head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
-    meta(name="description", content= description)
+    meta(name="description" content= page && page.description ? page.description : data.global.description)
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-    title= title
+    title= page && page.title ? page.title : data.global.title
 
     block styles
         link(rel="stylesheet", href= baseUrl + "styles/main.vendor.css")
@@ -34,6 +31,9 @@ head
 
 body
     +g-legacy
+
+    .hidden-xs-up
+        include ../../sprite.svg
 
     block body
 

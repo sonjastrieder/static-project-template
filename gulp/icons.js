@@ -6,13 +6,13 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let dirs = config.directories;
     let options = {
         'mode': {
-            // Create a CSS sprite
-            'css': {
-                'dest': dirs.images,
-                'prefix': '.#{$prefix}-icon-%s',
+            'symbol': {
+                'dest': dirs.templates,
                 'sprite': 'sprite.svg',
                 'bust': false,
                 'layout': 'vertical',
+                'prefix': '%s',
+                'dimensions': true,
                 'render': {
                     'scss': {
                         'template': path.join('gulp', 'icons', 'sprite.scss'),
@@ -22,21 +22,21 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             }
         },
         'svg': {
-            'xmlDeclaration': false, // strip out the XML attribute
-            'doctypeDeclaration': false // don't include the !DOCTYPE declaration
+            'xmlDeclaration': false,
+            'doctypeDeclaration': false
         },
         'shape': {
+            'id': {
+                'generator': (name) => {
+                    name = name.replace(/\.svg/, '');
+
+                    return `icon-${name}`;
+                }
+            },
+            'align': path.join('gulp', 'icons', 'shape.yaml'),
             'dimension': {
                 'maxWidth': 10
             },
-            'spacing': {
-                // without this amount of padding, there are many overlap issues where a different icon bleeds into current icon
-                // works in conjunction with the background-size being set to 110% in gulp/icons/sprite.scss
-                // try setting to zero and running this task, view in win10 FF or some Android devices
-                'padding': 1
-            },
-            // center icons
-            'align': path.join('gulp', 'icons', 'shape.yaml'),
             'transform': [
                 {
                     'svgo': {
@@ -53,9 +53,6 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             ]
         }
     };
-    
-    // generates an svg sprite and an accompanying sass file
-    // the sprite is located in tmp/images/icons/css/
 
     gulp.task('icons', () => {
         return gulp

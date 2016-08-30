@@ -1,10 +1,9 @@
 mixin g-legacy
     <!--[if lt IE 9]>
-    p.legacy
+    p(class= prefix('legacy'))
         | You are using an 
         strong outdated
         |  browser. Please 
-        +e-link()(href="http://browsehappy.com/")
-            | upgrade your browser
+        a(href="http://browsehappy.com/") upgrade your browser
         |  to improve your experience.
     <![endif]-->

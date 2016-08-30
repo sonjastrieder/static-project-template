@@ -42,10 +42,33 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                     'svgo': {
                         'plugins': [
                             {
+                                'removeTitle': true
+                            },
+                            {
+                                'removeDesc': true
+                            },
+                            {
+                                'removeComments': true
+                            },
+                            {
+                                'removeMetadata': true
+                            },
+                            {
+                                'removeAttrs': {
+                                    'attrs': '(id|class|data-[^=]+)'
+                                }
+                            },
+                            {
                                 'removeStyleElement': true
                             },
                             {
+                                'removeHiddenElems': true
+                            },
+                            {
                                 'removeUselessDefs': true
+                            },
+                            {
+                                'removeEmptyContainers': true
                             }
                         ]
                     }

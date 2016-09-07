@@ -1,6 +1,6 @@
 # Templates
 
-The folder structure has been broken up to match (https://github.com/fellswoop/wiki/wiki/Atomic-Design)[Fell Swoop's approach on atomic design].
+The folder structure has been broken up to match [Fell Swoop's approach on atomic design](https://github.com/fellswoop/wiki/wiki/Atomic-Design).
 
 All non-global templates should be constructed using the `/components/example.pug` mixin. The prefix letter matches the initial of the cooresponding folder and serves as a helpful identifier. By using this pattern the data files are able to use a dynamic approach of including templates. The context object passed into the mixins allows for variable amounts of data.
 

@@ -50,8 +50,8 @@ so you could access your data like so:
 ```jade
 h1= data.global.siteName //- Sample
 ul.menu
-  each val in data.menu
-    li= val.name //- Home, About
+    each val in data.menu
+        li= val.name //- Home, About
 ```
 
 ## Pages

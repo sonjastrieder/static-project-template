@@ -1,4 +1,4 @@
-mixin e-icon(name)
-    i(class= prefix(`icon-${name}`))
+mixin e-icon(context = {})
+    i(class= prefix(`icon-${context.name}`))
         svg
-            use(xlink:href= `#icon-${name}`)
+            use(xlink:href= `#icon-${context.name}`)

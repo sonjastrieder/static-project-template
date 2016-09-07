@@ -1,9 +1,9 @@
 mixin c-grid(context = {})
-    .container-fluid(class= context.__class)&attributes(context.attributes)
+    .container-fluid&attributes(context.attributes)
         .row
             .container
                 each row in context.rows
                     .row&attributes(row.attributes)
                         each column in row.columns
-                            div(class= column.__class)&attributes(column.attributes)
+                            div&attributes(column.attributes)
                                 +u-contents(column)

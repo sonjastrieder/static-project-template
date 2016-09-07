@@ -4,6 +4,69 @@
         {
             "template": "c-example",
             "foo": "bar"
+        },
+        {
+            "template": "e-picture"
+        },
+        {
+            "template": "e-icon",
+            "name": "account"
+        },
+        {
+            "template": "e-icon",
+            "name": "add-to-playlist"
+        },
+        {
+            "template": "e-icon",
+            "name": "cancel"
+        },
+        {
+            "template": "e-icon",
+            "name": "caret-left"
+        },
+        {
+            "template": "e-icon",
+            "name": "caret-down"
+        },
+        {
+            "template": "e-icon",
+            "name": "caret-right"
+        },
+        {
+            "template": "e-icon",
+            "name": "ellipsis"
+        },
+        {
+            "template": "e-icon",
+            "name": "heart-outline"
+        },
+        {
+            "template": "e-icon",
+            "name": "heart"
+        },
+        {
+            "template": "e-icon",
+            "name": "play"
+        },
+        {
+            "template": "e-icon",
+            "name": "player-back"
+        },
+        {
+            "template": "e-icon",
+            "name": "player-forward"
+        },
+        {
+            "template": "e-icon",
+            "name": "player-pause"
+        },
+        {
+            "template": "e-icon",
+            "name": "search"
+        },
+        {
+            "template": "e-icon",
+            "name": "share"
         }
     ]
 }

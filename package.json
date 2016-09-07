@@ -18,6 +18,7 @@
     "babelify": "~7.3.0",
     "browser-sync": "~2.13.0",
     "browserify": "~13.0.1",
+    "browserify-shim": "^3.8.12",
     "del": "~2.2.0",
     "envify": "~3.4.0",
     "foldero": "~0.1.1",
@@ -61,7 +62,6 @@
   "engines": {
     "node": ">=0.12.0"
   },
-  "//": "CUSTOM CONFIGURATION",
   "config": {
     "host": "localhost",
     "port": "9000",

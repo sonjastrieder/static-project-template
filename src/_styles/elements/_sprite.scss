@@ -1,0 +1,131 @@
+%sprite-icon {
+    width: 1em;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    color: currentColor;
+
+    &:after {
+        content: '';
+        width: 100%;
+        height: 0;
+        display: block;
+    }
+
+    svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        fill: currentColor;
+    }
+}
+
+.#{$prefix}-icon-account {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (15/10) * 100%;
+    }
+}
+.#{$prefix}-icon-add-to-playlist {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (7.37/10) * 100%;
+    }
+}
+.#{$prefix}-icon-cancel {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (10.48/10) * 100%;
+    }
+}
+.#{$prefix}-icon-caret-down {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (8.46/10) * 100%;
+    }
+}
+.#{$prefix}-icon-caret-left {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (11.82/10) * 100%;
+    }
+}
+.#{$prefix}-icon-caret-right {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (10/10) * 100%;
+    }
+}
+.#{$prefix}-icon-ellipsis {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (2.41/10) * 100%;
+    }
+}
+.#{$prefix}-icon-heart {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (8.75/10) * 100%;
+    }
+}
+.#{$prefix}-icon-heart-outline {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (8.89/10) * 100%;
+    }
+}
+.#{$prefix}-icon-play {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (12.19/10) * 100%;
+    }
+}
+.#{$prefix}-icon-player-back {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (11.25/10) * 100%;
+    }
+}
+.#{$prefix}-icon-player-forward {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (11.25/10) * 100%;
+    }
+}
+.#{$prefix}-icon-player-pause {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (17.14/10) * 100%;
+    }
+}
+.#{$prefix}-icon-search {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (10/10) * 100%;
+    }
+}
+.#{$prefix}-icon-share {
+    @extend %sprite-icon;
+
+    &:after {
+        padding-bottom: (6/10) * 100%;
+    }
+}

@@ -16,7 +16,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                 'render': {
                     'scss': {
                         'template': path.join('gulp', 'icons', 'sprite.scss'),
-                        'dest': path.join('..', dirs.styles, 'elements', 'sprite.scss')
+                        'dest': path.join('..', dirs.styles, 'elements', '_sprite.scss')
                     }
                 }
             }

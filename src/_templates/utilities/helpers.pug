@@ -1,8 +1,21 @@
 -
+    function lowerDash(str = '') {
+        return str.trim().toLowerCase().replace(/[\s_]/g, '-');
+    }
+
     function prefix(...strings) {
         return strings
-            .map(function(str) {
-                return config.prefix + '-' + str;
+            .map((str) => {
+                return `${config.prefix}-${lowerDash(str)}`;
             })
-            .join(' ')
+            .join(' ');
+    }
+
+    function attrs(pre, obj) {
+        Object.keys(obj).map((key) => {
+            obj[`${lowerDash(pre)}-${key}`] = obj[key];
+            delete obj[key];
+        });
+
+        return obj;
     }

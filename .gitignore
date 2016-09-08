@@ -4,3 +4,6 @@ build
 tmp
 .grunt
 .DS_Store
+src/_styles/elements/_sprite.scss
+src/_templates/utilities/includes.pug
+src/_templates/sprite.svg

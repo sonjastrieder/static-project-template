@@ -1,8 +1,11 @@
 @charset "UTF-8";
 
 @import "./vars";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
 
 // elements
+@import "./elements/global";
 @import "./elements/picture";
 @import "./elements/sprite";
 @import "./elements/icon";

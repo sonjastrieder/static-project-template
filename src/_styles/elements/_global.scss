@@ -1,0 +1,12 @@
+* {
+    outline: 0 !important;
+}
+
+.#{$prefix}-breakpoint {
+    font-family: 'xs';
+
+    @include media-breakpoint-up(sm) {font-family: 'sm';}
+    @include media-breakpoint-up(md) {font-family: 'md';}
+    @include media-breakpoint-up(lg) {font-family: 'lg';}
+    @include media-breakpoint-up(xl) {font-family: 'xl';}
+}

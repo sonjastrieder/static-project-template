@@ -32,7 +32,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         }
     }
 
-    gulp.task('pug', ['inject'], () => {
+    gulp.task('pug', () => {
         let data = {};
         let pages = [];
 

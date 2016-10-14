@@ -1,41 +1,55 @@
 'use strict';
 
-import path from 'path';
-
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let dirs = config.directories;
 
     gulp.task('watch', () => {
         if (!args.production) {
+            // Icons
+            gulp.watch([
+                `${dirs.source}/${dirs.images}/**/*.svg`
+            ], () => {
+                plugins.runSequence('icons');
+            });
+
             // Styles
             gulp.watch([
-                path.join(dirs.source, dirs.styles, '**/*.{scss,sass}'),
-                path.join(dirs.source, dirs.images, 'icons', '**', '*.svg')
-            ], ['sass']);
+                `${dirs.source}/${dirs.styles}/**/*.{scss,sass}`
+            ], () => {
+                plugins.runSequence('sass');
+            });
 
-            // Pug Templates
+            // Templates
             gulp.watch([
-                path.join(dirs.source, '**/*.pug'),
-                path.join(dirs.source, dirs.data, '**/*.{json,yaml,yml}')
-            ], ['pug']);
+                `${dirs.source}/**/*.pug`,
+                `${dirs.source}/${dirs.templates}/*.svg`,
+                `${dirs.source}/${dirs.data}/**/*.{json,yaml,yml}`,
+                `!${dirs.source}/${dirs.templates}/utilities/includes.pug`
+            ], () => {
+                plugins.runSequence('inject', 'pug');
+            });
 
             // Copy
             gulp.watch([
-                path.join(dirs.source, '**/*'),
-                '!' + path.join(dirs.source, '{**/\_*,**/\_*/**}'),
-                '!' + path.join(dirs.source, '**/*.pug')
-            ], ['copy']);
+                `${dirs.source}/**/*`,
+                `!${dirs.source}/**/*.{scss,sass,js,jpg,jpeg,gif,svg,png,pug}`,
+                `!${dirs.source}/{**/\_*,**/\_*/**}`
+            ], () => {
+                plugins.runSequence('copy');
+            });
 
             // Images
             gulp.watch([
-                path.join(dirs.source, dirs.images, '**/*.{jpg,jpeg,gif,svg,png}'),
-                '!' + path.join(dirs.source, dirs.images, 'icons', '**', '*.svg')
-            ], ['images']);
+                `${dirs.source}/${dirs.images}/**/*.{jpg,jpeg,gif,svg,png}`,
+                `!${dirs.source}/${dirs.images}/icons/**/*.svg`
+            ], () => {
+                plugins.runSequence('images');
+            });
 
             // All other files
             gulp.watch([
-                path.join(dirs.temporary, '**/*'),
-                '!' + path.join(dirs.temporary, '**/*.{css,map,html,js}')
+                `${dirs.temporary}/**/*`,
+                `!${dirs.temporary}/**/*.{css,map,html,js}`
             ]).on('change', browserSync.reload);
         }
     });

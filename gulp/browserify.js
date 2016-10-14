@@ -94,9 +94,11 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         return glob('./' + path.join(dirs.source, dirs.scripts, entries.js), (err, files) => {
             if (err) {
                 done(err);
-            }
+            } else {
+                browserifyTask(files);
 
-            return browserifyTask(files);
+                done();
+            }
         });
     });
 }

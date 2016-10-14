@@ -8,7 +8,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let entries = config.entries;
     let dest = path.join(taskTarget, dirs.styles.replace(/^_/, ''));
 
-    gulp.task('sass', ['icons'], () => {
+    gulp.task('sass', () => {
         return gulp
             .src(path.join(dirs.source, dirs.styles, entries.css))
             .pipe(plugins.plumber())

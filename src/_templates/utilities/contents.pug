@@ -21,5 +21,5 @@ mixin u-contents(context = {})
                 if /-/.test(key)
                     +#{key}(val)
                 else
-                    #{key}&attributes(attrs(context.attributes))
-                        +u-contents(context)
+                    #{key}&attributes(attrs(val.attributes))
+                        +u-contents(val)

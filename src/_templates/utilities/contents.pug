@@ -14,3 +14,12 @@ mixin u-contents(context = {})
         != context.content
     else if isShorthand(context)
         != context
+    else if isObject(context)
+        each val, key in context
+            if /^\+/.test(key)
+                - key = key.slice(1);
+                if /-/.test(key)
+                    +#{key}(val)
+                else
+                    #{key}&attributes(attrs(context.attributes))
+                        +u-contents(context)

@@ -6,7 +6,7 @@
     const flatten = (object) => {
         let obj = {};
 
-        if(object !== undefined && object !== null && object.constructor === Object) {
+        if(isObject(object)) {
             Object.keys(object).forEach((a) => {
                 let val = object[a];
 
@@ -14,7 +14,7 @@
                     val = prefix.apply(null, val.split(' '));
                     
                     obj.class = obj.class ? [obj.class, val].join(' ') : val;
-                } else if(val !== undefined && val !== null && val.constructor === Object && !/^!/.test(a)) {
+                } else if(isObject(val) && !/^!/.test(a)) {
                     let flat = flatten(val);
 
                     Object.keys(flat).forEach((b) => {
@@ -36,5 +36,7 @@
     const attrs = (obj) => flatten(obj);
 
     const isShorthand = (config) => typeof(config) == 'string' || typeof(config) == 'number';
+
+    const isObject = (obj) => obj !== undefined && obj !== null && obj.constructor === Object;
 
     const random = () => prefix(Math.round(Math.random() * 100000000) + '');

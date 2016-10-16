@@ -1,6 +1,7 @@
 'use strict';
 
 import gulp from 'gulp';
+import runSequence from 'gulp-run-sequence';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSyncLib from 'browser-sync';
 import minimist from 'minimist';
@@ -40,24 +41,22 @@ wrench.readdirSyncRecursive('./gulp')
         require('./gulp/' + file)(gulp, plugins, args, config, taskTarget, browserSync);
     });
 
-gulp.task('compile', [
-    'copy',
-    'images',
-    'pug',
-    'sass',
-    'browserify'
-]);
+gulp.task('compile', (done) => {
+    runSequence('copy', 'images', 'icons', 'sass', 'inject', 'pug', 'browserify', done);
+});
 
-gulp.task('dev', ['compile', 'browserSync', 'watch']);
+gulp.task('dev', (done) => {
+    runSequence('compile', 'browserSync', 'watch', done);
+});
 
 // Testing
 gulp.task('test', ['eslint']);
 
-gulp.task('build', ['clean'], () => {
-    gulp.start('compile');
+gulp.task('build', (done) => {
+    runSequence('clean', 'compile', done);
 });
 
 // Default task
-gulp.task('default', ['clean'], () => {
-    gulp.start('dev');
+gulp.task('default', (done) => {
+    runSequence('clean', 'dev', done);
 });

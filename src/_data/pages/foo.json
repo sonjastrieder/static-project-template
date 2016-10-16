@@ -1,67 +1,51 @@
 {
     "title": "Static Project Template | Foo",
-    "contents": [
-        {
-            "template": "c-hero",
-            "headline": "Lorem Ipsum",
-            "paragraph": "Sed ac purus quis eros viverra pulvinar vel lacinia ipsum. Etiam luctus porta nibh, quis placerat purus venenatis ut. Mauris id quam nec massa aliquam accumsan."
-        },
-        {
-            "template": "c-grid",
-            "rows": [
-                {
-                    "columns": [
-                        {
-                            "attributes": {
-                                "class": "col-xs-12 col-sm-6 col-md-3"
-                            },
-                            "contents": [
-                                {
-                                    "template": "c-tile",
-                                    "headline": "Quis posuere",
-                                    "paragraph": "Proin quis enim eget urna molestie aliquam."
-                                }
-                            ]
+    "+c-hero": {
+        "headline": "Lorem Ipsum",
+        "paragraph": "Sed ac purus quis eros viverra pulvinar vel lacinia ipsum. Etiam luctus porta nibh, quis placerat purus venenatis ut. Mauris id quam nec massa aliquam accumsan."
+    },
+    "+c-grid": {
+        "rows": [
+            {
+                "columns": [
+                    {
+                        "attributes": {
+                            "class": "col-xs-12 col-sm-6 col-md-3"
                         },
-                        {
-                            "attributes": {
-                                "class": "col-xs-12 col-sm-6 col-md-3"
-                            },
-                            "contents": [
-                                {
-                                    "template": "c-tile",
-                                    "headline": "Egestas quam",
-                                    "paragraph": "Proin quis enim eget urna molestie aliquam."
-                                }
-                            ]
-                        },
-                        {
-                            "attributes": {
-                                "class": "col-xs-12 col-sm-6 col-md-3"
-                            },
-                            "contents": [
-                                {
-                                    "template": "c-tile",
-                                    "headline": "Praesent sed",
-                                    "paragraph": "Proin quis enim eget urna molestie aliquam."
-                                }
-                            ]
-                        },
-                        {
-                            "attributes": {
-                                "class": "col-xs-12 col-sm-6 col-md-3"
-                            },
-                            "contents": [
-                                {
-                                    "template": "c-tile",
-                                    "headline": "Nunc pulvinar",
-                                    "paragraph": "Proin quis enim eget urna molestie aliquam."
-                                }
-                            ]
+                        "+c-tile": {
+                            "headline": "Quis posuere",
+                            "paragraph": "Proin quis enim eget urna molestie aliquam."
                         }
-                    ]
-                }
-            ]
-        }
-    ]
+                    },
+                    {
+                        "attributes": {
+                            "class": "col-xs-12 col-sm-6 col-md-3"
+                        },
+                        "+c-tile": {
+                            "headline": "Egestas quam",
+                            "paragraph": "Proin quis enim eget urna molestie aliquam."
+                        }
+                    },
+                    {
+                        "attributes": {
+                            "class": "col-xs-12 col-sm-6 col-md-3"
+                        },
+                        "+c-tile": {
+                            "headline": "Praesent sed",
+                            "paragraph": "Proin quis enim eget urna molestie aliquam."
+                        }
+                    },
+                    {
+                        "attributes": {
+                            "class": "col-xs-12 col-sm-6 col-md-3"
+                        },
+                        "+c-tile": {
+                            "headline": "Nunc pulvinar",
+                            "paragraph": "Proin quis enim eget urna molestie aliquam."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
 }

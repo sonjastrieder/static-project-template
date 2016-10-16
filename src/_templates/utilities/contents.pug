@@ -3,7 +3,12 @@ mixin u-contents(context = {})
         != context
     else if isObject(context)
         each val, key in context
-            if /^\+/.test(key)
+            if key == 'content'
+                != val
+            else if key == 'contents'
+                each content in val
+                    +u-contents(content)
+            else if /^\+/.test(key)
                 -
                     let attributes = {};
                     let [, template] = /\+([\w-]+)/.exec(key);
@@ -25,9 +30,4 @@ mixin u-contents(context = {})
                     +#{template}(val)(class= attributes.class, id= attributes.id)
                 else
                     #{template}&attributes(attributes, attrs(val.attributes))
-                        +u-contents(val)
-            else if key == 'contents'
-                each content in val
-                    +u-contents(content)
-            else if key == 'content'
-                != val
+                        +u-contents(val) 

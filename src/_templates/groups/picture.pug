@@ -1,5 +1,5 @@
 mixin g-picture(context = {})
-    picture(class= prefix('picture'))&attributes(attrs(context.attributes))
+    picture(class= prefix('picture'))&attributes(attributes, attrs(context.attributes))
         if context.srcs
             if context.srcs.length > 1
                 each src in context.srcs

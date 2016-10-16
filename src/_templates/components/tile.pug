@@ -1,5 +1,5 @@
-mixin c-tile(context)
-    div(class= prefix('tile'))
+mixin c-tile(context = {})
+    div(class= prefix('tile'))&attributes(attributes, attrs(context.attributes))
         figure.figure
             img.figure-img.img-fluid(src="http://placehold.it/600x350", alt="")
             figcaption.figure-caption Copyright &copy; 1901

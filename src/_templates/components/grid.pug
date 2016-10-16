@@ -1,5 +1,5 @@
 mixin c-grid(context = {})
-    .container-fluid&attributes(attrs(context.attributes))
+    .container-fluid&attributes(attributes, attrs(context.attributes))
         .row
             - container = context.container || {};
             .container&attributes(attrs(container.attributes))

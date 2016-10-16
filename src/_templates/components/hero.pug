@@ -1,5 +1,5 @@
 mixin c-hero(context = {})
-    .container-fluid(class= prefix('hero'))
+    .container-fluid(class= prefix('hero'))&attributes(attributes, attrs(context.attributes))
         .row
             .container
                 .row

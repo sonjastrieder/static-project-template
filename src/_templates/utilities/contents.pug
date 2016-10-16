@@ -1,25 +1,33 @@
 mixin u-contents(context = {})
-    if context.template
-        +#{context.template}(context)
-    else if context.element
-        -
-            element = context.element;
-            delete context.element;
-        #{element}&attributes(attrs(context.attributes))
-            +u-contents(context)
-    else if context.contents
-        each content in context.contents
-            +u-contents(content)
-    else if context.content
-        != context.content
-    else if isShorthand(context)
+    if isShorthand(context)
         != context
     else if isObject(context)
         each val, key in context
             if /^\+/.test(key)
-                - key = key.slice(1);
+                -
+                    let attributes = {};
+                    let [, template] = /\+([\w-]+)/.exec(key);
+                    let args = key.match(/([~#\.][\w-]+)/g);
+
+                    if(args) {
+                        args.forEach((arg) => {
+                            let regId = /#([\w-]+)/;
+                            let regClass = /\.([\w-]+)/;
+
+                            if(regId.test(arg)) {
+                                attributes.id = arg.slice(1);
+                            } else if(regClass.test(arg)) {
+                                attributes.class = attributes.class ? `${attributes.class} ${arg.slice(1)}` : arg.slice(1);
+                            }
+                        });
+                    }
                 if /-/.test(key)
-                    +#{key}(val)
+                    +#{template}(val)(class= attributes.class, id= attributes.id)
                 else
-                    #{key}&attributes(attrs(val.attributes))
+                    #{template}&attributes(attributes, attrs(val.attributes))
                         +u-contents(val)
+            else if key == 'contents'
+                each content in val
+                    +u-contents(content)
+            else if key == 'content'
+                != val

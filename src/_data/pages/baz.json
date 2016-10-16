@@ -1,72 +1,22 @@
 {
     "title": "Static Project Template | Baz",
-    "contents": [
-        {
-            "template": "c-example",
-            "foo": "bar"
-        },
-        {
-            "template": "g-picture"
-        },
-        {
-            "template": "e-icon",
-            "name": "account"
-        },
-        {
-            "template": "e-icon",
-            "name": "add-to-playlist"
-        },
-        {
-            "template": "e-icon",
-            "name": "cancel"
-        },
-        {
-            "template": "e-icon",
-            "name": "caret-left"
-        },
-        {
-            "template": "e-icon",
-            "name": "caret-down"
-        },
-        {
-            "template": "e-icon",
-            "name": "caret-right"
-        },
-        {
-            "template": "e-icon",
-            "name": "ellipsis"
-        },
-        {
-            "template": "e-icon",
-            "name": "heart-outline"
-        },
-        {
-            "template": "e-icon",
-            "name": "heart"
-        },
-        {
-            "template": "e-icon",
-            "name": "play"
-        },
-        {
-            "template": "e-icon",
-            "name": "player-back"
-        },
-        {
-            "template": "e-icon",
-            "name": "player-forward"
-        },
-        {
-            "template": "e-icon",
-            "name": "player-pause"
-        },
-        {
-            "template": "e-icon",
-            "name": "search"
-        },
-        {
-            "template": "e-icon",
-            "name": "share"
-        }
-    ]
+    "+c-example": {
+        "foo": "bar"
+    },
+    "+g-picture": {},
+    "+e-icon.1.foo": "account",
+    "+e-icon.2.bar": "add-to-playlist",
+    "+e-icon.3": "cancel",
+    "+e-icon.4": "caret-left",
+    "+e-icon.5": "caret-down",
+    "+e-icon~6": "caret-right",
+    "+e-icon~7": "ellipsis",
+    "+e-icon~8": "heart-outline",
+    "+e-icon~9": "heart",
+    "+e-icon~10": "play",
+    "+e-icon#11": "player-back",
+    "+e-icon#12": "player-forward",
+    "+e-icon#13": "player-pause",
+    "+e-icon#14": "search",
+    "+e-icon#15": "share"
 }

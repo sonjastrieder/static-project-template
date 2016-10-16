@@ -39,6 +39,8 @@ The tasks are as follows:
 
 `gulp --open`: Same as `gulp` but will also open up site in your default browser
 
+`gulp --page=[file name]`: Restrict the build to a single JSON file (plus all static pages) for when the build starts to get too large to build quickly
+
 `gulp --production`: Same as `gulp` but will run all production tasks so you can view the site in it's final optimized form
 
 `gulp test`: Lints all `*.js` file in the `source` folder using eslint
@@ -46,3 +48,5 @@ The tasks are as follows:
 `gulp build --production`: Same as `gulp --production` but will not boot up server
 
 ***Adding the `--debug` option to any gulp task displays extra debugging information (ex. data being loaded into your templates)***
+
+***When using the `--page` parameter, the file name should match the file name of any of the JSON files in the `src/_data/pages/` folder, excluding extension***

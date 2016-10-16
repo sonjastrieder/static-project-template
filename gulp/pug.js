@@ -56,11 +56,13 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
                             json.path = json.path || fileName;
 
-                            pages.push({
-                                'data': json,
-                                'template': path.join('src', '_templates', 'layouts', `${json.layout || path.join('generic', 'shell')}.pug`),
-                                'path': path.join(dest, json.path, 'index.html')
-                            });
+                            if (!args.hasOwnProperty('page') || (args.hasOwnProperty('page') && args.page === fileName)) {
+                                pages.push({
+                                    'data': json,
+                                    'template': path.join('src', '_templates', 'layouts', `${json.layout || path.join('generic', 'shell')}.pug`),
+                                    'path': path.join(dest, json.path, 'index.html')
+                                });
+                            }
                         }
                     } catch(e) {
                         console.log('Error Parsing DATA file: ' + file);

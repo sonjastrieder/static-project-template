@@ -8,7 +8,7 @@ const lowerDash = (str) => str.trim().toLowerCase().replace(/[\s_]/g, '-');
 
 const prefixStrs = (...strings) => {
     return strings
-        .map(function(str) {
+        .map((str) => {
             return `${prefix}-${lowerDash(str)}`;
         })
         .join(' ');

@@ -1,10 +1,16 @@
-mixin u-contents(context)
-    if context.contents
-        each item in context.contents
-            +u-contents(item)
-
-    else if context.template
+mixin u-contents(context = {})
+    if context.template
         +#{context.template}(context)
-    
+    else if context.element
+        -
+            element = context.element;
+            delete context.element;
+        #{element}&attributes(attrs(context.attributes))
+            +u-contents(context)
+    else if context.contents
+        each content in context.contents
+            +u-contents(content)
     else if context.content
         != context.content
+    else if isShorthand(context)
+        != context

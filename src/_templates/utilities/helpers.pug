@@ -1,21 +1,40 @@
 -
-    function lowerDash(str = '') {
-        return str.trim().toLowerCase().replace(/[\s_]/g, '-');
-    }
+    const lowerDash = (str = '') => str.trim().toLowerCase().replace(/[\s_]/g, '-');
 
-    function prefix(...strings) {
-        return strings
-            .map((str) => {
-                return `${config.prefix}-${lowerDash(str)}`;
-            })
-            .join(' ');
-    }
+    const prefix = (...strings) => strings.filter(Boolean).map((str) => `${config.prefix}-${lowerDash(str)}`).join(' ');
 
-    function attrs(pre, obj) {
-        Object.keys(obj).map((key) => {
-            obj[`${lowerDash(pre)}-${key}`] = obj[key];
-            delete obj[key];
-        });
+    const flatten = (object) => {
+        let obj = {};
+
+        if(object !== undefined && object !== null && object.constructor === Object) {
+            Object.keys(object).forEach((a) => {
+                let val = object[a];
+
+                if(a === 'prefix') {
+                    val = prefix.apply(null, val.split(' '));
+                    
+                    obj.class = obj.class ? [obj.class, val].join(' ') : val;
+                } else if(val !== undefined && val !== null && val.constructor === Object && !/^!/.test(a)) {
+                    let flat = flatten(val);
+
+                    Object.keys(flat).forEach((b) => {
+                        obj[`${a}-${b}`] = flat[b];
+                    });
+                } else {
+                    if(/^!/.test(a)) {
+                        obj[a.replace(/^!/, '')] = object[a];
+                    } else {
+                        obj[a] = object[a];
+                    }
+                }
+            });
+        }
 
         return obj;
     }
+
+    const attrs = (obj) => flatten(obj);
+
+    const isShorthand = (config) => typeof(config) == 'string' || typeof(config) == 'number';
+
+    const random = () => prefix(Math.round(Math.random() * 100000000) + '');

@@ -3,6 +3,7 @@
     "+c-example": {
         "foo": "bar"
     },
+    "+h1.text-xs-center": "Element templating example",
     "+g-picture": {},
     "+e-icon.1.foo": "account",
     "+e-icon.2.bar": "add-to-playlist",

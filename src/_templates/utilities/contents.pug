@@ -13,7 +13,7 @@ mixin u-contents(context = {})
                     let attributes = {};
                     let [, template] = /\+([\w-]+)/.exec(key);
                     let args = key.match(/([~#\.][\w-]+)/g);
-
+                    
                     if(args) {
                         args.forEach((arg) => {
                             if(/#/.test(arg)) {
@@ -23,7 +23,7 @@ mixin u-contents(context = {})
                             }
                         });
                     }
-                if /-/.test(key)
+                if /-/.test(template)
                     +#{template}(val)(class= attributes.class, id= attributes.id)
                 else
                     #{template}&attributes(attributes, attrs(val.attributes))

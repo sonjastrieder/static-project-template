@@ -16,12 +16,9 @@ mixin u-contents(context = {})
 
                     if(args) {
                         args.forEach((arg) => {
-                            let regId = /#([\w-]+)/;
-                            let regClass = /\.([\w-]+)/;
-
-                            if(regId.test(arg)) {
+                            if(/#/.test(arg)) {
                                 attributes.id = arg.slice(1);
-                            } else if(regClass.test(arg)) {
+                            } else if(/\./.test(arg)) {
                                 attributes.class = attributes.class ? `${attributes.class} ${arg.slice(1)}` : arg.slice(1);
                             }
                         });

@@ -1,4 +1,5 @@
 mixin e-icon(context = {})
-    i(class= prefix(`icon-${context.name}`))
+    - context = isShorthand(context) ? {'name': context} : context;
+    i(class= prefix('icon', `icon-${context.name}`))&attributes(attrs(context.attributes))
         svg
             use(xlink:href= `#icon-${context.name}`)

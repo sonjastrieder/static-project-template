@@ -12,7 +12,9 @@
                 {
                     "columns": [
                         {
-                            "__class": "col-xs-12 col-sm-6 col-md-3",
+                            "attributes": {
+                                "class": "col-xs-12 col-sm-6 col-md-3"
+                            },
                             "contents": [
                                 {
                                     "template": "c-tile",
@@ -22,7 +24,9 @@
                             ]
                         },
                         {
-                            "__class": "col-xs-12 col-sm-6 col-md-3",
+                            "attributes": {
+                                "class": "col-xs-12 col-sm-6 col-md-3"
+                            },
                             "contents": [
                                 {
                                     "template": "c-tile",
@@ -32,7 +36,9 @@
                             ]
                         },
                         {
-                            "__class": "col-xs-12 col-sm-6 col-md-3",
+                            "attributes": {
+                                "class": "col-xs-12 col-sm-6 col-md-3"
+                            },
                             "contents": [
                                 {
                                     "template": "c-tile",
@@ -42,7 +48,9 @@
                             ]
                         },
                         {
-                            "__class": "col-xs-12 col-sm-6 col-md-3",
+                            "attributes": {
+                                "class": "col-xs-12 col-sm-6 col-md-3"
+                            },
                             "contents": [
                                 {
                                     "template": "c-tile",

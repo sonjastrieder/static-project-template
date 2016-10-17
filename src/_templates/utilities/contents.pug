@@ -7,20 +7,15 @@ mixin u-contents(context = {})
                 != val
             else if /^\+/.test(key)
                 -
+                    let className;
                     let [, template] = /\+([\w-]+)/.exec(key);
-                    let attributes = key.match(/([~#\.][\w-]+)/g) || {};
+                    let options = key.match(/([~\.][\w-]+)/g) || {};
                     
-                    if(!!attributes.length) {
-                        attributes.forEach((arg) => {
-                            if(/#/.test(arg)) {
-                                attributes.id = arg.slice(1);
-                            } else if(/\./.test(arg)) {
-                                attributes.class = attributes.class ? `${attributes.class} ${arg.slice(1)}` : arg.slice(1);
-                            }
-                        });
+                    if(!!options.length) {
+                        options.some((option) => /^\./.test(option) ? !!(className = option.slice(1)) : false)
                     }
                 if /-/.test(template)
-                    +#{template}(val)(class= attributes.class, id= attributes.id)
+                    +#{template}(val)(class= className)
                 else
-                    #{template}(class= attributes.class, id= attributes.id)&attributes(attrs(val.attributes))
+                    #{template}(class= className)&attributes(attrs(val.attributes))
                         +u-contents(val)

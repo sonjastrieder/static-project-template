@@ -3,9 +3,9 @@ mixin u-contents(context = {})
         != context
     else if isObject(context)
         each val, key in context
-            if key == 'content'
+            if /^content(~[\d]+)?$/.test(key)
                 != val
-            else if key == 'contents'
+            else if /^contents(~[\d]+)?$/.test(key)
                 each content in val
                     +u-contents(content)
             else if /^\+/.test(key)

@@ -8,8 +8,9 @@
     },
     "+h1.text-xs-center": "Element templating example",
     "+h2.text-xs-center": {
-        "content": "Even more templating",
-        "+e-icon": "ellipsis"
+        "content~0": "Even more templating",
+        "+e-icon": "ellipsis",
+        "content~1": "with multiple content"
     },
     "+ul.list-unstyled": {
         "+li~0": "List Item 1",
@@ -22,5 +23,11 @@
             "href": "javascript:void(0)"
         },
         "content": "Call to Action"
+    },
+    "+hr": null,
+    "+p": {
+        "content~0": "How about some contentless elements?",
+        "+br": null,
+        "content~1": "How many lines? As many as you need."
     }
 }

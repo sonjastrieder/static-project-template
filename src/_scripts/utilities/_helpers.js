@@ -6,13 +6,7 @@ import {prefix, breakpoints} from '../_vars';
 
 const lowerDash = (str) => str.trim().toLowerCase().replace(/[\s_]/g, '-');
 
-const prefixStrs = (...strings) => {
-    return strings
-        .map((str) => {
-            return `${prefix}-${lowerDash(str)}`;
-        })
-        .join(' ');
-};
+const prefixStrs = (...strings) => strings.map((str) => `${prefix}-${lowerDash(str)}`).join(' ');
 
 const urlParams = () => {
     let params = {};

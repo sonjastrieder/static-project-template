@@ -2,7 +2,7 @@
 block config
     //- Setup site's base URL to match the "baseUrl" key within `package.json`
     //- Otherwise default to relative pathing
-    - baseUrl = config.baseUrl || './'
+    - baseUrl = self.config.baseUrl || './'
 
 include ../../utilities/includes
 include ../../utilities/helpers
@@ -21,10 +21,10 @@ head
     meta(charset="utf-8")
     meta(class= prefix('breakpoint'))
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
-    meta(name="description" content= page && page.description ? page.description : data.global.description)
+    meta(name="description" content= self.page && self.page.description ? self.page.description : self.data.global.description)
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-    title= page && page.title ? page.title : data.global.title
+    title= self.page && self.page.title ? self.page.title : self.data.global.title
 
     block styles
         link(rel="stylesheet", href= baseUrl + "styles/main.vendor.css")

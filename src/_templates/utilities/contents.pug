@@ -1,4 +1,5 @@
 mixin u-contents(context = {})
+    - selfClosing = ['br', 'hr', 'input', 'img', 'link', 'meta'];
     if isShorthand(context)
         != context
     else if isObject(context)
@@ -11,11 +12,14 @@ mixin u-contents(context = {})
                     let [, template] = /\+([\w-]+)/.exec(key);
                     let options = key.match(/([~\.][\w-]+)/g) || {};
                     
-                    if(!!options.length) {
+                    if (!!options.length) {
                         options.some((option) => /^\./.test(option) ? !!(className = option.slice(1)) : false)
                     }
                 if /-/.test(template)
                     +#{template}(val)(class= className)
                 else
-                    #{template}(class= className)&attributes(attrs(val.attributes))
-                        +u-contents(val)
+                    if selfClosing.indexOf(template) >= 0
+                        #{template}(class= className)&attributes(attrs((val || {}).attributes))/
+                    else
+                        #{template}(class= className)&attributes(attrs((val || {}).attributes))
+                            +u-contents(val)

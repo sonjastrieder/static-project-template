@@ -77,6 +77,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
         let options = {
             'pug': pug,
+            'self': true,
             'pretty': true
         };
         let locals = {
@@ -114,7 +115,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             ])
             .pipe(plugins.changed(dest))
             .pipe(plugins.plumber())
-            .pipe(plugins.pug(_.extend(options, {'locals': locals})))
+            .pipe(plugins.pug(_.extend({}, options, {'locals': locals})))
             .pipe(plugins.htmlmin({
                 'collapseBooleanAttributes': true,
                 'conservativeCollapse': true,

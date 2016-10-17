@@ -1,7 +1,7 @@
 -
     const lowerDash = (str = '') => str.trim().toLowerCase().replace(/[\s_]/g, '-');
 
-    const prefix = (...strings) => strings.filter(Boolean).map((str) => `${config.prefix}-${lowerDash(str)}`).join(' ');
+    const prefix = (...strings) => strings.filter(Boolean).map((str) => `${self.config.prefix}-${lowerDash(str)}`).join(' ');
 
     const flatten = (object) => {
         let obj = {};

@@ -3,11 +3,8 @@ mixin u-contents(context = {})
         != context
     else if isObject(context)
         each val, key in context
-            if /^content(~[\d]+)?$/.test(key)
+            if /^content(~[\w-]+)?$/.test(key)
                 != val
-            else if /^contents(~[\d]+)?$/.test(key)
-                each content in val
-                    +u-contents(content)
             else if /^\+/.test(key)
                 -
                     let [, template] = /\+([\w-]+)/.exec(key);

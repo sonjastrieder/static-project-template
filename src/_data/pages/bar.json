@@ -10,5 +10,17 @@
     "+h2.text-xs-center": {
         "content": "Even more templating",
         "+e-icon": "ellipsis"
+    },
+    "+ul.list-unstyled": {
+        "+li~0": "List Item 1",
+        "+li~1": "List Item 2",
+        "+li~2": "List Item 3"
+    },
+    "+a.btn.btn-primary": {
+        "attributes": {
+            "prefix": "btn",
+            "href": "javascript:void(0)"
+        },
+        "content": "Call to Action"
     }
 }

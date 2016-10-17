@@ -10,12 +10,11 @@ mixin u-contents(context = {})
                     +u-contents(content)
             else if /^\+/.test(key)
                 -
-                    let attributes = {};
                     let [, template] = /\+([\w-]+)/.exec(key);
-                    let args = key.match(/([~#\.][\w-]+)/g);
+                    let attributes = key.match(/([~#\.][\w-]+)/g) || {};
                     
-                    if(args) {
-                        args.forEach((arg) => {
+                    if(!!attributes.length) {
+                        attributes.forEach((arg) => {
                             if(/#/.test(arg)) {
                                 attributes.id = arg.slice(1);
                             } else if(/\./.test(arg)) {
@@ -26,5 +25,5 @@ mixin u-contents(context = {})
                 if /-/.test(template)
                     +#{template}(val)(class= attributes.class, id= attributes.id)
                 else
-                    #{template}&attributes(attributes, attrs(val.attributes))
-                        +u-contents(val) 
+                    #{template}(class= attributes.class, id= attributes.id)&attributes(attrs(val.attributes))
+                        +u-contents(val)

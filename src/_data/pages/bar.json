@@ -25,9 +25,18 @@
         "content": "Call to Action"
     },
     "+hr": null,
-    "+p": {
+    "+p~0": {
         "content~0": "How about some contentless elements?",
         "+br": null,
         "content~1": "How many lines? As many as you need."
+    },
+    "+p~1": {
+        "+a": {
+            "attributes": {
+                "href": "javascript:void(0)"
+            },
+            "content": "Testing"
+        },
+        "content": "."
     }
 }

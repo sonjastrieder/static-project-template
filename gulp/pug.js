@@ -47,7 +47,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                         let content = fs.readFileSync(file, 'utf8');
                         let index = 0;
 
-                        json = JSON.parse(content.replace(/"(\+[^"]+)"/g, (match, key) => `"${key}~${index++}"`));
+                        json = JSON.parse(content.replace(/"(\+[^"]+|content)"/g, (match, key) => `"${key}~${index++}"`));
 
                         if (/[\\/]pages[\\/]/.test(file)) {
                             let fileName = file.replace(/^[\w\\/]+[\\/]([\w-]+)\.(?:json)$/, '$1');

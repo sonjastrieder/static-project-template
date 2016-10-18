@@ -1,6 +1,6 @@
 # Data
 
-This "Data" folder is the designated location for `json` and `yaml` file data
+This "Data" folder is the designated location for `json` file data
 that will be injected into your templates under the `site.data` property.
 
 ## Example
@@ -9,14 +9,17 @@ If you have two data files in this data folder with the following contents:
 
 ```
 └── _data
-    ├── global.yml
+    ├── global.json
     └── menu.json
 ```
 
-***global.yml***
+***global.json***
 
-```yml
-siteName: Sample
+```json
+{
+    "title": "Static Project Template",
+    "description": ""
+}
 ```
 
 ***menu.json***

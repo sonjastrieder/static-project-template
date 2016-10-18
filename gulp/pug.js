@@ -5,7 +5,6 @@ import fs from 'fs';
 import path from 'path';
 import foldero from 'foldero';
 import pug from 'pug';
-import yaml from 'js-yaml';
 
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let dirs = config.directories;
@@ -40,19 +39,18 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             // Convert directory to JS Object
             data = foldero(dataPath, {
                 'recurse': true,
-                'whitelist': '(.*/)*.+\.(json|ya?ml)$',
+                'whitelist': '(.*/)*.+\.json$',
                 loader: (file) => {
                     let json = {};
 
                     try {
-                        if (path.extname(file).match(/^.ya?ml$/)) {
-                            json = yaml.safeLoad(fs.readFileSync(file, 'utf8'));
-                        } else {
-                            json = JSON.parse(fs.readFileSync(file, 'utf8'));
-                        }
+                        let content = fs.readFileSync(file, 'utf8');
+                        let index = 0;
+
+                        json = JSON.parse(content.replace(/"(\+[^"]+)"/g, (match, key) => `"${key}~${index++}"`));
 
                         if (/[\\/]pages[\\/]/.test(file)) {
-                            let fileName = file.replace(/^[\w\\/]+[\\/]([\w-]+)\.(?:json|ya?ml)$/, '$1');
+                            let fileName = file.replace(/^[\w\\/]+[\\/]([\w-]+)\.(?:json)$/, '$1');
 
                             json.path = json.path || fileName;
 
@@ -65,7 +63,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                             }
                         }
                     } catch(e) {
-                        console.log('Error Parsing DATA file: ' + file);
+                        console.log('Error Parsing JSON file: ' + file);
                         console.log('==== Details Below ====');
                         console.log(e);
                     }

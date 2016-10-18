@@ -23,7 +23,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             gulp.watch([
                 `${dirs.source}/**/*.pug`,
                 `${dirs.source}/${dirs.templates}/*.svg`,
-                `${dirs.source}/${dirs.data}/**/*.{json,yaml,yml}`,
+                `${dirs.source}/${dirs.data}/**/*.json`,
                 `!${dirs.source}/${dirs.templates}/utilities/includes.pug`
             ], () => {
                 plugins.runSequence('inject', 'pug');

@@ -8,14 +8,14 @@
     },
     "+h1.text-xs-center": "Element templating example",
     "+h2.text-xs-center": {
-        "content~0": "Even more templating",
+        "content": "Even more templating",
         "+e-icon": "ellipsis",
-        "content~1": "with multiple content"
+        "content": "with multiple content"
     },
     "+ul.list-unstyled": {
-        "+li~0": "List Item 1",
-        "+li~1": "List Item 2",
-        "+li~2": "List Item 3"
+        "+li": "List Item 1",
+        "+li": "List Item 2",
+        "+li": "List Item 3"
     },
     "+a.btn.btn-primary": {
         "attributes": {
@@ -25,12 +25,12 @@
         "content": "Call to Action"
     },
     "+hr": null,
-    "+p~0": {
-        "content~0": "How about some contentless elements?",
+    "+p": {
+        "content": "How about some contentless elements?",
         "+br": null,
-        "content~1": "How many lines? As many as you need."
+        "content": "How many lines? As many as you need."
     },
-    "+p~1": {
+    "+p": {
         "+a": {
             "attributes": {
                 "href": "javascript:void(0)"

@@ -1,0 +1,24 @@
+-
+    const ExampleTypes = {
+        'ELEMENT': 'ELEMENT',
+        'GROUP': 'GROUP',
+        'COMPONENT': 'COMPONENT',
+        'MODULE': 'MODULE'
+    };
+
+    self.data.examples = {
+        'ELEMENT': [],
+        'GROUP': [],
+        'COMPONENT': [],
+        'MODULE': []
+    };
+
+mixin u-example(context = {})
+    //-
+        Example
+        {
+            type: ExampleType,
+            headline: String | Object
+        }
+
+    - self.data.examples[context.type].push((context.content = block, context))

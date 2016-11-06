@@ -1,0 +1,36 @@
+.container-fluid {
+    border-right: $spacer solid transparent;
+    border-left: $spacer solid transparent;
+}
+
+.row {
+    &.#{prefix('center')} {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.container,
+[class*="col-"] {
+    @each $breakpoint in map-keys($grid-gutter-widths) {
+        @include media-breakpoint-up($breakpoint) {
+            padding: (map-get($grid-gutter-widths, $breakpoint) / 2);
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .container-fluid {
+        border-right: ($spacer / 2) solid transparent;
+        border-left: ($spacer / 2) solid transparent;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .container-fluid {
+        border-right: none;
+        border-left: none;
+    }
+}

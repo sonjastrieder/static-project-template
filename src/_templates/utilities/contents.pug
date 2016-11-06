@@ -19,7 +19,7 @@ mixin u-contents(context = {})
                     +#{template}(val)(class= className)
                 else
                     if selfClosing.indexOf(template) >= 0
-                        #{template}(class= className)&attributes(attrs((val || {}).attributes))/
+                        #{template}(class= className)&attributes(attrs((val || {})))/
                     else
-                        #{template}(class= className)&attributes(attrs((val || {}).attributes))
+                        #{template}(class= className)&attributes(attrs((val || {})))
                             +u-contents(val)

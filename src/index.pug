@@ -1,4 +1,14 @@
-extends _templates/layouts/generic/shell
+extends _templates/layouts/base
 
-block content
-    section Content
+block body
+    +m-grid
+        h1
+            +u-contents(self.data.global.title)
+        h2 Pages
+        ul.list-unstyled
+            each page in self.data.pages
+                li
+                    a(href= page.path)
+                        +u-contents(page.title)
+        h2 Global
+        a(href="/style-guide") Style Guide

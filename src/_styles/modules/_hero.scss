@@ -1,0 +1,27 @@
+.#{prefix('hero')} {
+    @extend .#{prefix('picture-bg')};
+}
+
+.#{prefix('hero-content')} {
+    min-height: 20vw;
+    height: 260px;
+    display: table;
+    float: none;
+}
+
+.#{prefix('hero-cell')} {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.#{prefix('hero-headline')} {
+
+}
+
+.#{prefix('hero-details')} {
+
+}
+
+.#{prefix('hero-cta')} {
+    margin-top: $spacer / 2;
+}

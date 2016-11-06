@@ -1,0 +1,24 @@
+.custom-control {
+    .custom-control-indicator {
+        pointer-events: auto;
+    }
+}
+
+.custom-control-rtl {
+    padding-right: $custom-control-gutter;
+    padding-left: 0;
+
+    .custom-control-indicator {
+        right: 0;
+        left: auto;
+    }
+}
+
+.custom-controls-stacked {
+    @include clearfix;
+
+    .custom-control-rtl {
+        float: right;
+        clear: right;
+    }
+}

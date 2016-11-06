@@ -1,0 +1,227 @@
+extends ../_templates/layouts/shell
+
+append config
+    -
+        self.page = {
+            'title': 'Style Guide',
+            'class': 'style-guide'
+        };
+
+block content
+    mixin label(context)
+        label(class= prefix('label'))
+            +u-contents(context)
+
+    .container-fluid
+        .row
+            .container
+                .row
+                    .col-xs-12
+                        h1 Style Guide
+                .row
+                    .col-xs-12
+                        h2 Global
+                    .col-xs-12
+                        +label('Typography')
+                        h1.display-1 Display Headline 1
+                        h1.display-2 Display Headline 2
+                        h1.display-3 Display Headline 3
+                        h1.display-4 Display Headline 4
+                        h1 Headline 1
+                        h2
+                            | Headline 2 
+                            small.text-muted Secondary
+                        h3
+                            | Headline 3 
+                            small.text-muted Secondary
+                        h4
+                            | Headline 4 
+                            small.text-muted Secondary
+                        h5
+                            | Headline 5 
+                            span.text-muted Secondary
+                        h6
+                            | Headline 6 
+                            span.text-muted Secondary
+                        p.lead
+                            | Aenean tempor sagittis arcu ut euismod. Quisque mi ligula, 
+                            mark suscipit ac nibh ac, luctus tempor tellus.
+                            |  Vivamus ultrices urna et mi laoreet, in elementum libero pulvinar. Nulla molestie mauris elementum, efficitur elit sed, 
+                            del fringilla velit.
+                            |  Nulla molestie mauris elementum, efficitur elit sed, fringilla velit. Phasellus nec 
+                            code tortor
+                            |  ac nibh sagittis tempus ut eget tortor. Fusce mauris nibh, vestibulum in ante sed, mattis euismod ipsum.
+                        p
+                            | Fusce mauris nibh, vestibulum in ante sed, 
+                            strong mattis euismod ipsum.
+                            |  Curabitur volutpat velit vel dolor 
+                            em molestie
+                            | eu luctus nunc sollicitudin. Vivamus
+                            sup faucibus
+                            |  mi et commodo mattis 
+                            | justo mi tristique
+                            sub lacus
+                            |  vitae dapibus felis nulla 
+                            abbr(title="Qual Utum i Serada") quis
+                            |  libero. Ut suscipit mauris quis eleifend sodales. Proin mauris libero, viverra at ullamcorper sed, efficitur quis justo. Interdum et malesuada fames 
+                            kbd ac ante
+                            |  ipsum primis in faucibus. Mauris id ex sed turpis vehicula tincidunt. Curabitur aliquet condimentum sem sit amet aliquet.
+                    .col-xs-12
+                        +label('Blockquote')
+                        blockquote.blockquote
+                            p Donec quis purus eleifend, accumsan justo nec, suscipit nisl. Cras vulputate lorem libero, et tincidunt augue pellentesque et. Pellentesque pharetra efficitur libero, vestibulum volutpat erat bibendum eget.
+                            p Fusce ultrices urna ornare pulvinar dictum. Mauris condimentum justo vitae nunc tristique, ac tincidunt eros euismod. Praesent velit neque, semper vitae enim et, imperdiet vulputate justo. Pellentesque gravida nec arcu vitae blandit.
+                            footer.blockquote-footer
+                                | Aliquam euismod 
+                                cite et justo at blandit
+                    .col-xs-12
+                        blockquote.blockquote.blockquote-reverse
+                            p Donec quis purus eleifend, accumsan justo nec, suscipit nisl. Cras vulputate lorem libero, et tincidunt augue pellentesque et. Pellentesque pharetra efficitur libero, vestibulum volutpat erat bibendum eget.
+                            p Fusce ultrices urna ornare pulvinar dictum. Mauris condimentum justo vitae nunc tristique, ac tincidunt eros euismod. Praesent velit neque, semper vitae enim et, imperdiet vulputate justo. Pellentesque gravida nec arcu vitae blandit.
+                            footer.blockquote-footer
+                                | Aliquam euismod 
+                                cite et justo at blandit
+                    .col-xs-12
+                        +label('Lists')
+                        .row
+                            .col-xs-6.col-xl-3
+                                ul
+                                    li Maecenas erat justo
+                                    li Porta eget cursus nec
+                                    li Sagittis felis efficitur
+                                    li Nulla eget dui semper
+                                    li Mauris id ex sed
+                            .col-xs-6.col-xl-3
+                                ul.list-unstyled
+                                    li Maecenas erat justo
+                                    li Porta eget cursus nec
+                                    li Sagittis felis efficitur
+                                    li Nulla eget dui semper
+                                    li Mauris id ex sed
+                            .col-xs-6.col-xl-3
+                                ol
+                                    li Maecenas erat justo
+                                    li Porta eget cursus nec
+                                    li Sagittis felis efficitur
+                                    li Nulla eget dui semper
+                                    li Mauris id ex sed
+                            .col-xs-6.col-xl-3
+                                ol(type="a")
+                                    li Maecenas erat justo
+                                    li Porta eget cursus nec
+                                    li Sagittis felis efficitur
+                                    li Nulla eget dui semper
+                                    li Mauris id ex sed
+                            .col-xs-12.col-sm-8.offset-sm-2.col-md-6.offset-md-3
+                                dl.row
+                                    dt.col-xs-3 Curabitur massa
+                                    dd.col-xs-9 Aliquam vehicula accumsan leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                                    dt.col-xs-3 Porta eget
+                                    dd.col-xs-9 Aliquam vehicula accumsan leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                                    dt.col-xs-3 Mauris id ex
+                                    dd.col-xs-9 Aliquam vehicula accumsan leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    .col-xs-12
+                        h2 Elements
+                    .col-xs-12
+                        +label('Buttons')
+                        ul.list-inline
+                            li.list-inline-item
+                                button.btn.btn-primary Primary
+                            li.list-inline-item
+                                button.btn.btn-secondary Secondary
+                            li.list-inline-item
+                                button.btn.btn-success Success
+                            li.list-inline-item
+                                button.btn.btn-info Info
+                            li.list-inline-item
+                                button.btn.btn-warning Warning
+                            li.list-inline-item
+                                button.btn.btn-danger Danger
+                            li.list-inline-item
+                                button.btn.btn-link Link
+                        ul.list-inline
+                            li.list-inline-item
+                                button.btn.btn-outline-primary Primary
+                            li.list-inline-item
+                                button.btn.btn-outline-secondary Secondary
+                            li.list-inline-item
+                                button.btn.btn-outline-success Success
+                            li.list-inline-item
+                                button.btn.btn-outline-info Info
+                            li.list-inline-item
+                                button.btn.btn-outline-warning Warning
+                            li.list-inline-item
+                                button.btn.btn-outline-danger Danger
+                        ul.list-inline
+                            li.list-inline-item
+                                button.btn.btn-primary.btn-lg Large
+                            li.list-inline-item
+                                button.btn.btn-primary Regular
+                            li.list-inline-item
+                                button.btn.btn-primary.btn-sm Small
+                    .col-xs-12.col-md-6.col-lg-8&attributes(flatten({'data': {'equal': {'group': 'style-guide-elements', 'min': self.config.breakpoints.sm}}}))
+                        +label('Forms')
+                        .row
+                            .col-xs-12.col-sm-6
+                                .form-group
+                                    label(for="ex-text-input-1") Text Input
+                                    input.form-control(type="text", id="ex-text-input-1")
+                                .form-group
+                                    label(for="ex-textarea") Textarea
+                                    textarea.form-control(id="ex-textarea")
+                            .col-xs-12.col-sm-6
+                                .form-group
+                                    .form-check-inline
+                                        label.form-check-label
+                                            input.form-check-input(type="radio", name="ex-radio-1")
+                                            |  Radio 1
+                                    .form-check-inline
+                                        label.form-check-label
+                                            input.form-check-input(type="radio", name="ex-radio-1")
+                                            |  Radio 2
+                                    .form-check-inline
+                                        label.form-check-label
+                                            input.form-check-input(type="radio", name="ex-radio-1")
+                                            |  Radio 3
+                                .form-group
+                                    .form-check-inline
+                                        label.form-check-label
+                                            input.form-check-input(type="checkbox")
+                                            |  Checkbox 1
+                                    .form-check-inline
+                                        label.form-check-label
+                                            input.form-check-input(type="checkbox")
+                                            |  Checkbox 2
+                                    .form-check-inline
+                                        label.form-check-label
+                                            input.form-check-input(type="checkbox")
+                                            |  Checkbox 3
+                                .form-group
+                                    select.form-control
+                                        option Option 1
+                                        option Option 2
+                                        option Option 3
+                    each example in self.data.examples[ExampleTypes.ELEMENT]
+                        .col-xs-12.col-sm-6.col-md-3.col-lg-4&attributes(flatten({'data': {'equal': {'group': 'style-guide-elements', 'min': self.config.breakpoints.sm}}}))
+                            +label(example.headline)
+                            - example.content()
+                .row
+                    .col-xs-12
+                        h2 Groups
+                    each example in self.data.examples[ExampleTypes.GROUP]
+                        .col-xs-12.col-md-6.col-xl-4&attributes(flatten({'data': {'equal': {'group': 'style-guide-groups', 'min': self.config.breakpoints.md}}}))
+                            +label(example.headline)
+                            - example.content()
+                .row
+                    .col-xs-12
+                        h2 Components
+                    each example in self.data.examples[ExampleTypes.COMPONENT]
+                        .col-xs-12
+                            +label(example.headline)
+                            - example.content()
+                .row
+                    .col-xs-12
+                        h2 Modules
+    each example in self.data.examples[ExampleTypes.MODULE]
+        +label(example.headline)
+        - example.content()

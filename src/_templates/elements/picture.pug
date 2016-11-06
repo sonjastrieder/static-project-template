@@ -1,0 +1,49 @@
+mixin e-picture(context = {})
+    //-
+        Source
+        {
+            path: String,
+            media: String
+        }
+
+        Picture
+        {
+            [srcs: Array<Source>,]
+            [src: Source,]
+            [default: Number,]
+            alt: String
+        }
+
+    picture(class= prefix('picture'))&attributes(attributes, attrs(context))
+        if context.srcs
+            if context.srcs.length > 1
+                each src in context.srcs
+                    source(srcset= src.path, media= src.media)
+                - src = context.srcs[context.default || 0]
+                img.img-fluid(srcset= src.path, alt= context.alt)
+            else
+                - src = context.srcs[context.default || 0]
+                source(srcset= src.path, media= src.media)
+                img.img-fluid(srcset= src.path, alt= context.alt)
+        if context.src
+            source(srcset= context.src)
+            img.img-fluid(srcset= context.src, alt= context.alt)
+
++u-example({'type': ExampleTypes.ELEMENT, 'headline': 'Picture'})
+    +e-picture({
+        'srcs': [
+            {
+                'path': 'http://placehold.it/1400x700',
+                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+            },
+            {
+                'path': 'http://placehold.it/992x496',
+                'media': `(min-width: ${self.config.breakpoints.md}px)`
+            },
+            {
+                'path': 'http://placehold.it/768x384',
+                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+            }
+        ],
+        'alt': 'Curabitur Suscipit'
+    })

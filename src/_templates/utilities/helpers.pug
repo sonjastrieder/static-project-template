@@ -33,7 +33,7 @@
         return obj;
     }
 
-    const attrs = (obj) => flatten(obj);
+    const attrs = (obj) => isObject(obj) ? flatten(obj.attrs || obj.attributes) : undefined;
 
     const isShorthand = (config) => typeof(config) == 'string' || typeof(config) == 'number';
 

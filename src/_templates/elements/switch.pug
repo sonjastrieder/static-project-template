@@ -1,0 +1,105 @@
+mixin e-switch(context = {})
+    //-
+        Accepts String shorthand which applies to the label, defaults to checkbox functionality
+
+        Switch
+        {
+            [dir: String[ltr|rtl],]
+            [type: String[radio|checkbox],]
+            [input: Object,]
+            label: String | Object
+        }
+
+    -
+        context = isShorthand(context) ? {'label': context} : context;
+        input = context.input || {};
+        type = context.type || 'checkbox';
+        label = isShorthand(context.label) ? {'content': context.label} : context.label;
+
+    label(class= prefix('switch'))&attributes({'class': prefix(`switch-${context.dir || 'ltr'}`)}, attrs(context))
+        input(type= type, class= prefix('switch-input'))&attributes(attrs(input))
+        span(class= prefix('switch-indicator'))
+            span(class= prefix('switch-inner'))
+            span(class= prefix('switch-lever'))
+        span(class= prefix('switch-description'))&attributes(attrs(context.label))
+            +u-contents(context.label)
+
++u-example({'type': ExampleTypes.ELEMENT, 'headline': 'Switches'})
+    .form-group
+        +e-switch('Switch 1')
+        +e-switch('Switch 2')
+        +e-switch('Switch 3')
+    .form-group(class= prefix('switches-stacked'))
+        +e-switch({
+            'input': {
+                'attributes': {
+                    'checked': true
+                }
+            },
+            'label': 'Switch 1'
+        })
+        +e-switch({
+            'input': {
+                'attributes': {
+                    'checked': true
+                }
+            },
+            'label': 'Switch 2'
+        })
+        +e-switch({
+            'input': {
+                'attributes': {
+                    'checked': true
+                }
+            },
+            'label': 'Switch 3'
+        })
+    .form-group(class= prefix('switches-stacked'))
+        +e-switch({
+            'dir': 'rtl',
+            'type': 'radio',
+            'input': {
+                'attrs': {
+                    'name': 'ex-switches-1'
+                }
+            },
+            'label': 'Radio Switch 1'
+        })
+        +e-switch({
+            'dir': 'rtl',
+            'type': 'radio',
+            'input': {
+                'attrs': {
+                    'name': 'ex-switches-1'
+                }
+            },
+            'label': 'Radio Switch 2'
+        })
+        +e-switch({
+            'dir': 'rtl',
+            'type': 'radio',
+            'input': {
+                'attrs': {
+                    'name': 'ex-switches-1'
+                }
+            },
+            'label': 'Radio Switch 3'
+        })
+    .form-group
+        +e-switch({
+            'dir': 'rtl',
+            'input': {
+                'attrs': {
+                    'disabled': true
+                }
+            },
+            'label': 'Switch 1'
+        })
+        +e-switch({
+            'dir': 'rtl',
+            'label': 'Switch 2'
+        })
+        +e-switch({
+            'dir': 'rtl',
+            'label': 'Switch 3'
+        })

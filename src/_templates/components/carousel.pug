@@ -1,0 +1,11 @@
+mixin c-carousel(context = {})
+    //-
+        Carousel
+        {
+            slides: Array<Object>
+        }
+
+    div(class= prefix('carousel'))&attributes(attrs(context))
+        each slide in (context.slides || [])
+            div(class= prefix('carousel-slide'))&attributes(attrs(slide))
+                +u-contents(slide)

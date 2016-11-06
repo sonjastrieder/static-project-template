@@ -1,0 +1,26 @@
+@each $break, $point in $grid-breakpoints {
+    @include media-breakpoint-up($break) {
+        @each $prop, $abbr in (padding: pad, margin: mar) {
+            @each $size, $lengths in $spacers {
+                $length-x: map-get($lengths, x);
+                $length-y: map-get($lengths, y);
+
+                .#{$abbr}-#{$break}-a-#{$size} { #{$prop}:        $length-y $length-x !important; }
+                .#{$abbr}-#{$break}-t-#{$size} { #{$prop}-top:    $length-y !important; }
+                .#{$abbr}-#{$break}-r-#{$size} { #{$prop}-right:  $length-x !important; }
+                .#{$abbr}-#{$break}-b-#{$size} { #{$prop}-bottom: $length-y !important; }
+                .#{$abbr}-#{$break}-l-#{$size} { #{$prop}-left:   $length-x !important; }
+
+                .#{$abbr}-#{$break}-x-#{$size} {
+                    #{$prop}-right:  $length-x !important;
+                    #{$prop}-left:   $length-x !important;
+                }
+
+                .#{$abbr}-#{$break}-y-#{$size} {
+                    #{$prop}-top:    $length-y !important;
+                    #{$prop}-bottom: $length-y !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+mixin e-placeholder-label(context = {})
+    //-
+        Accepts String shorthand
+
+        Placeholder Label
+        {
+            label: String
+        }
+
+    - context = isShorthand(context) ? {'label': context} : context;
+
+    label(class= prefix('placeholder-label'))&attributes(attributes, attrs(context))
+        block
+        span(class= prefix('placeholder-label-text'))
+            +u-contents(context.label)
+
++u-example({'type': ExampleTypes.ELEMENT, 'headline': 'Placeholder Labels'})
+    .form-group
+        +e-placeholder-label('Email Address')
+            input.form-control(type="email")
+    .form-group.has-success
+        +e-placeholder-label('Email Address')
+            input.form-control.form-control-lg(type="email")
+    .form-group.has-warning
+        +e-placeholder-label('Email Address')
+            input.form-control(type="email")
+    .form-group.has-danger
+        +e-placeholder-label('Email Address')
+            input.form-control.form-control-sm(type="email")

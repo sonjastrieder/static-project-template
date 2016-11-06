@@ -1,0 +1,10 @@
+extends ./base
+
+block body
+    +m-header
+
+    main
+        block content
+            +u-contents(self.page)
+    
+    +m-footer

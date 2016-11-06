@@ -1,21 +1,24 @@
-.#{$prefix}-icon-caret-left {
-    color: yellow;
-}
+.#{prefix('icon')} {
+    width: 1em;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
 
-.#{$prefix}-icon-caret-right {
-    color: green;
-}
+    &:after {
+        content: '';
+        width: 100%;
+        height: 0;
+        display: block;
+    }
 
-.#{$prefix}-icon-caret-down {
-    color: purple;
-}
-
-.#{$prefix}-icon-caret-left,
-.#{$prefix}-icon-caret-right,
-.#{$prefix}-icon-caret-down {
-    width: 2em;
-
-    &:hover {
-        color: red;
-    }   
+    svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        fill: currentColor;
+    }
 }

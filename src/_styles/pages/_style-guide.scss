@@ -1,0 +1,8 @@
+.#{page('style-guide')} {
+    .#{prefix('label')} {
+        display: block;
+        font-weight: $font-weight-bold;
+        @include font-size(24px);
+        color: $color-dark-gray;
+    }
+}

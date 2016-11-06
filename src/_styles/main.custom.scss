@@ -3,16 +3,32 @@
 @import "./vars";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
+@import "./mix";
 
-// elements
+// Utilities
+@import "./utilities/color";
+@import "./utilities/space";
+
+// Elements
 @import "./elements/global";
-@import "./elements/picture";
-@import "./elements/sprite";
 @import "./elements/icon";
+@import "./elements/sprite";
+@import "./elements/picture";
+@import "./elements/placeholder-label";
+@import "./elements/radio-checkbox";
+@import "./elements/switch";
+@import "./elements/typography";
+@import "./elements/video";
 
-// groups
-@import "./groups/legacy";
+// Groups
 
-// components
-@import "./components/header";
-@import "./components/hero";
+// Components
+
+// Modules
+@import "./modules/grid";
+@import "./modules/header";
+@import "./modules/hero";
+@import "./modules/legacy";
+
+// Pages
+@import "./pages/style-guide";

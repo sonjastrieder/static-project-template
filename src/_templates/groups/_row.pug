@@ -12,4 +12,31 @@ mixin g-row(context = {})
         each column in (context.columns || context.cols || [])
             div&attributes(attrs(column))
                 +u-contents(column)
-                - block()
+                - (block || (() => {}))();
+
++u-example({'type': ExampleTypes.GROUP, 'headline': 'Row'})
+    +g-row({
+        'cols': [
+            {
+                'attrs': {
+                    'class': 'col-xs-12 text-xs-center'
+                },
+                '+p': 'Rows are just the inner guts of the Grid module. Same row + column parameters and template, sans containers.'
+            }
+        ]
+    })
+    +g-row({
+        'cols': [
+            {
+                'attrs': {
+                    'class': 'col-xs-6'
+                }
+            },
+            {
+                'attrs': {
+                    'class': 'col-xs-6 text-xs-right'
+                }
+            }
+        ]
+    })
+        p It even gets the same block content capabilities when used outside of JSON.

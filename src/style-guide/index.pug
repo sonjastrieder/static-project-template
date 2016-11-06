@@ -223,5 +223,8 @@ block content
                     .col-xs-12
                         h2 Modules
     each example in self.data.examples[ExampleTypes.MODULE]
-        +label(example.headline)
+        .container-fluid
+            .row
+                .container
+                    +label(example.headline)
         - example.content()

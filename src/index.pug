@@ -1,7 +1,19 @@
 extends _templates/layouts/_base
 
 block body
-    +m-grid
+    +m-grid({
+        'rows': [
+            {
+                'cols': [
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12'
+                        }
+                    }
+                ]
+            }
+        ]
+    })
         h1
             +u-contents(self.data.global.title)
         h2 Pages

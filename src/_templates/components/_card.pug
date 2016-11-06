@@ -1,0 +1,27 @@
+mixin c-card(context = {})
+    //-
+        Cards are extremely flexible and provide a bunch of features and styling options:
+        http://v4-alpha.getbootstrap.com/components/card/
+        
+        Card
+        {
+            [header: ,]
+        }
+
+    .card&attributes(attributes, attrs(context))
+        if context.header
+            - header = isShorthand(context.header) ? {'element': 'h3', 'content': context.header} : context.header;
+            #{header.element || 'div'}.card-header&attributes(attrs(header))
+                +u-contents(header)
+        //- Card Image Top
+        .card-block
+            //-
+                Card Title
+                Card Text
+                Card Blockquote
+                Button
+                Card Link
+        //- Card Image Bottom
+
+        //- Card Image
+        //- Card Image Overlay

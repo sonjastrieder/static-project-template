@@ -1,0 +1,26 @@
+mixin g-nav(context = {})
+    //-
+        Documentation on styles: http://v4-alpha.getbootstrap.com/components/navs/
+    
+        NavItem
+        {
+            link: String | Object
+        }
+
+        Nav
+        {
+            [items: Array<NavItem>,]
+            [links: Array<String | Object>]
+        }
+    
+    if context.items
+        ul.nav&attributes(attributes, attrs(context))
+            each item in (context.items || [])
+                li.nav-item&attributes(attrs(item))
+                    a.nav-link(href="javascript:void(0)")&attributes(item.link)
+                        +u-contents(item.link)
+    else if context.links
+        nav.nav&attributes(attributes, attrs(context))
+            each link in (context.links || [])
+                a.nav-link(href="javascript:void(0)")&attributes(link)
+                    +u-contents(link)

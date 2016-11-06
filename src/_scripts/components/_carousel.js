@@ -13,6 +13,7 @@ if (!!$carousels.length) {
         'arrows': true,
         'mobileFirst': true,
         'variableWidth': true,
+        'slidesToShow': 3,
         'swipeToSlide': true,
         'prevArrow': `
             <button type="button" class="slick-prev">

@@ -1,0 +1,96 @@
+mixin g-table(context = {})
+    //-
+        Styling options: http://v4-alpha.getbootstrap.com/content/tables/
+
+        TableRow
+        {
+            cells: Array<Object>
+        }        
+
+        TableSection
+        {
+            rows: Array<TableRow>
+        }
+
+        Table
+        {
+            [head: TableSection,]
+            [body: TableSection,]
+            [foot: TableSection,]
+        }
+
+    table.table(class= prefix('table'))&attributes(attrs(context))
+        each section, index in ['head', 'body', 'foot']
+            if context[section]
+                #{`t${section}`}&attributes(attrs(context[section]))
+                    each row in (context[section].rows || [])
+                        tr&attributes(attrs(row))
+                            each cell in (row.cells || [])
+                                #{(!index ? 'th' : 'td')}&attributes(attrs(cell))
+                                    +u-contents(cell)
+
++u-example({'type': ExampleTypes.GROUP, 'headline': 'Table'})
+    +g-table({
+        'head': {
+            'rows': [
+                {
+                    'cells': [
+                        null,
+                        'Item',
+                        null,
+                        'Price'
+                    ]
+                }
+            ]
+        },
+        'body': {
+            'rows': [
+                {
+                    'cells': [
+                        1,
+                        'Donec sodales, eros sed',
+                        null,
+                        {
+                            '+strong': '$99.95'
+                        }
+                    ]
+                },
+                {
+                    'cells': [
+                        2,
+                        'Nunc ultrices eget',
+                        null,
+                        {
+                            '+strong': '$29.55'
+                        }
+                    ]
+                },
+                {
+                    'cells': [
+                        3,
+                        'Aliquam venenatis',
+                        null,
+                        {
+                            '+strong': '$67.95'
+                        }
+                    ]
+                }
+            ]
+        },
+        'foot': {
+            'rows': [
+                {
+                    'cells': [
+                        null,
+                        {
+                            '+small': 'Subtotal'
+                        },
+                        null,
+                        {
+                            '+strong': '$197.45'
+                        }
+                    ]
+                }
+            ]
+        }
+    })

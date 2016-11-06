@@ -57,7 +57,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                             if (!args.hasOwnProperty('page') || (args.hasOwnProperty('page') && args.page === fileName)) {
                                 pages.push({
                                     'data': json,
-                                    'template': path.join('src', '_templates', 'layouts', `${json.layout || path.join('generic', 'shell')}.pug`),
+                                    'template': path.join(dirs.source, dirs.templates, 'layouts', `${json.layout || '_shell'}.pug`),
                                     'path': path.join(dest, json.path, 'index.html')
                                 });
                             }
@@ -108,7 +108,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         return gulp
             .src([
                 path.join(dirs.source, '**/*.pug'),
-                '!' + path.join(dirs.source, '{**/\_*,**/\_*/**}')
+                '!' + path.join(dirs.source, dirs.templates, '**/*.pug')
             ])
             .pipe(plugins.changed(dest))
             .pipe(plugins.plumber())

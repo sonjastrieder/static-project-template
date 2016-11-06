@@ -1,0 +1,19 @@
+mixin g-row(context = {})
+    //-
+        Accepts block implementation which outputs to each column
+
+        Row
+        {
+            [before: Object,]
+            [columns: Array<Object>,]
+            [cols: Array<Object>,]
+            [after: Object,]
+        }
+
+    .row&attributes(attributes, attrs(context))
+        +u-contents(context.before)
+        each column in (context.columns || context.cols || [])
+            div&attributes(attrs(column))
+                +u-contents(column)
+                - block(column)
+        +u-contents(context.after)

@@ -1,0 +1,32 @@
+mixin c-accordion(context = {})
+    //-
+        Accordion
+        {
+            [id: String,]
+            collapses: Array<Collapse>
+        }
+
+    - id = context.id || random();
+
+    div(class= prefix('accordion'), id= id, role="tablist")&attributes(attributes, attrs(context))
+        each collapse in (context.collapses || [])
+            - collapse.parent = id;
+            +c-collapse(collapse)
+
++u-example({'type': ExampleTypes.COMPONENT, 'headline': 'Accordion'})
+    +c-accordion({
+        'collapses': [
+            {
+                'headline': 'Aenean vulputate aliquam?',
+                'details': 'Integer in magna non eros mattis pharetra. Nam id metus neque.'
+            },
+            {
+                'headline': 'In bibendum pharetra risus?',
+                'details': 'Suspendisse porta purus at semper facilisis. Nulla vel vestibulum risus. Ut nec nibh vitae dui accumsan pellentesque scelerisque non ligula. Praesent nulla quam, congue in euismod ut, varius nec metus. Proin dolor est, posuere vitae eros at, tristique maximus ligula.'
+            },
+            {
+                'headline': 'Sed eget gravida ex. Pellentesque habitant?',
+                'details': 'Etiam nec nisl dictum purus iaculis blandit a ut augue. In bibendum pharetra risus, vitae pharetra urna congue non. Etiam a felis sed nibh bibendum hendrerit non cursus nisi.'
+            }
+        ]
+    })

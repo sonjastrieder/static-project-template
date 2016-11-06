@@ -1,0 +1,72 @@
+mixin m-grid(context = {})
+    //-
+        Accepts context-less, block implementation which outputs a single row, single column
+
+        The container may also accept before/after properties
+
+        Grid
+        {
+            [before: Object,]
+            [container: Object,]
+            rows: Array<Row>,
+            [after: Object,]
+        }
+
+    - container = context.container || {};
+
+    .container-fluid&attributes(attributes, attrs(context))
+        +u-contents(context.before)
+        .row
+            .container&attributes(attrs(container))
+                +u-contents(container.before)
+                each row in (context.rows || [])
+                    if !block
+                        +g-row(row)
+                    else
+                        +g-row(row)
+                            block
+                +u-contents(container.after)
+        +u-contents(context.after)
+
++u-example({'type': ExampleTypes.MODULE, 'headline': 'Grid'})
+    +m-grid({
+        'attributes': {
+            'prefix': 'bg-xlight-gray'
+        },
+        'container': {
+            'attrs': {
+                'prefix': 'bg-xdark-gray color-white'
+            }
+        },
+        'rows': [
+            {
+                'cols': [
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 col-md-6 col-lg-3'
+                        },
+                        '+h4': 'Column 1'
+                    },
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 col-md-6 col-lg-3'
+                        },
+                        '+h4': 'Column 2'
+                    },
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 col-md-6 col-lg-3'
+                        },
+                        '+h4': 'Column 3'
+                    },
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 col-md-6 col-lg-3'
+                        },
+                        '+h4': 'Column 4'
+                    }
+                ]
+            }
+        ]
+    })
+        p It's also possible to pass block content which is cloned into every column

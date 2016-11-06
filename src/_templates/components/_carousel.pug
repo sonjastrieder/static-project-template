@@ -2,6 +2,7 @@ mixin c-carousel(context = {})
     //-
         Carousel
         {
+            [data-carousel: Object,]
             slides: Array<Object>
         }
 
@@ -9,3 +10,75 @@ mixin c-carousel(context = {})
         each slide in (context.slides || [])
             div(class= prefix('carousel-slide'))&attributes(attrs(slide))
                 +u-contents(slide)
+
++u-example({'type': ExampleTypes.COMPONENT, 'headline': 'Carousel'})
+    +c-carousel({
+        'slides': [
+            {
+                '+h4': 'Slide 1',
+                '+e-picture': {
+                    'srcs': [
+                        {
+                            'path': 'http://placehold.it/1400x700',
+                            'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                        },
+                        {
+                            'path': 'http://placehold.it/992x496',
+                            'media': `(min-width: ${self.config.breakpoints.md}px)`
+                        },
+                        {
+                            'path': 'http://placehold.it/768x384',
+                            'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                        }
+                    ],
+                    'alt': 'Curabitur Suscipit'
+                }
+            },
+            {
+                '+h4': 'Slide 2'
+            },
+            {
+                '+h4': 'Slide 3',
+                '+e-picture': {
+                    'srcs': [
+                        {
+                            'path': 'http://placehold.it/1400x700',
+                            'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                        },
+                        {
+                            'path': 'http://placehold.it/992x496',
+                            'media': `(min-width: ${self.config.breakpoints.md}px)`
+                        },
+                        {
+                            'path': 'http://placehold.it/768x384',
+                            'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                        }
+                    ],
+                    'alt': 'Curabitur Suscipit'
+                }
+            },
+            {
+                '+h4': 'Slide 4'
+            },
+            {
+                '+h4': 'Slide 5',
+                '+e-picture': {
+                    'srcs': [
+                        {
+                            'path': 'http://placehold.it/1400x700',
+                            'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                        },
+                        {
+                            'path': 'http://placehold.it/992x496',
+                            'media': `(min-width: ${self.config.breakpoints.md}px)`
+                        },
+                        {
+                            'path': 'http://placehold.it/768x384',
+                            'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                        }
+                    ],
+                    'alt': 'Curabitur Suscipit'
+                }
+            }
+        ]
+    })

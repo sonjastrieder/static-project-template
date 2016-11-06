@@ -12,7 +12,7 @@ mixin m-hero(context = {})
     
     -
         align = context.align || 'center';
-        classes = {
+        alignment = {
             'center': 'col-md-8 offset-md-2',
             'right': 'col-md-8 offset-md-4 text-md-left col-xl-6 offset-xl-6',
             'left': 'col-md-8 text-md-left col-xl-6',
@@ -25,7 +25,7 @@ mixin m-hero(context = {})
         .row
             .container
                 .row
-                    .col-xs-12.text-xs-center(class= prefix('hero-content'))&attributes({'class': classes[align]})
+                    .col-xs-12.text-xs-center(class= prefix('hero-content'))&attributes({'class': alignment[align]})
                         div(class= prefix('hero-cell'))
                             if context.headline
                                 if isShorthand(context.headline)

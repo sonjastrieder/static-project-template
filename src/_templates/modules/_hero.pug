@@ -5,9 +5,9 @@ mixin m-hero(context = {})
             [align: String,]
             [alignment: String,]
             [background: Picture,]
-            [headline: String | Object,]
-            [details: String | Object,]
-            [cta: String | Object]
+            [headline: Contents,]
+            [details: Contents,]
+            [cta: Contents]
         }
     
     -
@@ -45,7 +45,7 @@ mixin m-hero(context = {})
                                 a(href="javascript:void(0)", class= prefix('hero-cta'))&attributes(attrs(context.cta), isShorthand(context.cta) ? {'class': 'btn btn-primary'} : undefined)
                                     +u-contents(context.cta)
 
-+u-example({'type': ExampleTypes.MODULE})
++u-example(ExampleTypes.MODULE)
     +p-label('Hero')
     +m-hero({
         'background': {

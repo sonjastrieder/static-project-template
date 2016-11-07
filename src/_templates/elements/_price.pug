@@ -1,8 +1,6 @@
 mixin e-price(context = {})
     //-
-        Accepts shorthand which represents dollars.
-
-        Price
+        Price (accepts String shorthand)
         {
             [sign: String,]
             dollars: String | Number,
@@ -20,7 +18,7 @@ mixin e-price(context = {})
             small(class= prefix('price-cents'))
                 +u-contents(context.cents)
 
-+u-example({'type': ExampleTypes.ELEMENT})
++u-example(ExampleTypes.ELEMENT)
     +p-label('Price')
     h3
         +e-price({

@@ -2,6 +2,19 @@
 
 mixin u-block(id)
     //-
-        A very simple helper to store blocks of content for later use.
+        A very simple helper to store/retrieve blocks of content.
+    
+    - block && (self.blocks[id] = block);
 
-    - self.blocks[id] = block;
+    if !block
+        +u-contents({'block': id})
+
++u-example(ExampleTypes.UTILITY)
+    +p-label('Block')
+    //- Store
+    +u-block(prefix('example-block'))
+        p This block of content was stored, retrieved, and rendered.
+        p During the creation of the block, the current context is available. However, it is not possible to modify the contents or change the context once the block as been stored.
+        p This tool will come in handy if you wanted to render a unique static template that doesn't require context, data, or the ability to be reused, except as a clone.
+    //- Retrieve
+    +u-block(prefix('example-block'))

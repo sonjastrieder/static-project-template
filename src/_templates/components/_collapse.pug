@@ -5,8 +5,8 @@ mixin c-collapse(context = {})
             [parent: String,]
             [expanded: Boolean,]
             [id: String,]
-            headline: String | Object,
-            details: String | Object
+            headline: Contents,
+            details: Contents
         }
 
     - id = context.id || random();
@@ -23,7 +23,7 @@ mixin c-collapse(context = {})
                 else
                     +u-contents(context.details)
 
-+u-example({'type': ExampleTypes.COMPONENT})
++u-example(ExampleTypes.COMPONENT)
     +p-label('Collapse')
     +c-collapse({
         'headline': 'Nunc id venenatis leo?',

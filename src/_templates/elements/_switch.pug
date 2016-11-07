@@ -1,13 +1,11 @@
 mixin e-switch(context = {})
     //-
-        Accepts String shorthand which applies to the label, defaults to checkbox functionality
-
-        Switch
+        Switch (accepts String shorthand)
         {
-            [dir: String[ltr|rtl],]
-            [type: String[radio|checkbox],]
+            [dir: String[ltr | rtl],]
+            [type: String[radio | checkbox],]
             [input: Object,]
-            label: String | Object
+            label: Contents
         }
 
     -
@@ -24,8 +22,8 @@ mixin e-switch(context = {})
         span(class= prefix('switch-description'))&attributes(attrs(context.label))
             +u-contents(context.label)
 
-+u-example({'type': ExampleTypes.ELEMENT})
-    +p-label('Switches')
++u-example(ExampleTypes.ELEMENT)
+    +p-label('Switch')
     .form-group
         +e-switch('Switch 1')
         +e-switch('Switch 2')

@@ -2,7 +2,6 @@ mixin e-select(context = {})
     //-
         No config really necessary, "multiple" attribute not supported.
         Pass options in as block content or as children.
-        Tilda indexing is not necessary in JSON, only in PUG.
 
     select.custom-select&attributes(attributes, attrs(context))
         if !block
@@ -10,7 +9,7 @@ mixin e-select(context = {})
         else
             block
 
-+u-example({'type': ExampleTypes.ELEMENT})
++u-example(ExampleTypes.ELEMENT)
     +p-label('Custom Select')
     .form-group
         +e-select

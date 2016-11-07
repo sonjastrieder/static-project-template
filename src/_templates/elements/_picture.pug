@@ -1,5 +1,7 @@
 mixin e-picture(context = {})
     //-
+        Picture defaults to using the first source as the initial asset to load. Ideally sources are passed in mobile first.
+
         Source
         {
             path: String,
@@ -29,21 +31,21 @@ mixin e-picture(context = {})
             source(srcset= context.src)
             img.img-fluid(srcset= context.src, alt= context.alt)
 
-+u-example({'type': ExampleTypes.ELEMENT})
++u-example(ExampleTypes.ELEMENT)
     +p-label('Picture')
     +e-picture({
         'srcs': [
             {
-                'path': 'http://placehold.it/1400x700',
-                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                'path': 'http://placehold.it/768x384',
+                'media': `(min-width: ${self.config.breakpoints.xs}px)`
             },
             {
                 'path': 'http://placehold.it/992x496',
                 'media': `(min-width: ${self.config.breakpoints.md}px)`
             },
             {
-                'path': 'http://placehold.it/768x384',
-                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                'path': 'http://placehold.it/1400x700',
+                'media': `(min-width: ${self.config.breakpoints.xl}px)`
             }
         ],
         'alt': 'Curabitur Suscipit'

@@ -1,13 +1,17 @@
 mixin m-grid(context = {})
     //-
-        The container also accepts before/after properties
+        GridContainer
+        {
+            [before: Contents,]
+            [after: Contents]
+        }
 
         Grid
         {
-            [before: Object,]
-            [container: Object,]
+            [before: Contents,]
+            [container: GridContainer,]
             rows: Array<Row>,
-            [after: Object,]
+            [after: Contents]
         }
 
     - container = context.container || {};
@@ -22,7 +26,7 @@ mixin m-grid(context = {})
                 +u-contents(container.after)
         +u-contents(context.after)
 
-+u-example({'type': ExampleTypes.MODULE})
++u-example(ExampleTypes.MODULE)
     +p-label('Grid')
     +m-grid({
         'attributes': {

@@ -1,5 +1,18 @@
 mixin u-contents(context = {})
+    //-
+        This extremely powerful contents mixin is the main loop for generating pages out of all data/templates.
+
+        It works with two data types: String | Object
+
+        Strings are output directly using unescaped interpolation.
+
+        Objects are iterated over to look for specific key patterns.
+        - Use the "content" key to output generic strings like above.
+        - Use the "block" key to retrieve the stored blocks. The value must match the id of a stored block.
+        - Use the "+" key pattern to render partials and elements alike.
+
     - selfClosing = ['br', 'hr', 'input', 'img', 'link', 'meta'];
+
     if isShorthand(context)
         != context
     else if isObject(context)

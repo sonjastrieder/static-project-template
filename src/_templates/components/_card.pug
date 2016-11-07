@@ -5,39 +5,76 @@ mixin c-card(context = {})
 
         Due to the extreme variability of a Card structure a series of private partial mixins are available for use within the scope of the Card mixin.
         
+        CardHeader (accepts String shorthand)
+        {
+            [element: String(DOM node),]
+            [+p-nav-pills: Nav,]
+            [+p-nav-tabs: Nav]
+        }
+
+        CardPicture extends Picture
+        {
+            [top: Boolean,]
+            [bottom: Boolean]
+        }
+        
+        CardBlockTitle (accepts String shorthand)
+        {
+            [element: String(DOM node)]
+        }
+
+        CardBlockSubtitle extends CardBlockTitle
+
+        CardBlockBlockquote extends Blockquote
+
+        CardBlock
+        {
+            [+p-title: CardBlockTitle,]
+            [+p-subtitle: CardBlockSubtitle,]
+            [+p-blockquote: CardBlockBlockquote,]
+            [+p-text: Contents,]
+            [+p-link: Contents]
+        }
+
+        CardOverlay extends CardBlock
+
+        CardList
+        {
+            items: Array<Contents>
+        }
+
         Card
         {
-            
+            [+p-header: CardHeader,]
+            [+p-block: CardBlock,]
+            [+p-overlay: CardOverlay,]
+            [+p-footer: Contents]
         }
 
     .card&attributes(attributes, attrs(context))
         mixin p-header(con = {})
-            mixin p-nav-tabs(c = {})
-                +g-nav(c)(class="nav-tabs card-header-tabs")
-
             mixin p-nav-pills(c = {})
                 +g-nav(c)(class="nav-pills card-header-pills")
 
-            - header = isShorthand(con) ? {'element': 'h3', 'content': con} : con;
+            mixin p-nav-tabs(c = {})
+                +g-nav(c)(class="nav-tabs card-header-tabs")
 
-            #{header.element || 'div'}.card-header&attributes(attrs(header))
-                +u-contents(header)
+            - con = isShorthand(con) ? {'element': 'h3', 'content': con} : con;
+
+            #{con.element || 'div'}.card-header&attributes(attrs(con))
+                +u-contents(con)
         
         mixin p-picture(con = {})
             +e-picture(con)(class= (con.top ? 'card-img-top' : (con.bottom ? 'card-img-bottom' : 'card-img')))
 
         mixin p-block(con = {})
             mixin p-title(c = {})
-                - title = isShorthand(c) ? {'content': c} : c;
-
-                #{title.element || 'h4'}.card-title&attributes(attrs(title))
-                    +u-contents(title)
+                #{c.element || 'h4'}.card-title&attributes(attrs(c))
+                    +u-contents(c)
 
             mixin p-subtitle(c = {})
-                - subtitle = isShorthand(c) ? {'content': c} : c;
-
-                #{subtitle.element || 'h6'}.card-subtitle&attributes(attrs(subtitle))
-                    +u-contents(subtitle)
+                #{c.element || 'h6'}.card-subtitle&attributes(attrs(c))
+                    +u-contents(c)
 
             mixin p-blockquote(c = {})
                 +e-blockquote(c)(class="card-blockquote")
@@ -58,7 +95,7 @@ mixin c-card(context = {})
                 +p-block(con)
 
         mixin p-list(con = {})
-            ul.list-group.list-grou-flush
+            ul.list-group.list-group-flush
                 each item in (con.items || [])
                     li.list-group-item&attributes(attrs(item))
                         +u-contents(item)
@@ -69,7 +106,7 @@ mixin c-card(context = {})
 
         +u-contents(context)
 
-+u-example({'type': ExampleTypes.COMPONENT})
++u-example(ExampleTypes.COMPONENT)
     +p-label('Card')
     +g-row({
         'cols': [
@@ -82,16 +119,16 @@ mixin c-card(context = {})
                         'top': true,
                         'srcs': [
                             {
-                                'path': 'http://placehold.it/1400x700',
-                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                                'path': 'http://placehold.it/768x384',
+                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
                             },
                             {
                                 'path': 'http://placehold.it/992x496',
                                 'media': `(min-width: ${self.config.breakpoints.md}px)`
                             },
                             {
-                                'path': 'http://placehold.it/768x384',
-                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                                'path': 'http://placehold.it/1400x700',
+                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
                             }
                         ],
                         'alt': 'Curabitur Suscipit'
@@ -116,16 +153,16 @@ mixin c-card(context = {})
                     '+p-picture': {
                         'srcs': [
                             {
-                                'path': 'http://placehold.it/1400x700',
-                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                                'path': 'http://placehold.it/768x384',
+                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
                             },
                             {
                                 'path': 'http://placehold.it/992x496',
                                 'media': `(min-width: ${self.config.breakpoints.md}px)`
                             },
                             {
-                                'path': 'http://placehold.it/768x384',
-                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                                'path': 'http://placehold.it/1400x700',
+                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
                             }
                         ],
                         'alt': 'Curabitur Suscipit'
@@ -155,16 +192,16 @@ mixin c-card(context = {})
                         'bottom': true,
                         'srcs': [
                             {
-                                'path': 'http://placehold.it/1400x700',
-                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                                'path': 'http://placehold.it/768x384',
+                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
                             },
                             {
                                 'path': 'http://placehold.it/992x496',
                                 'media': `(min-width: ${self.config.breakpoints.md}px)`
                             },
                             {
-                                'path': 'http://placehold.it/768x384',
-                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                                'path': 'http://placehold.it/1400x700',
+                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
                             }
                         ],
                         'alt': 'Curabitur Suscipit'

@@ -1,10 +1,10 @@
 extends ./_base
 
 block body
-    +m-header
+    +u-block(prefix('header'))
 
     main
         block content
             +u-contents(self.page)
     
-    +m-footer
+    +u-block(prefix('footer'))

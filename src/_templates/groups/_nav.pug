@@ -4,13 +4,13 @@ mixin g-nav(context = {})
     
         NavItem
         {
-            link: String | Object
+            link: Contents
         }
 
         Nav
         {
             [items: Array<NavItem>,]
-            [links: Array<String | Object>]
+            [links: Array<Contents>]
         }
     
     if context.items

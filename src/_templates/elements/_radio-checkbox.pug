@@ -2,10 +2,10 @@ mixin e-radio-checkbox(context = {})
     //-
         Radio/Checkbox
         {
-            [dir: String[ltr|rtl],]
-            type: String[radio|checkbox],
+            [dir: String[ltr | rtl],]
+            type: String[radio | checkbox],
             [input: Object,]
-            label: String | Object
+            label: Contents
         }
     
     -
@@ -18,8 +18,8 @@ mixin e-radio-checkbox(context = {})
         span.custom-control-description&attributes(attrs(context.label))
             +u-contents(context.label)
 
-+u-example({'type': ExampleTypes.ELEMENT})
-    +p-label('Custom Radios & Checkboxes')
++u-example(ExampleTypes.ELEMENT)
+    +p-label('Custom Radio & Checkbox')
     .form-group
         +e-radio-checkbox({
             'type': 'radio',

@@ -17,10 +17,12 @@ mixin g-nav(context = {})
         ul.nav&attributes(attributes, attrs(context))
             each item in (context.items || [])
                 li.nav-item&attributes(attrs(item))
-                    a.nav-link(href="javascript:void(0)")&attributes(item.link)
-                        +u-contents(item.link)
+                    - link = isShorthand(item) ? {'content': item} : item.link;
+                    
+                    a.nav-link(href="javascript:void(0)")&attributes(attrs(link))
+                        +u-contents(link)
     else if context.links
         nav.nav&attributes(attributes, attrs(context))
             each link in (context.links || [])
-                a.nav-link(href="javascript:void(0)")&attributes(link)
+                a.nav-link(href="javascript:void(0)")&attributes(attrs(link))
                     +u-contents(link)

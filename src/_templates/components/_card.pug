@@ -12,7 +12,14 @@ mixin c-card(context = {})
 
     .card&attributes(attributes, attrs(context))
         mixin p-header(con = {})
+            mixin p-nav-tabs(c = {})
+                +g-nav(c)(class="nav-tabs card-header-tabs")
+
+            mixin p-nav-pills(c = {})
+                +g-nav(c)(class="nav-pills card-header-pills")
+
             - header = isShorthand(con) ? {'element': 'h3', 'content': con} : con;
+
             #{header.element || 'div'}.card-header&attributes(attrs(header))
                 +u-contents(header)
         
@@ -22,13 +29,18 @@ mixin c-card(context = {})
         mixin p-block(con = {})
             mixin p-title(c = {})
                 - title = isShorthand(c) ? {'content': c} : c;
+
                 #{title.element || 'h4'}.card-title&attributes(attrs(title))
                     +u-contents(title)
 
             mixin p-subtitle(c = {})
                 - subtitle = isShorthand(c) ? {'content': c} : c;
+
                 #{subtitle.element || 'h6'}.card-subtitle&attributes(attrs(subtitle))
                     +u-contents(subtitle)
+
+            mixin p-blockquote(c = {})
+                +e-blockquote(c)(class="card-blockquote")
 
             mixin p-text(c = {})
                 p.card-text
@@ -157,6 +169,77 @@ mixin c-card(context = {})
                         ],
                         'alt': 'Curabitur Suscipit'
                     }
+                }
+            }
+        ]
+    })
+    +g-row({
+        'cols': [
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    '+p-header': {
+                        '+p-nav-tabs': {
+                            'items': [
+                                {
+                                    'link': {
+                                        'attrs': {
+                                            'class': 'active'
+                                        },
+                                        'content': 'Curabitur'
+                                    }
+                                },
+                                'Gravida',
+                                'Suscipit'
+                            ]
+                        }
+                    },
+                    '+p-block': {
+                        '+p-blockquote': {
+                            '+p': 'Sed porta aliquet ultrices. Pellentesque blandit elit sapien, sit amet dictum elit venenatis quis.',
+                            'footer': {
+                                'content': 'tincidunt interdum',
+                                '+cite': 'Curabitur Suscipit'
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    '+p-block': {
+                        '+p-title': 'Suspendisse',
+                        '+p-text': 'Ut suscipit non nunc non vestibulum. Pellentesque tincidunt interdum nisi eu faucibus.',
+                        '+p-link~0': 'Lacus Maximus',
+                        '+p-link~1': 'Nam Mauris'
+                    }
+                }
+            },
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    'attrs': {
+                        'class': 'text-xs-center'
+                    },
+                    '+p-header': 'Sed porta aliquet',
+                    '+p-block': {
+                        '+p-title': 'Aenean convallis',
+                        '+p-text': 'Suspendisse magna ex, elementum ut mi id, accumsan ullamcorper purus. Sed porta aliquet ultrices.',
+                        '+button': {
+                            'attrs': {
+                                'class': 'btn btn-primary'
+                            },
+                            'content': 'Ullamcorper Nibh'
+                        }
+                    },
+                    '+p-footer': 'Aenean accumsan'
                 }
             }
         ]

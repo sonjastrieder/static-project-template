@@ -3,7 +3,7 @@ mixin e-select(context = {})
         No config really necessary, "multiple" attribute not supported.
         Pass options in as block content or as children.
 
-    select.custom-select&attributes(attributes, attrs(context))
+    select.custom-select(class= prefix('select'))&attributes(attributes, attrs(context))
         if !block
             +u-contents(context)
         else

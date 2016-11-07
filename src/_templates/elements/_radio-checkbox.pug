@@ -12,7 +12,7 @@ mixin e-radio-checkbox(context = {})
         input = context.input || {};
         label = isShorthand(context.label) ? {'content': context.label} : context.label;
 
-    label.custom-control(class= `custom-${context.type} custom-control-${context.dir || 'ltr'}`)&attributes(attributes, attrs(context))
+    label.custom-control(class= `custom-${context.type} custom-control-${context.dir || 'ltr'} ${prefix('control')}`)&attributes(attributes, attrs(context))
         input.custom-control-input(type= context.type)&attributes(attrs(input))
         span.custom-control-indicator
         span.custom-control-description&attributes(attrs(context.label))

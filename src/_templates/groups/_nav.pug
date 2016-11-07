@@ -14,7 +14,7 @@ mixin g-nav(context = {})
         }
     
     if context.items
-        ul.nav&attributes(attributes, attrs(context))
+        ul.nav(class= prefix('nav'))&attributes(attributes, attrs(context))
             each item in (context.items || [])
                 li.nav-item&attributes(attrs(item))
                     - link = isShorthand(item) ? {'content': item} : item.link;
@@ -22,7 +22,7 @@ mixin g-nav(context = {})
                     a.nav-link(href="javascript:void(0)")&attributes(attrs(link))
                         +u-contents(link)
     else if context.links
-        nav.nav&attributes(attributes, attrs(context))
+        nav.nav(class= prefix('nav'))&attributes(attributes, attrs(context))
             each link in (context.links || [])
                 a.nav-link(href="javascript:void(0)")&attributes(attrs(link))
                     +u-contents(link)

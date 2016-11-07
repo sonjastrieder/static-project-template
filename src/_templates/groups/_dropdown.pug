@@ -1,5 +1,7 @@
 mixin g-dropdown(context = {})
     //-
+        Documentation: http://v4-alpha.getbootstrap.com/components/dropdowns/
+
         DropdownMenuItem (accepts String shorthand)
         {
             [element: String(DOM Node)]
@@ -24,7 +26,7 @@ mixin g-dropdown(context = {})
     
     - menu = context.menu || {};
 
-    div(class= `drop${context.dir || 'down'}`)&attributes(attributes, attrs(context))
+    div(class= `drop${context.dir || 'down'} ${prefix('dropdown')}`)&attributes(attributes, attrs(context))
         mixin p-toggle(con = {})
             - con = isShorthand(con) ? {'attrs': {'class': 'btn btn-default'}, 'content': con} : con;
 
@@ -98,6 +100,7 @@ mixin g-dropdown(context = {})
                 'attrs': {
                     'class': 'col-xs-12'
                 },
+                'caret': true,
                 'block': prefix('example-custom-dropdown')
             }
         })

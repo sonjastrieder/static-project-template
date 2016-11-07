@@ -5,7 +5,7 @@ mixin e-blockquote(context = {})
             [footer: Contents]
         }
 
-    blockquote.blockquote&attributes(attributes, attrs(context))
+    blockquote.blockquote(class= prefix('blockquote'))&attributes(attributes, attrs(context))
         +u-contents(context)
         if context.footer
             footer.blockquote-footer&attributes(attrs(context.footer))

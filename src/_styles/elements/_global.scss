@@ -3,7 +3,7 @@
 }
 
 html {
-    -ms-overflow-style: none;
+    -xs-overflow-style: none;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -15,35 +15,12 @@ html {
     @include media-breakpoint-up(md) {font-family: 'md';}
     @include media-breakpoint-up(lg) {font-family: 'lg';}
     @include media-breakpoint-up(xl) {font-family: 'xl';}
-    @include media-breakpoint-up(hg) {font-family: 'hg';}
-    @include media-breakpoint-up(gg) {font-family: 'gg';}
+    @include media-breakpoint-up(dx) {font-family: 'dx';}
+    @include media-breakpoint-up(tx) {font-family: 'tx';}
 }
 
-a {
-    &[href^="tel:"] {
-        white-space: nowrap;
-    }
-
-    &.#{$prefix}-cover {
-        display: block;
-        background: transparentize($color-black, 0.999);
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-    }
-
-    &.#{$prefix}-blend {
-        text-decoration: none;
-        color: currentColor;
-
-        &:hover,
-        &:active {
-            text-decoration: none;
-            color: currentColor;
-        }
-    }
+[href^="tel:"] {
+    white-space: nowrap;
 }
 
 button {
@@ -77,4 +54,25 @@ textarea {
 
 .#{prefix('hidden')} {
     display: none !important;
+}
+
+#{prefix('cover')} {
+    display: block;
+    background: transparentize($color-black, 0.999);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#{prefix('blend')} {
+    text-decoration: none;
+    color: currentColor;
+
+    &:hover,
+    &:active {
+        text-decoration: none;
+        color: currentColor;
+    }
 }

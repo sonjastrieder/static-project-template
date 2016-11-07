@@ -1,5 +1,13 @@
 mixin e-price(context = {})
     //-
+        Accepts shorthand which represents dollars.
+
+        Price
+        {
+            [sign: String,]
+            dollars: String | Number,
+            [cents: String,]
+        }
 
     - context = isShorthand(context) ? {'dollars': context} : context;
 

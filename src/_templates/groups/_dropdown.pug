@@ -1,0 +1,8 @@
+mixin g-dropdown(context = {})
+    //-
+        Dropdown
+        {
+            [dir: String,]
+        }
+    
+    div(class= `drop${context.dir || 'down'}`)&attributes(attributes, attrs(context))

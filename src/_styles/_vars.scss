@@ -44,13 +44,13 @@ $custom-select-indicator: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D
 
 $grid-gutter-width-base: 32px;
 $grid-gutter-widths: (
-    xs: $grid-gutter-width-base,
-    sm: $grid-gutter-width-base,
-    md: $grid-gutter-width-base,
-    lg: $grid-gutter-width-base,
-    xl: $grid-gutter-width-base,
-    hg: $grid-gutter-width-base,
-    gg: $grid-gutter-width-base
+    xs: $grid-gutter-width-base//,
+//    sm: $grid-gutter-width-base,
+//    md: $grid-gutter-width-base,
+//    lg: $grid-gutter-width-base,
+//    xl: $grid-gutter-width-base,
+//    dx: $grid-gutter-width-base,
+//    tx: $grid-gutter-width-base
 );
 $grid-breakpoints: (
     xs: 0,
@@ -58,14 +58,14 @@ $grid-breakpoints: (
     md: 768px,
     lg: 992px,
     xl: 1200px,
-    hg: 1400px,
-    gg: 1700px
+    dx: 1400px,
+    tx: 1700px
 );
 $container-max-widths: (
     lg: 960px,
     xl: 1100px,
-    hg: 1300px,
-    gg: 1600px
+    dx: 1300px,
+    tx: 1600px
 );
 $spacer: $grid-gutter-width-base;
 $spacers: (

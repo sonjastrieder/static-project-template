@@ -11,7 +11,8 @@ mixin c-carousel(context = {})
             div(class= prefix('carousel-slide'))&attributes(attrs(slide))
                 +u-contents(slide)
 
-+u-example({'type': ExampleTypes.COMPONENT, 'headline': 'Carousel'})
++u-example({'type': ExampleTypes.COMPONENT})
+    +p-label('Carousel')
     +c-carousel({
         'slides': [
             {

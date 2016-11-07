@@ -19,8 +19,7 @@ mixin u-example(context = {})
 
         Example
         {
-            type: ExampleType,
-            headline: String | Object
+            type: ExampleType
         }
 
     - self.examples[context.type].push((context.block = random(), context))

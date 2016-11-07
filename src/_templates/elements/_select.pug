@@ -10,7 +10,8 @@ mixin e-select(context = {})
         else
             block
 
-+u-example({'type': ExampleTypes.ELEMENT, 'headline': 'Custom Select'})
++u-example({'type': ExampleTypes.ELEMENT})
+    +p-label('Custom Select')
     .form-group
         +e-select
             option Select...

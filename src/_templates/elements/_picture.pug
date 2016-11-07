@@ -29,7 +29,8 @@ mixin e-picture(context = {})
             source(srcset= context.src)
             img.img-fluid(srcset= context.src, alt= context.alt)
 
-+u-example({'type': ExampleTypes.ELEMENT, 'headline': 'Picture'})
++u-example({'type': ExampleTypes.ELEMENT})
+    +p-label('Picture')
     +e-picture({
         'srcs': [
             {

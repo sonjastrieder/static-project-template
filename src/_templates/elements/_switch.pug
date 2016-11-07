@@ -24,7 +24,8 @@ mixin e-switch(context = {})
         span(class= prefix('switch-description'))&attributes(attrs(context.label))
             +u-contents(context.label)
 
-+u-example({'type': ExampleTypes.ELEMENT, 'headline': 'Switches'})
++u-example({'type': ExampleTypes.ELEMENT})
+    +p-label('Switches')
     .form-group
         +e-switch('Switch 1')
         +e-switch('Switch 2')

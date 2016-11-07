@@ -45,7 +45,8 @@ mixin m-hero(context = {})
                                 a(href="javascript:void(0)", class= prefix('hero-cta'))&attributes(attrs(context.cta), isShorthand(context.cta) ? {'class': 'btn btn-primary'} : undefined)
                                     +u-contents(context.cta)
 
-+u-example({'type': ExampleTypes.MODULE, 'headline': 'Hero'})
++u-example({'type': ExampleTypes.MODULE})
+    +p-label('Hero')
     +m-hero({
         'background': {
             'srcs': [

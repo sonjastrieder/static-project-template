@@ -1,7 +1,7 @@
 extends _templates/layouts/_base
 
 block body
-    +u-block(prefix('index-content'))
+    +u-block(prefix('index'))
         h1
             +u-contents(self.data.global.title)
         h2 Pages
@@ -21,7 +21,7 @@ block body
                         'attrs': {
                             'class': 'col-xs-12'
                         },
-                        'block': prefix('index-content')
+                        'block': prefix('index')
                     }
                 ]
             }

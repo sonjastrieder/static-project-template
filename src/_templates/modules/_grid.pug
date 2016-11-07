@@ -24,7 +24,8 @@ mixin m-grid(context = {})
                 +u-contents(container.after)
         +u-contents(context.after)
 
-+u-example({'type': ExampleTypes.MODULE, 'headline': 'Grid'})
++u-example({'type': ExampleTypes.MODULE})
+    +p-label('Grid')
     +m-grid({
         'attributes': {
             'prefix': 'bg-xlight-gray'

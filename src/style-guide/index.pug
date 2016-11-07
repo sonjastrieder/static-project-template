@@ -188,28 +188,21 @@ block content
                                         option Option 3
                     each example in self.examples[ExampleTypes.ELEMENT]
                         .col-xs-12.col-sm-6.col-md-3.col-lg-4&attributes(flatten({'data': {'equal': {'group': 'style-guide-elements', 'min': self.config.breakpoints.sm}}}))
-                            +p-label(example.headline)
                             +u-contents(example)
                 .row
                     .col-xs-12
                         h2 Groups
                     each example in self.examples[ExampleTypes.GROUP]
                         .col-xs-12.col-md-6.col-xl-4&attributes(flatten({'data': {'equal': {'group': 'style-guide-groups', 'min': self.config.breakpoints.md}}}))
-                            +p-label(example.headline)
                             +u-contents(example)
                 .row
                     .col-xs-12
                         h2 Components
                     each example in self.examples[ExampleTypes.COMPONENT]
                         .col-xs-12
-                            +p-label(example.headline)
                             +u-contents(example)
                 .row
                     .col-xs-12
                         h2 Modules
     each example in self.examples[ExampleTypes.MODULE]
-        .container-fluid
-            .row
-                .container
-                    +p-label(example.headline)
         +u-contents(example)

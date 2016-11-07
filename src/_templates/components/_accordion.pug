@@ -13,7 +13,8 @@ mixin c-accordion(context = {})
             - collapse.parent = id;
             +c-collapse(collapse)
 
-+u-example({'type': ExampleTypes.COMPONENT, 'headline': 'Accordion'})
++u-example({'type': ExampleTypes.COMPONENT})
+    +p-label('Accordion')
     +c-accordion({
         'collapses': [
             {

@@ -1,0 +1,35 @@
+mixin e-blockquote(context = {})
+    //-
+        Blockquote
+        {
+            [footer: Object]
+        }
+
+    blockquote.blockquote&attributes(attributes, attrs(context))
+        +u-contents(context)
+        if context.footer
+            footer.blockquote-footer
+                +u-contents(context.footer)
+
++u-example({'type': ExampleTypes.ELEMENT, 'headline': 'Blockquote'})
+    +e-blockquote({
+        '+p': 'Donec quis purus eleifend, accumsan justo nec, suscipit nisl. Cras vulputate lorem libero, et tincidunt augue pellentesque et. Pellentesque pharetra efficitur libero, vestibulum volutpat erat bibendum eget.',
+        '+p': 'Fusce ultrices urna ornare pulvinar dictum. Mauris condimentum justo vitae nunc tristique, ac tincidunt eros euismod. Praesent velit neque, semper vitae enim et, imperdiet vulputate justo. Pellentesque gravida nec arcu vitae blandit.',
+        'footer': {
+            'content': 'Aliquam euismod ',
+            '+cite': 'et justo at blandit'
+        }
+    })
+
++u-example({'type': ExampleTypes.ELEMENT, 'headline': 'Blockquote (Reversed)'})
+    +e-blockquote({
+        'attrs': {
+            'class': 'blockquote-reverse'
+        },
+        '+p': 'Donec quis purus eleifend, accumsan justo nec, suscipit nisl. Cras vulputate lorem libero, et tincidunt augue pellentesque et. Pellentesque pharetra efficitur libero, vestibulum volutpat erat bibendum eget.',
+        '+p': 'Fusce ultrices urna ornare pulvinar dictum. Mauris condimentum justo vitae nunc tristique, ac tincidunt eros euismod. Praesent velit neque, semper vitae enim et, imperdiet vulputate justo. Pellentesque gravida nec arcu vitae blandit.',
+        'footer': {
+            'content': 'Aliquam euismod ',
+            '+cite': 'et justo at blandit'
+        }
+    })

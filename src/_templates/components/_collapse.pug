@@ -12,14 +12,13 @@ mixin c-collapse(context = {})
     - id = context.id || random();
 
     .card(class= prefix('collapse'))&attributes(attributes, attrs(context))
-        .card-header(class= prefix('collapse-headline'))
-            h5
-                a(href="javascript:void(0)")&attributes(flatten({'data': {'toggle': 'collapse', 'target': `#${id}`}, 'aria': {'expanded': (!!context.expanded).toString()}}), context.parent ? flatten({'data': {'parent': `#${context.parent}`}}) : undefined)
-                    +u-contents(context.headline)
+        h5.card-header(class= prefix('collapse-headline'))
+            a(href="javascript:void(0)")&attributes(flatten({'data': {'toggle': 'collapse', 'target': `#${id}`}, 'aria': {'expanded': (!!context.expanded).toString()}}), context.parent ? flatten({'data': {'parent': `#${context.parent}`}}) : undefined)
+                +u-contents(context.headline)
         .collapse(class= prefix('collapse-details'), id= id, role="tabpanel")&attributes(context.expanded ? {'class': 'in'} : undefined)
             .card-block
                 if isShorthand(context.details)
-                    p
+                    p.card-text
                         +u-contents(context.details)
                 else
                     +u-contents(context.details)

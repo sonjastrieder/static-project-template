@@ -2,26 +2,161 @@ mixin c-card(context = {})
     //-
         Cards are extremely flexible and provide a bunch of features and styling options:
         http://v4-alpha.getbootstrap.com/components/card/
+
+        Due to the extreme variability of a Card structure a series of private partial mixins are available for use within the scope of the Card mixin.
         
         Card
         {
-            [header: ,]
+            
         }
 
     .card&attributes(attributes, attrs(context))
-        if context.header
-            - header = isShorthand(context.header) ? {'element': 'h3', 'content': context.header} : context.header;
+        mixin p-header(con = {})
+            - header = isShorthand(con) ? {'element': 'h3', 'content': con} : con;
             #{header.element || 'div'}.card-header&attributes(attrs(header))
                 +u-contents(header)
-        //- Card Image Top
-        .card-block
-            //-
-                Card Title
-                Card Text
-                Card Blockquote
-                Button
-                Card Link
-        //- Card Image Bottom
+        
+        mixin p-picture(con = {})
+            +e-picture(con)(class= (con.top ? 'card-img-top' : (con.bottom ? 'card-img-bottom' : 'card-img')))
 
-        //- Card Image
-        //- Card Image Overlay
+        mixin p-block(con = {})
+            mixin p-title(c = {})
+                - title = isShorthand(c) ? {'content': c} : c;
+                #{title.element || 'h4'}.card-title&attributes(attrs(title))
+                    +u-contents(title)
+
+            mixin p-subtitle(c = {})
+                - subtitle = isShorthand(c) ? {'content': c} : c;
+                #{subtitle.element || 'h6'}.card-subtitle&attributes(attrs(subtitle))
+                    +u-contents(subtitle)
+
+            mixin p-text(c = {})
+                p.card-text
+                    +u-contents(c)
+
+            mixin p-link(c = {})
+                a.card-link(href="javascript:void(0)")&attributes(attrs(c))
+                    +u-contents(c)
+
+            .card-block&attributes(attrs(con))
+                +u-contents(con)
+        
+        mixin p-overlay(con = {})
+            .card-img-overlay
+                +p-block(con)
+
+        mixin p-list(con = {})
+            ul.list-group.list-grou-flush
+                each item in (con.items || [])
+                    li.list-group-item&attributes(attrs(item))
+                        +u-contents(item)
+
+        mixin p-footer(con = {})
+            .card-footer&attributes(attrs(con))
+                +u-contents(con)
+
+        +u-contents(context)
+
++u-example({'type': ExampleTypes.COMPONENT, 'headline': 'Card'})
+    +g-row({
+        'cols': [
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    '+p-picture': {
+                        'top': true,
+                        'srcs': [
+                            {
+                                'path': 'http://placehold.it/1400x700',
+                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/992x496',
+                                'media': `(min-width: ${self.config.breakpoints.md}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/768x384',
+                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                            }
+                        ],
+                        'alt': 'Curabitur Suscipit'
+                    },
+                    '+p-block': {
+                        '+p-title': 'Curabitur Suscipit',
+                        '+p-text': 'Anteger vulputate metus quis hendrerit ultrices. Sed nec diam dui.',
+                        '+button': {
+                            'attrs': {
+                                'class': 'btn btn-primary'
+                            },
+                            'content': 'Gravida Cem'
+                        }
+                    }
+                }
+            },
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    '+p-picture': {
+                        'srcs': [
+                            {
+                                'path': 'http://placehold.it/1400x700',
+                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/992x496',
+                                'media': `(min-width: ${self.config.breakpoints.md}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/768x384',
+                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                            }
+                        ],
+                        'alt': 'Curabitur Suscipit'
+                    },
+                    '+p-overlay': {
+                        '+p-title': 'Curabitur Suscipit',
+                        '+p-text': 'Anteger vulputate metus quis hendrerit ultrices. Sed nec diam dui.',
+                        '+p-link': 'Gravida Cem'
+                    }
+                }
+            },
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    '+p-header': 'Curabitur Suscipit',
+                    '+p-list': {
+                        'items': [
+                            'Aliquam erat volutpat',
+                            'Duis ac odio viverra',
+                            'Curabitur efficitur',
+                            'In efficitur tortor cursus'
+                        ]
+                    },
+                    '+p-picture': {
+                        'bottom': true,
+                        'srcs': [
+                            {
+                                'path': 'http://placehold.it/1400x700',
+                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/992x496',
+                                'media': `(min-width: ${self.config.breakpoints.md}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/768x384',
+                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                            }
+                        ],
+                        'alt': 'Curabitur Suscipit'
+                    }
+                }
+            }
+        ]
+    })

@@ -1,0 +1,37 @@
+mixin e-price(context = {})
+    //-
+
+    - context = isShorthand(context) ? {'dollars': context} : context;
+
+    span(class= prefix('price'))&attributes(attrs(context))
+        sup(class= prefix('price-sign'))
+            | #{context.sign || '$'}
+        span(class= prefix('price-dollars'))
+            +u-contents(context.dollars)
+        if context.cents
+            small(class= prefix('price-cents'))
+                +u-contents(context.cents)
+
++u-example({'type': ExampleTypes.ELEMENT})
+    +p-label('Price')
+    h3
+        +e-price({
+            'attrs': {
+                'prefix': 'tax'
+            },
+            'dollars': '99'
+        })
+    h5
+        +e-price({
+            'attrs': {
+                'prefix': 'subtotal tax'
+            },
+            'sign': '£',
+            'dollars': '133',
+            'cents': '/mo.'
+        })
+    p
+        +e-price({
+            'dollars': '299',
+            'cents': '.95'
+        })

@@ -1,19 +1,23 @@
 extends _templates/layouts/_base
 
 block body
-    +m-grid({
-        'rows': [
-            {
-                'cols': [
-                    {
-                        'attrs': {
-                            'class': 'col-xs-12'
+    -
+        context = {
+            'rows': [
+                {
+                    'cols': [
+                        {
+                            'attrs': {
+                                'class': 'col-xs-12'
+                            },
+                            'block': random()
                         }
-                    }
-                ]
-            }
-        ]
-    })
+                    ]
+                }
+            ]
+        };
+
+    +u-block(context.rows[0].cols[0].block)
         h1
             +u-contents(self.data.global.title)
         h2 Pages
@@ -24,3 +28,5 @@ block body
                         +u-contents(page.title)
         h2 Global
         a(href="/style-guide") Style Guide
+
+    +m-grid(context)

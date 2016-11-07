@@ -20,11 +20,7 @@ mixin m-grid(context = {})
             .container&attributes(attrs(container))
                 +u-contents(container.before)
                 each row in (context.rows || [])
-                    if !block
-                        +g-row(row)
-                    else
-                        +g-row(row)
-                            block
+                    +g-row(row)
                 +u-contents(container.after)
         +u-contents(context.after)
 
@@ -69,4 +65,3 @@ mixin m-grid(context = {})
             }
         ]
     })
-        p It's also possible to pass block content which is cloned into every column

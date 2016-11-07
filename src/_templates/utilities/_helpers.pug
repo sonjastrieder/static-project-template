@@ -37,6 +37,8 @@
 
     const isShorthand = (config) => typeof(config) == 'string' || typeof(config) == 'number';
 
+    const isFunction = (func) => func && ({}).toString.call(func) === '[object Function]';
+
     const isObject = (obj) => obj !== undefined && obj !== null && obj.constructor === Object;
 
     const random = () => prefix(Math.round(Math.random() * 100000000) + '');

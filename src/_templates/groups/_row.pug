@@ -1,7 +1,5 @@
 mixin g-row(context = {})
     //-
-        Accepts block implementation which outputs to each column
-
         Row
         {
             [columns: Array<Object>,]
@@ -12,7 +10,6 @@ mixin g-row(context = {})
         each column in (context.columns || context.cols || [])
             div&attributes(attrs(column))
                 +u-contents(column)
-                - (block || (() => {}))();
 
 +u-example({'type': ExampleTypes.GROUP, 'headline': 'Row'})
     +g-row({
@@ -30,13 +27,14 @@ mixin g-row(context = {})
             {
                 'attrs': {
                     'class': 'col-xs-6'
-                }
+                },
+                '+h4': 'Get it?'
             },
             {
                 'attrs': {
                     'class': 'col-xs-6 text-xs-right'
-                }
+                },
+                '+h4.text-muted': 'Got it.'
             }
         ]
     })
-        p It even gets the same block content capabilities when used outside of JSON.

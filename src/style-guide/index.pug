@@ -8,7 +8,7 @@ append config
         };
 
 block content
-    mixin label(context)
+    mixin p-label(context)
         label(class= prefix('label'))
             +u-contents(context)
 
@@ -22,7 +22,7 @@ block content
                     .col-xs-12
                         h2 Global
                     .col-xs-12
-                        +label('Typography')
+                        +p-label('Typography')
                         h1.display-1 Display Headline 1
                         h1.display-2 Display Headline 2
                         h1.display-3 Display Headline 3
@@ -67,7 +67,7 @@ block content
                             kbd ac ante
                             |  ipsum primis in faucibus. Mauris id ex sed turpis vehicula tincidunt. Curabitur aliquet condimentum sem sit amet aliquet.
                     .col-xs-12
-                        +label('Lists')
+                        +p-label('Lists')
                         .row
                             .col-xs-6.col-xl-3
                                 ul
@@ -108,7 +108,7 @@ block content
                     .col-xs-12
                         h2 Elements
                     .col-xs-12
-                        +label('Buttons')
+                        +p-label('Buttons')
                         ul.list-inline
                             li.list-inline-item
                                 button.btn.btn-primary Primary
@@ -145,7 +145,7 @@ block content
                             li.list-inline-item
                                 button.btn.btn-primary.btn-sm Small
                     .col-xs-12.col-md-6.col-lg-8&attributes(flatten({'data': {'equal': {'group': 'style-guide-elements', 'min': self.config.breakpoints.sm}}}))
-                        +label('Forms')
+                        +p-label('Forms')
                         .row
                             .col-xs-12.col-sm-6
                                 .form-group
@@ -186,30 +186,30 @@ block content
                                         option Option 1
                                         option Option 2
                                         option Option 3
-                    each example in self.data.examples[ExampleTypes.ELEMENT]
+                    each example in self.examples[ExampleTypes.ELEMENT]
                         .col-xs-12.col-sm-6.col-md-3.col-lg-4&attributes(flatten({'data': {'equal': {'group': 'style-guide-elements', 'min': self.config.breakpoints.sm}}}))
-                            +label(example.headline)
-                            - example.content()
+                            +p-label(example.headline)
+                            +u-contents(example)
                 .row
                     .col-xs-12
                         h2 Groups
-                    each example in self.data.examples[ExampleTypes.GROUP]
+                    each example in self.examples[ExampleTypes.GROUP]
                         .col-xs-12.col-md-6.col-xl-4&attributes(flatten({'data': {'equal': {'group': 'style-guide-groups', 'min': self.config.breakpoints.md}}}))
-                            +label(example.headline)
-                            - example.content()
+                            +p-label(example.headline)
+                            +u-contents(example)
                 .row
                     .col-xs-12
                         h2 Components
-                    each example in self.data.examples[ExampleTypes.COMPONENT]
+                    each example in self.examples[ExampleTypes.COMPONENT]
                         .col-xs-12
-                            +label(example.headline)
-                            - example.content()
+                            +p-label(example.headline)
+                            +u-contents(example)
                 .row
                     .col-xs-12
                         h2 Modules
-    each example in self.data.examples[ExampleTypes.MODULE]
+    each example in self.examples[ExampleTypes.MODULE]
         .container-fluid
             .row
                 .container
-                    +label(example.headline)
-        - example.content()
+                    +p-label(example.headline)
+        +u-contents(example)

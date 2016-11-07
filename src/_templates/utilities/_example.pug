@@ -6,7 +6,7 @@
         'MODULE': 'MODULE'
     };
 
-    self.data.examples = {
+    self.examples = {
         'ELEMENT': [],
         'GROUP': [],
         'COMPONENT': [],
@@ -15,10 +15,15 @@
 
 mixin u-example(context = {})
     //-
+        Block content is required. It will be attached to the provided context and pushed to cooresponding example list.
+
         Example
         {
             type: ExampleType,
             headline: String | Object
         }
 
-    - self.data.examples[context.type].push((context.content = block, context))
+    - self.examples[context.type].push((context.block = random(), context))
+
+    +u-block(context.block)
+        block

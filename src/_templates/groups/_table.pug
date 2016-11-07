@@ -52,7 +52,10 @@ mixin g-table(context = {})
                         'Donec sodales, eros sed',
                         null,
                         {
-                            '+strong': '$99.95'
+                            '+e-price': {
+                                'dollars': '99',
+                                'cents': '.95'
+                            }
                         }
                     ]
                 },
@@ -62,7 +65,10 @@ mixin g-table(context = {})
                         'Nunc ultrices eget',
                         null,
                         {
-                            '+strong': '$29.55'
+                            '+e-price': {
+                                'dollars': '29',
+                                'cents': '.55'
+                            }
                         }
                     ]
                 },
@@ -72,7 +78,10 @@ mixin g-table(context = {})
                         'Aliquam venenatis',
                         null,
                         {
-                            '+strong': '$67.95'
+                            '+e-price': {
+                                'dollars': '67',
+                                'cents': '.95'
+                            }
                         }
                     ]
                 }
@@ -88,7 +97,13 @@ mixin g-table(context = {})
                         },
                         null,
                         {
-                            '+strong': '$197.45'
+                            '+e-price': {
+                                'attrs': {
+                                    'prefix': 'subtotal'
+                                },
+                                'dollars': '197',
+                                'cents': '.45'
+                            }
                         }
                     ]
                 }

@@ -14,6 +14,13 @@
     }
 }
 
+.slick-prev,
+.slick-next {
+    &:before {
+        color: $color-xdark-gray;
+    }
+}
+
 .#{prefix('carousel')} {
 
 }

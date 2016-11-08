@@ -1,7 +1,7 @@
 {{#shapes}}
-.#{$prefix}-{{name}} {
+.#{prefix('{{name}}')} {
     &:after {
-        padding-bottom: ({{height.outer}}/{{width.outer}}) * 100%;
+        padding-bottom: ({{height.outer}} / {{width.outer}}) * 100%;
     }
 }
 {{/shapes}}

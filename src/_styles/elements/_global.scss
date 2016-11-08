@@ -8,15 +8,8 @@ html {
     overflow-y: auto;
 }
 
-##{$prefix}-breakpoint {
+##{prefix('breakpoint')} {
     font-family: 'xs';
-
-    @include media-breakpoint-up(sm) {font-family: 'sm';}
-    @include media-breakpoint-up(md) {font-family: 'md';}
-    @include media-breakpoint-up(lg) {font-family: 'lg';}
-    @include media-breakpoint-up(xl) {font-family: 'xl';}
-    @include media-breakpoint-up(dx) {font-family: 'dx';}
-    @include media-breakpoint-up(tx) {font-family: 'tx';}
 }
 
 [href^="tel:"] {
@@ -74,5 +67,41 @@ textarea {
     &:active {
         text-decoration: none;
         color: currentColor;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    ##{prefix('breakpoint')} {
+        font-family: 'sm';
+    }
+}
+
+@include media-breakpoint-up(md) {
+    ##{prefix('breakpoint')} {
+        font-family: 'md';
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    ##{prefix('breakpoint')} {
+        font-family: 'lg';
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    ##{prefix('breakpoint')} {
+        font-family: 'xl';
+    }
+}
+
+@include media-breakpoint-up(dx) {
+    ##{prefix('breakpoint')} {
+        font-family: 'dx';
+    }
+}
+
+@include media-breakpoint-up(tx) {
+    ##{prefix('breakpoint')} {
+        font-family: 'tx';
     }
 }

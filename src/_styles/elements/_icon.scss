@@ -21,27 +21,8 @@
         left: 0;
         fill: currentColor;
     }
-}
 
-.#{prefix('featured-icon')} {
-    width: 60px;
-    height: 40px;
-    margin: 0 auto $spacer;
-    display: block;
-
-    @include media-breakpoint-up(md) {
-        width: 80px;
-        height: 60px;
-    }
-
-    @include media-breakpoint-up(xl) {
-        width: 100px;
-        height: 80px;
-    }
-}
-
-.btn-sm {
-    .#{prefix('icon')} {
+    .btn-sm & {
         height: $font-size-sm * $btn-line-height;
 
         &:first-child {
@@ -52,10 +33,8 @@
             margin-left: $btn-padding-x-sm;
         }
     }
-}
 
-.btn {
-    .#{prefix('icon')} {
+    .btn & {
         height: $font-size-base * $btn-line-height;
         vertical-align: top;
 
@@ -67,10 +46,8 @@
             margin-left: $btn-padding-x;
         }
     }
-}
 
-.btn-lg {
-    .#{prefix('icon')} {
+    .btn-lg {
         height: $font-size-lg * $btn-line-height;
 
         &:first-child {
@@ -80,5 +57,26 @@
         &:last-child {
             margin-left: $btn-padding-x-lg;
         }
+    }
+}
+
+.#{prefix('featured-icon')} {
+    width: 60px;
+    height: 40px;
+    margin: 0 auto $spacer;
+    display: block;
+}
+
+@include media-breakpoint-up(md) {
+    .#{prefix('featured-icon')} {
+        width: 80px;
+        height: 60px;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .#{prefix('featured-icon')} {
+        width: 100px;
+        height: 80px;
     }
 }

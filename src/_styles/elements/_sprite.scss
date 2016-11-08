@@ -1,35 +1,35 @@
-.#{$prefix}-icon-facebook {
+.#{prefix('icon-facebook')} {
     &:after {
-        padding-bottom: (10/10) * 100%;
+        padding-bottom: (10 / 10) * 100%;
     }
 }
-.#{$prefix}-icon-google-plus {
+.#{prefix('icon-google-plus')} {
     &:after {
-        padding-bottom: (10/10) * 100%;
+        padding-bottom: (10 / 10) * 100%;
     }
 }
-.#{$prefix}-icon-instagram {
+.#{prefix('icon-instagram')} {
     &:after {
-        padding-bottom: (10/10) * 100%;
+        padding-bottom: (10 / 10) * 100%;
     }
 }
-.#{$prefix}-icon-linkedin {
+.#{prefix('icon-linkedin')} {
     &:after {
-        padding-bottom: (10/10) * 100%;
+        padding-bottom: (10 / 10) * 100%;
     }
 }
-.#{$prefix}-icon-rss {
+.#{prefix('icon-rss')} {
     &:after {
-        padding-bottom: (10/10) * 100%;
+        padding-bottom: (10 / 10) * 100%;
     }
 }
-.#{$prefix}-icon-twitter {
+.#{prefix('icon-twitter')} {
     &:after {
-        padding-bottom: (10/10) * 100%;
+        padding-bottom: (10 / 10) * 100%;
     }
 }
-.#{$prefix}-icon-youtube {
+.#{prefix('icon-youtube')} {
     &:after {
-        padding-bottom: (10/10) * 100%;
+        padding-bottom: (10 / 10) * 100%;
     }
 }

@@ -13,5 +13,5 @@ if (!!$dropdowns.length) {
         prevent = false;
     });
 
-    $dropdowns.on('click', '.dropdown-menu', () => prevent = true);
+    $dropdowns.on('click', '.dropdown-menu [data-prevent]', () => prevent = true);
 }

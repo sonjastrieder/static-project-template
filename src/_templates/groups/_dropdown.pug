@@ -71,9 +71,10 @@ mixin g-dropdown(context = {})
         })
     .form-group
         +u-block(prefix('example-custom-dropdown'))
-            h4 Etiam consequat, nisi id volutpat
-            p.lead orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a ante dictum, mollis purus id, mollis leo.
-            button.btn.btn-primary Sed Facilisis
+            .col-xs-12
+                h4 Etiam consequat
+                p.lead orem ipsum dolor sit amet, consectetur adipiscing elit.
+                button.btn.btn-primary Sed Facilisis
         +g-dropdown({
             'attrs': {
                 'class': 'btn-group'
@@ -97,9 +98,6 @@ mixin g-dropdown(context = {})
                 '+span.sr-only': 'Toggle'
             },
             'menu': {
-                'attrs': {
-                    'class': 'col-xs-12'
-                },
                 'caret': true,
                 'block': prefix('example-custom-dropdown')
             }

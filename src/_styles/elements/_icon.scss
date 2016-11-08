@@ -1,5 +1,5 @@
 .#{prefix('icon')} {
-    width: 1em;
+    width: 1.25em;
     display: inline-block;
     position: relative;
     vertical-align: middle;
@@ -20,5 +20,65 @@
         bottom: 0;
         left: 0;
         fill: currentColor;
+    }
+}
+
+.#{prefix('featured-icon')} {
+    width: 60px;
+    height: 40px;
+    margin: 0 auto $spacer;
+    display: block;
+
+    @include media-breakpoint-up(md) {
+        width: 80px;
+        height: 60px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        width: 100px;
+        height: 80px;
+    }
+}
+
+.btn-sm {
+    .#{prefix('icon')} {
+        height: $font-size-sm * $btn-line-height;
+
+        &:first-child {
+            margin-right: $btn-padding-x-sm;
+        }
+        
+        &:last-child {
+            margin-left: $btn-padding-x-sm;
+        }
+    }
+}
+
+.btn {
+    .#{prefix('icon')} {
+        height: $font-size-base * $btn-line-height;
+        vertical-align: top;
+
+        &:first-child {
+            margin-right: $btn-padding-x;
+        }
+        
+        &:last-child {
+            margin-left: $btn-padding-x;
+        }
+    }
+}
+
+.btn-lg {
+    .#{prefix('icon')} {
+        height: $font-size-lg * $btn-line-height;
+
+        &:first-child {
+            margin-right: $btn-padding-x-lg;
+        }
+        
+        &:last-child {
+            margin-left: $btn-padding-x-lg;
+        }
     }
 }

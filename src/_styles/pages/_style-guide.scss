@@ -1,16 +1,8 @@
 .#{page('style-guide')} {
     .#{prefix('label')} {
-        @include make-container;
-        @include make-container-max-widths;
+        margin-bottom: $spacer / 2;
         display: block;
-        font-weight: $font-weight-bold;
         @include font-size(24px);
         color: $color-dark-gray;
-    }
-
-    .container-fluid {
-        .#{prefix('label')} {
-            padding: 0;
-        }
     }
 }

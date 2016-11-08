@@ -5,12 +5,9 @@
 @import "node_modules/bootstrap/scss/mixins";
 @import "./mix";
 
-// Utilities
-@import "./utilities/color";
-@import "./utilities/space";
-
 // Elements
 @import "./elements/global";
+@import "./elements/button";
 @import "./elements/icon";
 @import "./elements/sprite";
 @import "./elements/picture";
@@ -31,8 +28,13 @@
 // Modules
 @import "./modules/grid";
 @import "./modules/header";
+@import "./modules/footer";
 @import "./modules/hero";
 @import "./modules/legacy";
+
+// Utilities
+@import "./utilities/color";
+@import "./utilities/space";
 
 // Pages
 @import "./pages/style-guide";

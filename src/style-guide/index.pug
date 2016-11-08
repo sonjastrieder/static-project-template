@@ -8,8 +8,8 @@ append config
         };
 
 block content
-    mixin p-label(context)
-        label(class= prefix('label'))
+    mixin p-label(context = {})
+        label(class= prefix('label'))&attributes(attrs(context))
             +u-contents(context)
 
     .container-fluid

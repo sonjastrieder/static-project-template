@@ -46,7 +46,30 @@ mixin m-hero(context = {})
                                     +u-contents(context.cta)
 
 +u-example(ExampleTypes.MODULE)
-    +p-label('Hero')
+    +m-grid({
+        'container': {
+            'attrs': {
+                'class': 'pad-xs-y-0'
+            }
+        },
+        'rows': [
+            {
+                'cols': [
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 pad-xs-y-0'
+                        },
+                        '+p-label': {
+                            'attrs': {
+                                'class': 'mar-xs-t-md'
+                            },
+                            'content': 'Hero'
+                        }
+                    }
+                ]
+            }
+        ]
+    })
     +m-hero({
         'background': {
             'srcs': [

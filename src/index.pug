@@ -1,7 +1,9 @@
 extends _templates/layouts/_base
 
 block body
-    - pages = (self.data.pages || {}, pathsort(Object.keys(pages).map((key) => pages[key])));
+    -
+        pages = self.data.pages || {};
+        pages = pathsort(Object.keys(pages).map((key) => pages[key]));
 
     +u-block('index')
         h1

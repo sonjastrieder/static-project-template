@@ -17,12 +17,18 @@ mixin e-placeholder-label(context = {})
     .form-group
         +e-placeholder-label('Email Address')
             input.form-control(type="email")
+    .form-group
+        .input-group.input-group-lg
+            +e-placeholder-label('Password')
+                input.form-control(type="password")
+            .input-group-btn
+                button.btn.btn-primary go
     .form-group.has-success
-        +e-placeholder-label('Email Address')
-            input.form-control.form-control-lg(type="email")
+        +e-placeholder-label('Zip Code')
+            input.form-control.form-control-lg(type="number", value="98101")
     .form-group.has-warning
-        +e-placeholder-label('Email Address')
-            input.form-control(type="email")
+        +e-placeholder-label('Telephone')
+            input.form-control(type="tel")
     .form-group.has-danger
-        +e-placeholder-label('Email Address')
-            input.form-control.form-control-sm(type="email")
+        +e-placeholder-label('Other')
+            input.form-control.form-control-sm(type="text")

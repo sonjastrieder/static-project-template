@@ -1,0 +1,49 @@
+{
+    "layout": "search",
+    "title": "Search",
+    "+m-grid": {
+        "rows": [
+            {
+                "cols": [
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 text-xs-center"
+                        },
+                        "+h3": "Featured Content"
+                    }
+                ]
+            },
+            {
+                "cols": [
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 col-md-4"
+                        },
+                        "+c-search-result": {
+                            "headline": "Pellentesque",
+                            "details": "Ut porttitor ex, sed scelerisque orci. Proin facilisis risus eu rutrum rutrum..."
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 col-md-4"
+                        },
+                        "+c-search-result": {
+                            "headline": "Fusce eleifend",
+                            "details": "Sed gravida felis tincidunt pulvinar imperdiet. Nam congue sagittis libero. Mauris nulla metus, porttitor id purus sed, luctus porta lorem...."
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 col-md-4"
+                        },
+                        "+c-search-result": {
+                            "headline": "Suspendisse ut nunc",
+                            "details": "Curabitur facilisis tincidunt sem, non vehicula. Sed a venenatis diam. Donec sed risus iaculis tellus ornare lobortis a sed risus..."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

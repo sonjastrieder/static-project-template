@@ -4,6 +4,12 @@
     }
 }
 
+.card-title {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
 .card-img-overlay {
     padding: 0;
 }

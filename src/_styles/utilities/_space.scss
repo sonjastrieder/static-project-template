@@ -1,24 +1,34 @@
 @each $break, $point in $grid-breakpoints {
     @include media-breakpoint-up($break) {
-        @each $prop, $abbr in (padding: pad, margin: mar) {
+        @each $prop, $abbr in (padding: p, margin: m) {
             @each $size, $lengths in $spacers {
                 $length-x: map-get($lengths, x);
                 $length-y: map-get($lengths, y);
 
-                .#{$abbr}-#{$break}-a-#{$size} { #{$prop}:        $length-y $length-x !important; }
-                .#{$abbr}-#{$break}-t-#{$size} { #{$prop}-top:    $length-y !important; }
-                .#{$abbr}-#{$break}-r-#{$size} { #{$prop}-right:  $length-x !important; }
-                .#{$abbr}-#{$break}-b-#{$size} { #{$prop}-bottom: $length-y !important; }
-                .#{$abbr}-#{$break}-l-#{$size} { #{$prop}-left:   $length-x !important; }
+                .#{$break}-#{$abbr}-#{$size} { #{$prop}:        $length-y $length-x !important; }
+                .#{$break}-#{$abbr}t-#{$size} { #{$prop}-top:    $length-y !important; }
+                .#{$break}-#{$abbr}r-#{$size} { #{$prop}-right:  $length-x !important; }
+                .#{$break}-#{$abbr}b-#{$size} { #{$prop}-bottom: $length-y !important; }
+                .#{$break}-#{$abbr}l-#{$size} { #{$prop}-left:   $length-x !important; }
 
-                .#{$abbr}-#{$break}-x-#{$size} {
+                .#{$break}-#{$abbr}x-#{$size} {
                     #{$prop}-right:  $length-x !important;
                     #{$prop}-left:   $length-x !important;
                 }
 
-                .#{$abbr}-#{$break}-y-#{$size} {
+                .#{$break}-#{$abbr}y-#{$size} {
                     #{$prop}-top:    $length-y !important;
                     #{$prop}-bottom: $length-y !important;
+                }
+            }
+
+            @if $prop == 'margin' {
+                .#{$break}-#{$abbr}r-auto { #{$prop}-right: auto !important; }
+                .#{$break}-#{$abbr}l-auto { #{$prop}-left:  auto !important; }
+
+                .#{$break}-#{$abbr}x-auto {
+                    #{$prop}-right:  auto !important;
+                    #{$prop}-left:   auto !important;
                 }
             }
         }

@@ -1,0 +1,62 @@
+extends ./_shell
+
+prepend content
+    .container-fluid.text-xs-center(class= prefix('hero'))
+        +e-picture({
+            'srcs': [
+                {
+                    'path': 'http://placehold.it/1920x600',
+                    'media': `(min-width: ${self.config.breakpoints.tx}px)`
+                },
+                {
+                    'path': 'http://placehold.it/1700x600',
+                    'media': `(min-width: ${self.config.breakpoints.dx}px)`
+                },
+                {
+                    'path': 'http://placehold.it/1400x600',
+                    'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                },
+                {
+                    'path': 'http://placehold.it/1200x600',
+                    'media': `(min-width: ${self.config.breakpoints.lg}px)`
+                },
+                {
+                    'path': 'http://placehold.it/992x450',
+                    'media': `(min-width: ${self.config.breakpoints.md}px)`
+                },
+                {
+                    'path': 'http://placehold.it/768x450',
+                    'media': `(min-width: ${self.config.breakpoints.sm}px)`
+                },
+                {
+                    'path': 'http://placehold.it/544x300',
+                    'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                }
+            ],
+            'alt': 'Search'
+        })
+        .row
+            .container
+                .row
+                    .col-xs-12.col-md-6.md-mx-auto(class= prefix('hero-content'))
+                        .hidden-sm-down(class= prefix('hero-cell'))
+                            h2(class= prefix('hero-details')) What are you looking for?
+                            +u-block(prefix('search'))
+        .row.hidden-md-up(class= prefix('bg-xlight-gray'))
+            .container
+                .row
+                    .col-xs-12
+                        h3 What are you looking for?
+                        +u-block(prefix('search'))
+
+append content
+    .container-fluid(class= prefix('bg-xlight-gray'))
+        .row
+            .container
+                .row
+                    .col-xs-12.text-xs-center
+                        h4 Not finding what you need?
+                        h6
+                            a(href="tel:18005551234") Call us
+                            |  or 
+                            a(href="mailto:foo@bar.com") Email us

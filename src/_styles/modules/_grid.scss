@@ -1,9 +1,15 @@
 .container-fluid {
-    border-right: $spacer solid transparent;
-    border-left: $spacer solid transparent;
+    position: relative;
+
+    & > .row {
+        padding-right: $spacer / 2;
+        padding-left: $spacer / 2;
+    }
 }
 
 .row {
+    position: relative;
+
     &.#{prefix('center')} {
         display: flex;
         align-items: center;
@@ -14,6 +20,8 @@
 
 .container,
 [class*="col-"] {
+    position: relative;
+
     @each $breakpoint in map-keys($grid-gutter-widths) {
         @include media-breakpoint-up($breakpoint) {
             padding-top: (map-get($grid-gutter-widths, $breakpoint) / 2);
@@ -29,14 +37,18 @@
 
 @include media-breakpoint-up(md) {
     .container-fluid {
-        border-right: ($spacer / 2) solid transparent;
-        border-left: ($spacer / 2) solid transparent;
+        & > .row {
+            padding-right: $spacer / 4;
+            padding-left: $spacer / 4;
+        }
     }
 }
 
 @include media-breakpoint-up(xl) {
     .container-fluid {
-        border-right: none;
-        border-left: none;
+        & > .row {
+            padding-right: 0;
+            padding-left: 0;
+        }   
     }
 }

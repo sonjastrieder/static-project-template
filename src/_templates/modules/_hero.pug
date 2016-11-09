@@ -7,14 +7,14 @@ mixin m-hero(context = {})
             [background: Picture,]
             [headline: Contents,]
             [details: Contents,]
-            [cta: Contents]
+            [link: Contents]
         }
     
     -
         align = context.align || 'center';
         alignment = {
-            'center': 'col-md-8 offset-md-2',
-            'right': 'col-md-8 offset-md-4 text-md-left col-xl-6 offset-xl-6',
+            'center': 'col-md-8 md-mx-auto',
+            'right': 'col-md-8 md-ml-auto text-md-left col-xl-6',
             'left': 'col-md-8 text-md-left col-xl-6',
             'custom': context.alignment
         };
@@ -41,15 +41,15 @@ mixin m-hero(context = {})
                                 else
                                     div(class= prefix('hero-details'))&attributes(attrs(context.details))
                                         +u-contents(context.details)
-                            if context.cta
-                                a(href="javascript:void(0)", class= prefix('hero-cta'))&attributes(attrs(context.cta), isShorthand(context.cta) ? {'class': 'btn btn-primary'} : undefined)
-                                    +u-contents(context.cta)
+                            if context.link
+                                a(href="javascript:void(0)", class= prefix('hero-link'))&attributes(attrs(context.link), isShorthand(context.link) ? {'class': 'btn btn-primary'} : undefined)
+                                    +u-contents(context.link)
 
 +u-example(ExampleTypes.MODULE)
     +m-grid({
         'container': {
             'attrs': {
-                'class': 'pad-xs-y-0'
+                'class': 'xs-py-0'
             }
         },
         'rows': [
@@ -57,11 +57,11 @@ mixin m-hero(context = {})
                 'cols': [
                     {
                         'attrs': {
-                            'class': 'col-xs-12 pad-xs-y-0'
+                            'class': 'col-xs-12 xs-py-0'
                         },
                         '+p-label': {
                             'attrs': {
-                                'class': 'mar-xs-t-md'
+                                'class': 'xs-mt-md'
                             },
                             'content': 'Hero'
                         }
@@ -101,10 +101,11 @@ mixin m-hero(context = {})
                     'path': 'http://placehold.it/544x300',
                     'media': `(min-width: ${self.config.breakpoints.xs}px)`
                 }
+                
             ],
             'alt': 'Curabitur Suscipit'
         },
         'headline': 'Curabitur Suscipit',
         'details': 'Massa justo tempor erat, non viverra mi augue at dui. Integer hendrerit pretium tincidunt.',
-        'cta': 'Pulvinar Rhoncus'
+        'link': 'Pulvinar Rhoncus'
     })

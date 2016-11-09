@@ -46,8 +46,8 @@
             }
         }
 
-        &.form-control-lg,
-        .input-group-lg & {
+        &.form-control-lg {
+        //.input-group-lg & { // TODO: Fix
             padding-top: $input-padding-y-lg * (5 / 3);
             padding-bottom: $input-padding-y-lg * (1 / 3);
 

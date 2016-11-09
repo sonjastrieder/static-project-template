@@ -23,7 +23,7 @@ mixin c-search-result(context = {})
         })
         .card-block
             h4.card-title
-                a(href="javascript:void(0)", class= prefix('blend'))
+                a(href="javascript:void(0)", class= prefix('inherit'))
                     +u-contents(context.headline)
             if context.details
                 p.card-text

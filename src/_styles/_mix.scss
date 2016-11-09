@@ -6,9 +6,18 @@
     @return prefix('page-#{$str}');
 }
 
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
 @function sqrt($r) {
     $x0: 1;
     $x1: $x0;
+    $r: strip-unit($r);
  
     @for $i from 1 through 10 {
         $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);

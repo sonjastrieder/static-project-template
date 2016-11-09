@@ -49,27 +49,6 @@ textarea {
     display: none !important;
 }
 
-.#{prefix('cover')} {
-    display: block;
-    background: transparentize($color-black, 0.999);
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.#{prefix('blend')} {
-    text-decoration: none;
-    color: currentColor;
-
-    &:hover,
-    &:active {
-        text-decoration: none;
-        color: currentColor;
-    }
-}
-
 @include media-breakpoint-up(sm) {
     ##{prefix('breakpoint')} {
         font-family: 'sm';

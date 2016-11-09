@@ -19,7 +19,7 @@ mixin u-contents(context = {})
         each val, key in context
             if /^content(~[\w-]+)?$/.test(key)
                 != val
-            else if /^block$/.test(key)
+            else if /^block(~[\w-]+)?$/.test(key)
                 - (isFunction(self.blocks[val]) ? self.blocks[val] : () => {})();
             else if /^\+/.test(key)
                 -

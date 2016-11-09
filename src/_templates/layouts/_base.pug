@@ -55,7 +55,7 @@ head
         link(rel="stylesheet", href= baseUrl + "styles/main.custom.css")
 
 body(class= (self.page ? prefix('page', (self.page.class ? 'page-' + self.page.class : undefined)) : undefined))
-    +u-block(prefix('legacy'))
+    +u-block('legacy')
 
     .sr-only
         include ../sprite.svg

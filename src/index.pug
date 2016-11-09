@@ -1,12 +1,14 @@
 extends _templates/layouts/_base
 
 block body
-    +u-block(prefix('index'))
+    - pages = (self.data.pages || {}, pathsort(Object.keys(pages).map((key) => pages[key])));
+
+    +u-block('index')
         h1
             +u-contents(self.data.global.title)
         h2 Pages
         ul.list-unstyled
-            each page in self.data.pages
+            each page in pages
                 li
                     a(href= page.path)
                         +u-contents(page.title)
@@ -21,7 +23,7 @@ block body
                         'attrs': {
                             'class': 'col-xs-12'
                         },
-                        'block': prefix('index')
+                        'block': 'index'
                     }
                 ]
             }

@@ -49,7 +49,9 @@
         &.form-control-lg,
         .input-group-lg & {
             padding-top: $input-padding-y-lg * (5 / 3);
+            padding-right: $input-padding-x-lg;
             padding-bottom: $input-padding-y-lg * (1 / 3);
+            padding-left: $input-padding-x-lg;
             @include border-radius($input-border-radius-lg);
             font-size: $font-size-lg;
 

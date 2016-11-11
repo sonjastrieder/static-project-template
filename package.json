@@ -67,6 +67,46 @@
   "engines": {
     "node": ">=6"
   },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+    "jquery": "./node_modules/jquery/dist/jquery.min.js",
+    "slick-carousel": "./node_modules/slick-carousel/slick/slick.min.js",
+    "tether": "./node_modules/tether/dist/js/tether.min.js",
+    "velocity": "./node_modules/velocity-animate/velocity.min.js",
+    "velocity-ui": "./node_modules/velocity-animate/velocity.ui.min.js"
+  },
+  "browserify-shim": {
+    "bootstrap": {
+      "depends": [
+        "jquery:$",
+        "tether:Tether"
+      ]
+    },
+    "jquery": "$",
+    "slick-carousel": {
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "tether": "Tether",
+    "velocity": {
+      "exports": "Velocity",
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "velocity-ui": {
+      "depends": [
+        "jquery:$",
+        "velocity:Velocity"
+      ]
+    }
+  },
   "config": {
     "host": "localhost",
     "port": "9000",

@@ -1,3 +1,11 @@
+// http://v4-alpha.getbootstrap.com/utilities/spacing/
+
+/*
+    This is an extension of Bootstrap's spacing utilities. The addition of breakpoints allows for responsive overrides.
+
+    The format is the same with only the addition of the breakpoint abbreviation and a dash as a prefix.
+*/
+
 @each $break, $point in $grid-breakpoints {
     @include media-breakpoint-up($break) {
         @each $prop, $abbr in (padding: p, margin: m) {

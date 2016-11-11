@@ -1,8 +1,22 @@
 'use strict';
 
+/*
+    If you want elements to be equal in height and flexbox or fixed height aren't options.
+
+    Options are passed to a series of data attributes, only one of which is required.
+
+    Pass a string value to data-equal-group on all elements that you want to equalize.
+
+    Optionally, you may use data-equal-min and/or data-equal-max to turn this functionality on/off at certain breakpoints.
+
+    As a performance optimization, if the elements are hidden on load/resize they will be skipped. But that means that you may need to manually trigger the equalize functionality on specific/custom events. The exported function accepts a string which should match the group name, this allows the functionality to filter out all other elements, as another performance optimization.
+*/
+
+import $ from 'jquery';
+
 import {onLoad, onResizeEnd} from '../utilities/_helpers';
 
-let $els = window.$('[data-equal-group]');
+let $els = $('[data-equal-group]');
 
 const equalize = ($group) => {
     $group = $group.filter(':visible');

@@ -2,12 +2,12 @@
 
 // Add tests: https://www.npmjs.com/package/browsernizr
 import 'browsernizr/test/css/flexbox';
-
-import Modernizr from 'browsernizr';
-import PictureFill from 'picturefill';
-import svg4everybody from 'svg4everybody';
-import placekeeper from 'placekeeper';
-
+import 'browsernizr';
+import 'picturefill';
+import 'placekeeper';
 import 'bootstrap';
+
+// IE Polyfill
+import svg4everybody from 'svg4everybody';
 
 svg4everybody();

@@ -1,7 +1,7 @@
 # Scripts
 
 This scripts folder is designated for all of your global script files.
-The key file in this folder is `main.js` as it is designated as your bootstrapping file (initializes all your scripts) and is included in the `base.pug` file
+The key files in this folder are `main.custom.js` and `main.vendor.js` and are included in the `base.pug` file
 
 By default, ES6/2015 features are enabled in your scripts by using [Babel](https://babeljs.io)
 
@@ -10,7 +10,7 @@ Odds are that you will need to add some third party libraries to your project at
 To do so, it is strongly recommended that you install them using [NPM](http://npmjs.com/):
 
 ```
-npm install [package name] --save -E
+npm install [package name] --save
 ```
 
 Once installed, you can access scripts within your JavaScript files like so:

@@ -1,0 +1,112 @@
+mixin g-table(context = {})
+    //-
+        Styling options: http://v4-alpha.getbootstrap.com/content/tables/
+
+        TableRow
+        {
+            cells: Array<Contents>
+        }        
+
+        TableSection
+        {
+            rows: Array<TableRow>
+        }
+
+        Table
+        {
+            [head: TableSection,]
+            [body: TableSection,]
+            [foot: TableSection,]
+        }
+
+    table.table(class= prefix('table'))&attributes(attrs(context))
+        each section, index in ['head', 'body', 'foot']
+            if context[section]
+                #{`t${section}`}&attributes(attrs(context[section]))
+                    each row in (context[section].rows || [])
+                        tr&attributes(attrs(row))
+                            each cell in (row.cells || [])
+                                #{(!index ? 'th' : 'td')}&attributes(attrs(cell))
+                                    +u-contents(cell)
+
++u-example(ExampleTypes.GROUP)
+    +p-label('Table')
+    +g-table({
+        'head': {
+            'rows': [
+                {
+                    'cells': [
+                        null,
+                        'Item',
+                        null,
+                        'Price'
+                    ]
+                }
+            ]
+        },
+        'body': {
+            'rows': [
+                {
+                    'cells': [
+                        1,
+                        'Donec sodales, eros sed',
+                        null,
+                        {
+                            '+e-price': {
+                                'dollars': '99',
+                                'cents': '.95'
+                            }
+                        }
+                    ]
+                },
+                {
+                    'cells': [
+                        2,
+                        'Nunc ultrices eget',
+                        null,
+                        {
+                            '+e-price': {
+                                'dollars': '29',
+                                'cents': '.55'
+                            }
+                        }
+                    ]
+                },
+                {
+                    'cells': [
+                        3,
+                        'Aliquam venenatis',
+                        null,
+                        {
+                            '+e-price': {
+                                'dollars': '67',
+                                'cents': '.95'
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        'foot': {
+            'rows': [
+                {
+                    'cells': [
+                        null,
+                        {
+                            '+small': 'Subtotal'
+                        },
+                        null,
+                        {
+                            '+e-price': {
+                                'attrs': {
+                                    'prefix': 'subtotal'
+                                },
+                                'dollars': '197',
+                                'cents': '.45'
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    })

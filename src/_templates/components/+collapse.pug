@@ -1,0 +1,45 @@
+mixin c-collapse(context = {})
+    //-
+        Collapse
+        {
+            [parent: String,]
+            [expanded: Boolean,]
+            [id: String,]
+            headline: Contents,
+            details: Contents
+        }
+
+    - id = context.id || random();
+
+    .card(class= prefix('collapse'))&attributes(attributes, attrs(context))
+        h5.card-header(class= prefix('collapse-headline'))
+            a(href="javascript:void(0)")&attributes(flatten({'data': {'toggle': 'collapse', 'target': `#${id}`}, 'aria': {'expanded': (!!context.expanded).toString()}}), context.parent ? flatten({'data': {'parent': `#${context.parent}`}}) : undefined)
+                +u-contents(context.headline)
+        .collapse(class= prefix('collapse-details'), id= id, role="tabpanel")&attributes(context.expanded ? {'class': 'in'} : undefined)
+            .card-block
+                if isShorthand(context.details)
+                    p.card-text
+                        +u-contents(context.details)
+                else
+                    +u-contents(context.details)
+
++u-example(ExampleTypes.COMPONENT)
+    +p-label('Collapse')
+    +c-collapse({
+        'headline': 'Nunc id venenatis leo?',
+        'details': 'Cras dapibus risus et elit suscipit iaculis. Suspendisse gravida risus mi, vitae mollis lectus sollicitudin nec.'
+    })
+    +c-collapse({
+        'headline': 'Nunc accumsan viverra dapibus.',
+        'details': {
+            '+h4.text-xs-center': 'Duis eu venenatis sapien',
+            '+p.lead': 'Quisque nec tempus nunc. Duis ipsum dolor, bibendum id congue accumsan, pharetra sit amet arcu. Nullam ut enim consequat, eleifend libero eget, elementum diam.',
+            '+p': 'Mauris placerat gravida odio ac sagittis. Sed eget gravida ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+            '+button': {
+                'attrs': {
+                    'class': 'btn btn-primary'
+                },
+                'content': 'Suspendisse'
+            }
+        }
+    })

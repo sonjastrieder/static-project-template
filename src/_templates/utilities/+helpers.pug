@@ -1,0 +1,67 @@
+-
+    const lowerDash = (str = '') => str.trim().toLowerCase().replace(/[\s_]/g, '-');
+
+    const prefix = (...strings) => strings.filter(Boolean).map((str) => `${self.config.prefix}-${lowerDash(str)}`).join(' ');
+
+    const flatten = (object) => {
+        let obj = {};
+
+        if(isObject(object)) {
+            Object.keys(object).forEach((a) => {
+                let val = object[a];
+
+                if(a === 'prefix') {
+                    val = prefix.apply(null, val.split(' '));
+                    
+                    obj.class = obj.class ? [obj.class, val].join(' ') : val;
+                } else if(isObject(val) && !/^!/.test(a)) {
+                    let flat = flatten(val);
+
+                    Object.keys(flat).forEach((b) => {
+                        obj[`${a}-${b}`] = flat[b];
+                    });
+                } else {
+                    if(/^!/.test(a)) {
+                        obj[a.replace(/^!/, '')] = object[a];
+                    } else {
+                        obj[a] = object[a];
+                    }
+                }
+            });
+        }
+
+        return obj;
+    }
+
+    const attrs = (obj) => isObject(obj) ? flatten(obj.attrs || obj.attributes) : undefined;
+
+    const isShorthand = (config) => typeof(config) == 'string' || typeof(config) == 'number';
+
+    const isFunction = (func) => func && ({}).toString.call(func) === '[object Function]';
+
+    const isObject = (obj) => obj !== undefined && obj !== null && obj.constructor === Object;
+
+    const random = () => prefix(Math.round(Math.random() * 100000000) + '');
+
+    const pathsort = (arr, sep = '/') => {
+        return arr
+            .map((val) => isObject(val) ? (val.path = val.path.split(sep), val) : val.split(sep))
+            .sort((a, b) => {
+                if (isObject(a) && isObject(b)) {
+                    a = a.path;
+                    b = b.path;
+                }
+
+                let l = Math.max(a.length, b.length);
+                
+                for (let i = 0; i < l; i += 1) {
+                    if (!(i in a)) {return -1;}
+                    if (!(i in b)) {return +1;}
+                    if (a[i].toUpperCase() > b[i].toUpperCase()) {return +1;}
+                    if (a[i].toUpperCase() < b[i].toUpperCase()) {return -1;}
+                    if (a.length < b.length) {return -1;}
+                    if (a.length > b.length) {return +1;}
+                }
+            })
+            .map((val) => isObject(val) ? (val.path = val.path.join(sep), val) : val.join(sep));
+    }

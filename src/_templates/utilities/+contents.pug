@@ -1,0 +1,40 @@
+mixin u-contents(context = {})
+    //-
+        This extremely powerful contents mixin is the main loop for generating pages out of all data/templates.
+
+        It works with two data types: String | Object
+
+        Strings are output directly using unescaped interpolation.
+
+        Objects are iterated over to look for specific key patterns.
+        - Use the "content" key to output generic strings like above.
+        - Use the "block" key to retrieve the stored blocks. The value must match the id of a stored block.
+        - Use the "+" key pattern to render partials and elements alike.
+
+    - selfClosing = ['br', 'hr', 'input', 'img', 'link', 'meta'];
+
+    if isShorthand(context)
+        != context
+    else if isObject(context)
+        each val, key in context
+            if /^content(~[\w-]+)?$/.test(key)
+                != val
+            else if /^block(~[\w-]+)?$/.test(key)
+                - (isFunction(self.blocks[val]) ? self.blocks[val] : () => {})();
+            else if /^\+/.test(key)
+                -
+                    let className;
+                    let [, template] = /\+([\w-]+)/.exec(key);
+                    let options = key.match(/([~\.][\w-]+)/g) || {};
+                    
+                    if (!!options.length) {
+                        options.some((option) => /^\./.test(option) ? !!(className = option.slice(1)) : false)
+                    }
+                if /-/.test(template)
+                    +#{template}(val)(class= className)
+                else
+                    if selfClosing.indexOf(template) >= 0
+                        #{template}(class= className)&attributes(attrs((val || {})))/
+                    else
+                        #{template}(class= className)&attributes(attrs((val || {})))
+                            +u-contents(val)

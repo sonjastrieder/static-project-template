@@ -1,0 +1,94 @@
+.#{prefix('placeholder-label-text')} {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 4;
+    transition: all 500ms;
+    text-align: left !important;
+    color: $input-color-placeholder;
+    cursor: text;
+
+    .has-success & {
+        color: $brand-success;
+    }
+
+    .has-warning & {
+        color: $brand-warning;
+    }
+
+    .has-danger & {
+        color: $brand-danger;
+    }
+}
+
+.#{prefix('placeholder-label')} {
+    margin-bottom: 0;
+    position: relative;
+
+    .form-control {
+        padding-top: $input-padding-y * (5 / 3);
+        padding-bottom: $input-padding-y * (1 / 3);
+
+        & + .#{prefix('placeholder-label-text')} {
+            height: $input-height;
+            padding: $input-padding-y $input-padding-x;
+            font-size: $font-size-base;
+            line-height: $line-height-base;
+        }
+
+        &:focus,
+        &.#{prefix('holding')} {
+            & + .#{prefix('placeholder-label-text')} {
+                padding-top: $input-padding-y / 4;
+                font-size: 60%;
+                color: currentColor;
+            }
+        }
+
+        &.form-control-lg,
+        .input-group-lg & {
+            padding-top: $input-padding-y-lg * (5 / 3);
+            padding-right: $input-padding-x-lg;
+            padding-bottom: $input-padding-y-lg * (1 / 3);
+            padding-left: $input-padding-x-lg;
+            @include border-radius($input-border-radius-lg);
+            font-size: $font-size-lg;
+
+            & + .#{prefix('placeholder-label-text')} {
+                height: $input-height-lg;
+                padding: $input-padding-y-lg $input-padding-x-lg;
+                font-size: $font-size-lg;
+                line-height: $line-height-lg;
+            }
+
+            &:focus,
+            &.#{prefix('holding')} {
+                & + .#{prefix('placeholder-label-text')} {
+                    padding-top: $input-padding-y-lg / 4;
+                    font-size: 70%;
+                }
+            }
+        }
+
+        &.form-control-sm {
+            padding-top: $input-padding-y-sm * (5 / 3);
+            padding-bottom: $input-padding-y-sm * (1 / 3);
+
+            & + .#{prefix('placeholder-label-text')} {
+                height: $input-height-sm;
+                padding: $input-padding-y-sm $input-padding-x-sm;
+                font-size: $font-size-sm;
+                line-height: $line-height-sm;
+            }
+
+            &:focus,
+            &.#{prefix('holding')} {
+                & + .#{prefix('placeholder-label-text')} {
+                    padding-top: $input-padding-y-sm / 4;
+                    font-size: 50%;
+                }
+            }
+        }
+    }
+}

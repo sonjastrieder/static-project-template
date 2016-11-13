@@ -7,7 +7,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
     gulp.task('inject', () => {
         return gulp
-            .src(path.join(dirs.source, dirs.templates, 'utilities', 'includes.pug'))
+            .src(path.join(dirs.source, dirs.templates, 'utilities', '+includes.pug'))
             .pipe(plugins.inject(gulp.src([
                 path.join(dirs.source, dirs.templates, '**/*.pug'),
                 '!' + path.join(dirs.source, dirs.templates, 'layouts', '**/*.pug'),

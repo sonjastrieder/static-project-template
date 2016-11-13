@@ -61,11 +61,9 @@ ul.menu
 
 The data files found in the pages folder are handled uniquely. To allow for dynamic page generation with generic templates create a data file in the pages folder.
 
-Required properties: `page` or `layout`
+Optional properties: `layout`, `path`, `title`
 
-These properties' value (string) point at a template file in the cooresponding folders. Choose one.
-
-Optional properties: `path`, `title`
+The page layout defaults to using "+shell.pug" but can be overwritten to point to any file in the layouts folder.
 
 The path for a page defaults to the data file's name. This can be overwritten via the `path` property. Set a folder structure string, ex: "/foo/bar"
 

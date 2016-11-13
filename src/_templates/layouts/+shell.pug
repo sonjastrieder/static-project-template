@@ -1,0 +1,10 @@
+extends ./+base
+
+block body
+    +u-block('header')
+
+    main
+        block content
+            +u-contents(self.page)
+    
+    +u-block('footer')

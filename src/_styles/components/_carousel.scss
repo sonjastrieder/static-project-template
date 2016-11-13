@@ -1,0 +1,26 @@
+.slick-track {
+    width: 100% !important;
+    white-space: nowrap;
+}
+
+.slick-slide {
+    width: (1 / 3) * 100%;
+    float: none;
+    vertical-align: top;
+    white-space: normal;
+
+    .slick-initialized & {
+        display: inline-block;
+    }
+}
+
+.slick-prev,
+.slick-next {
+    &:before {
+        color: $color-xdark-gray;
+    }
+}
+
+.#{prefix('carousel')} {
+
+}

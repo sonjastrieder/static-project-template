@@ -1,0 +1,92 @@
+mixin m-grid(context = {})
+    //-
+        GridContainer
+        {
+            [before: Contents,]
+            [after: Contents]
+        }
+
+        Grid
+        {
+            [before: Contents,]
+            [container: GridContainer,]
+            rows: Array<Row>,
+            [after: Contents]
+        }
+
+    - container = context.container || {};
+
+    .container-fluid&attributes(attributes, attrs(context))
+        +u-contents(context.before)
+        .row
+            .container&attributes(attrs(container))
+                +u-contents(container.before)
+                each row in (context.rows || [])
+                    +g-row(row)
+                +u-contents(container.after)
+        +u-contents(context.after)
+
++u-example(ExampleTypes.MODULE)
+    +m-grid({
+        'container': {
+            'attrs': {
+                'class': 'xs-py-0'
+            }
+        },
+        'rows': [
+            {
+                'cols': [
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 xs-py-0'
+                        },
+                        '+p-label': 'Grid'
+                    }
+                ]
+            }
+        ]
+    })
+    +m-grid({
+        'attributes': {
+            'prefix': 'bg-xlight-gray'
+        },
+        'container': {
+            'attrs': {
+                'prefix': 'bg-light-gray'
+            }
+        },
+        'rows': [
+            {
+                'cols': [
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 col-md-6 col-lg-3',
+                            'prefix': 'bg-medium-gray'
+                        },
+                        '+h4': 'Column 1'
+                    },
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 col-md-6 col-lg-3',
+                            'prefix': 'bg-dark-gray color-white'
+                        },
+                        '+h4': 'Column 2'
+                    },
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 col-md-6 col-lg-3',
+                            'prefix': 'bg-xdark-gray color-white'
+                        },
+                        '+h4': 'Column 3'
+                    },
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 col-md-6 col-lg-3',
+                            'prefix': 'bg-black color-white'
+                        },
+                        '+h4': 'Column 4'
+                    }
+                ]
+            }
+        ]
+    })

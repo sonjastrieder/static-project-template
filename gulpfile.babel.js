@@ -2,7 +2,7 @@
 
 import gulp from 'gulp';
 import runSequence from 'gulp-run-sequence';
-import gulpLoadPlugins from 'gulp-load-plugins';
+import loadPlugins from 'gulp-load-plugins';
 import browserSyncLib from 'browser-sync';
 import minimist from 'minimist';
 import wrench from 'wrench';
@@ -11,7 +11,7 @@ import json from './package.json';
 
 // Load all gulp plugins based on their names
 // EX: gulp-copy -> copy
-const plugins = gulpLoadPlugins();
+const plugins = loadPlugins();
 
 const defaultNotification = function(err) {
     return {

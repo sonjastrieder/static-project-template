@@ -1,0 +1,34 @@
+mixin e-placeholder-label(context = {})
+    //-
+        Placeholder Label (accepts String shorthand)
+        {
+            label: String
+        }
+
+    - context = isShorthand(context) ? {'label': context} : context;
+
+    label(class= prefix('placeholder-label'))&attributes(attributes, attrs(context))
+        block
+        span(class= prefix('placeholder-label-text'))
+            +u-contents(context.label)
+
++u-example(ExampleTypes.ELEMENT)
+    +p-label('Placeholder Label')
+    .form-group
+        +e-placeholder-label('Email Address')
+            input.form-control(type="email")
+    .form-group
+        .input-group.input-group-lg
+            +e-placeholder-label('Password')
+                input.form-control(type="password")
+            .input-group-btn
+                button.btn.btn-primary go
+    .form-group.has-success
+        +e-placeholder-label('Zip Code')
+            input.form-control.form-control-lg(type="number", value="98101")
+    .form-group.has-warning
+        +e-placeholder-label('Telephone')
+            input.form-control(type="tel")
+    .form-group.has-danger
+        +e-placeholder-label('Other')
+            input.form-control.form-control-sm(type="text")

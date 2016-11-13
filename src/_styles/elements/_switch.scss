@@ -1,0 +1,150 @@
+.#{prefix('switch')} {
+    padding-left: ($custom-control-indicator-size * 2) + ($custom-control-gutter - $custom-control-indicator-size);
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+
+    & + .#{prefix('switch')} {
+        margin-left: $custom-control-spacer-x;
+    }
+}
+
+.#{prefix('switch-rtl')} {
+    padding-right: ($custom-control-indicator-size * 2) + ($custom-control-gutter - $custom-control-indicator-size);
+    padding-left: 0;
+
+    .#{prefix('switch-indicator')} {
+        right: 0;
+        left: auto;
+    }
+}
+
+.#{prefix('switch-input')} {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &:checked ~ .#{prefix('switch-indicator')} {
+        @include box-shadow($custom-control-checked-indicator-box-shadow);
+
+        .#{prefix('switch-inner')} {
+            margin-left: 0;
+
+            &:before {
+                background-color: $custom-control-checked-indicator-bg;
+            }
+        }
+
+        .#{prefix('switch-lever')} {
+            @include border-right-radius(0);
+            @include border-left-radius($custom-checkbox-radius);
+            right: 0;
+        }
+    }
+
+    &:focus ~ .#{prefix('switch-indicator')} {
+        // the mixin is not used here to make sure there is feedback
+        box-shadow: $custom-control-focus-indicator-box-shadow;
+    }
+
+    &:active ~ .#{prefix('switch-indicator')} {
+        @include box-shadow($custom-control-active-indicator-box-shadow);
+
+        .#{prefix('switch-inner')}:before {
+            background-color: $custom-control-active-indicator-bg;
+        }
+    }
+
+    &:disabled {
+        & ~ .#{prefix('switch-indicator')} {
+            background-color: $custom-control-disabled-indicator-bg;
+            cursor: $custom-control-disabled-cursor;
+        }
+
+        & ~ .#{prefix('switch-description')} {
+            color: $custom-control-disabled-description-color;
+            cursor: $custom-control-disabled-cursor;
+        }
+    }
+}
+
+.#{prefix('switch-indicator')} {
+    width: $custom-control-indicator-size * 2;
+    height: $custom-control-indicator-size;
+    @include border-radius($custom-checkbox-radius);
+    background-color: $custom-control-indicator-bg;
+    @include box-shadow($custom-control-indicator-box-shadow);
+    display: block;
+    position: absolute;
+    top: 0.25rem;
+    left: 0;
+    overflow: hidden;
+    user-select: none;
+}
+
+.#{prefix('switch-inner')} {
+    width: 200%;
+    height: 100%;
+    margin-left: -100%;
+    display: block;
+    transition: margin 0.1s ease-in 0s;
+
+    &:before,
+    &:after {
+        content: '';
+        width: 50%;
+        height: 100%;
+        padding: 0;
+        @include border-radius($custom-checkbox-radius * 1.15);
+        display: block;
+        float: left;
+    }
+
+    &:before {
+        background-color: $custom-control-checked-indicator-bg;
+        background-clip: padding-box;
+    }
+
+    &:after {
+        
+    }
+}
+
+.#{prefix('switch-lever')} {
+    width: $custom-control-indicator-size;
+    height: $custom-control-indicator-size;
+    @include border-right-radius($custom-checkbox-radius);
+    @include border-left-radius(0);
+    display: block;
+    background: $color-xlight-gray;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: $custom-control-indicator-size;
+    transition: all 0.1s ease-in 0s;
+}
+
+.#{prefix('switch-description')} {
+    
+}
+
+.#{prefix('switches-stacked')} {
+    @include clearfix;
+
+    .#{prefix('switch')} {
+        & + .#{prefix('switch')} {
+            margin-left: 0;
+        }
+    }
+
+    .#{prefix('switch-ltr')} {
+        float: left;
+        clear: left;
+    }
+
+    .#{prefix('switch-rtl')} {
+        float: right;
+        clear: right;
+    }
+}

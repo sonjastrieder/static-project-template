@@ -2,11 +2,96 @@
     outline: 0 !important;
 }
 
-.#{$prefix}-breakpoint {
-    font-family: 'xs';
+html {
+    -ms-overflow-style: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
-    @include media-breakpoint-up(sm) {font-family: 'sm';}
-    @include media-breakpoint-up(md) {font-family: 'md';}
-    @include media-breakpoint-up(lg) {font-family: 'lg';}
-    @include media-breakpoint-up(xl) {font-family: 'xl';}
+##{prefix('breakpoint')} {
+    font-family: 'xs';
+}
+
+[href^="tel:"] {
+    white-space: nowrap;
+}
+
+button {
+    cursor: pointer;
+}
+
+input {
+    &[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+}
+
+label {
+    display: block;
+}
+
+picture {
+    display: block;
+}
+
+small {
+    display: inline-block;
+    line-height: 1.2;
+}
+
+strong {
+    font-weight: $font-weight-bold;
+}
+
+sup {
+    font-size: 60%;
+}
+
+textarea {
+    min-height: 150px;
+}
+
+.#{prefix('hidden')} {
+    display: none !important;
+}
+
+@include media-breakpoint-up(sm) {
+    ##{prefix('breakpoint')} {
+        font-family: 'sm';
+    }
+}
+
+@include media-breakpoint-up(md) {
+    ##{prefix('breakpoint')} {
+        font-family: 'md';
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    ##{prefix('breakpoint')} {
+        font-family: 'lg';
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    ##{prefix('breakpoint')} {
+        font-family: 'xl';
+    }
+}
+
+@include media-breakpoint-up(dx) {
+    ##{prefix('breakpoint')} {
+        font-family: 'dx';
+    }
+}
+
+@include media-breakpoint-up(tx) {
+    ##{prefix('breakpoint')} {
+        font-family: 'tx';
+    }
 }

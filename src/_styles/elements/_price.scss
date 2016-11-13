@@ -1,0 +1,31 @@
+.#{prefix('price')} {
+    white-space: nowrap;
+
+    &.#{prefix('tax')} {
+        &:after {
+            content: ' + tax';
+            font-weight: $font-weight-regular;
+            font-size: (5 / 9) * 100%;
+            color: $color-medium-gray;
+        }
+    }
+
+    &.#{prefix('subtotal')} {
+        font-weight: $font-weight-bold;
+    }
+}
+
+.#{prefix('price-sign')} {
+    top: -0.45em;
+    font-weight: $font-weight-regular;
+    font-size: (5 / 9) * 100%;
+}
+
+.#{prefix('price-dollars')} {
+
+}
+
+.#{prefix('price-cents')} {
+    font-weight: inherit;
+    font-size: (2 / 3) * 100%;
+}

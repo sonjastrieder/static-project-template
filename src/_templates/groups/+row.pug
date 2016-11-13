@@ -1,0 +1,41 @@
+mixin g-row(context = {})
+    //-
+        Row
+        {
+            [columns: Array<Object>,]
+            [cols: Array<Object>,]
+        }
+
+    .row&attributes(attributes, attrs(context))
+        each column in (context.columns || context.cols || [])
+            div&attributes(attrs(column))
+                +u-contents(column)
+
++u-example(ExampleTypes.GROUP)
+    +p-label('Row')
+    +g-row({
+        'cols': [
+            {
+                'attrs': {
+                    'class': 'col-xs-12 text-xs-center'
+                },
+                '+p': 'Rows are just the inner guts of the Grid module. Same row + column parameters and template, sans containers.'
+            }
+        ]
+    })
+    +g-row({
+        'cols': [
+            {
+                'attrs': {
+                    'class': 'col-xs-6'
+                },
+                '+h4': 'Get it?'
+            },
+            {
+                'attrs': {
+                    'class': 'col-xs-6 text-xs-right'
+                },
+                '+h4.text-muted': 'Got it.'
+            }
+        ]
+    })

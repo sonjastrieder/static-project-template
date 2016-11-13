@@ -1,8 +1,0 @@
-.fs-header {
-    outline: 1px solid grey;
-}
-@element '.fs-header' and (max-width: 600px) {
-    eq_this {
-        outline: 1px solid red;
-    }
-}

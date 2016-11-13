@@ -1,0 +1,55 @@
+.#{prefix('color-white')} {
+    color: $color-white;
+}
+
+.#{prefix('color-xlight-gray')} {
+    color: $color-xlight-gray;
+}
+
+.#{prefix('color-light-gray')} {
+    color: $color-light-gray;
+}
+
+.#{prefix('color-medium-gray')} {
+    color: $color-medium-gray;
+}
+
+.#{prefix('color-dark-gray')} {
+    color: $color-dark-gray;
+}
+
+.#{prefix('color-xdark-gray')} {
+    color: $color-xdark-gray;
+}
+
+.#{prefix('color-black')} {
+    color: $color-black;
+}
+
+.#{prefix('bg-white')} {
+    background-color: $color-white;
+}
+
+.#{prefix('bg-xlight-gray')} {
+    background-color: $color-xlight-gray;
+}
+
+.#{prefix('bg-light-gray')} {
+    background-color: $color-light-gray;
+}
+
+.#{prefix('bg-medium-gray')} {
+    background-color: $color-medium-gray;
+}
+
+.#{prefix('bg-dark-gray')} {
+    background-color: $color-dark-gray;
+}
+
+.#{prefix('bg-xdark-gray')} {
+    background-color: $color-xdark-gray;
+}
+
+.#{prefix('bg-black')} {
+    background-color: $color-black;
+}

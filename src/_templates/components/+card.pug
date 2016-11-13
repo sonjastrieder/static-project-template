@@ -1,0 +1,281 @@
+mixin c-card(context = {})
+    //-
+        Documentation: http://v4-alpha.getbootstrap.com/components/card/
+
+        CardHeader (accepts String shorthand)
+        {
+            [element: String(DOM node),]
+            [+p-nav-pills: Nav,]
+            [+p-nav-tabs: Nav]
+        }
+
+        CardPicture extends Picture
+        {
+            [top: Boolean,]
+            [bottom: Boolean]
+        }
+        
+        CardBlockTitle (accepts String shorthand)
+        {
+            [element: String(DOM node)]
+        }
+
+        CardBlockSubtitle extends CardBlockTitle
+
+        CardBlockBlockquote extends Blockquote
+
+        CardBlock
+        {
+            [+p-title: CardBlockTitle,]
+            [+p-subtitle: CardBlockSubtitle,]
+            [+p-blockquote: CardBlockBlockquote,]
+            [+p-text: Contents,]
+            [+p-link: Contents]
+        }
+
+        CardOverlay extends CardBlock
+
+        CardList
+        {
+            items: Array<Contents>
+        }
+
+        Card
+        {
+            [+p-header: CardHeader,]
+            [+p-block: CardBlock,]
+            [+p-overlay: CardOverlay,]
+            [+p-footer: Contents]
+        }
+
+    .card(class= prefix('card'))&attributes(attributes, attrs(context))
+        mixin p-header(con = {})
+            mixin p-nav-pills(c = {})
+                +g-nav(c)(class="nav-pills card-header-pills")
+
+            mixin p-nav-tabs(c = {})
+                +g-nav(c)(class="nav-tabs card-header-tabs")
+
+            - con = isShorthand(con) ? {'element': 'h3', 'content': con} : con;
+
+            #{con.element || 'div'}.card-header&attributes(attrs(con))
+                +u-contents(con)
+        
+        mixin p-picture(con = {})
+            +e-picture(con)(class= (con.top ? 'card-img-top' : (con.bottom ? 'card-img-bottom' : 'card-img')))
+
+        mixin p-block(con = {})
+            mixin p-title(c = {})
+                #{c.element || 'h4'}.card-title&attributes(attrs(c))
+                    +u-contents(c)
+
+            mixin p-subtitle(c = {})
+                #{c.element || 'h6'}.card-subtitle&attributes(attrs(c))
+                    +u-contents(c)
+
+            mixin p-blockquote(c = {})
+                +e-blockquote(c)(class="card-blockquote")
+
+            mixin p-text(c = {})
+                p.card-text
+                    +u-contents(c)
+
+            mixin p-link(c = {})
+                a.card-link(href="javascript:void(0)")&attributes(attrs(c))
+                    +u-contents(c)
+
+            .card-block&attributes(attrs(con))
+                +u-contents(con)
+        
+        mixin p-overlay(con = {})
+            .card-img-overlay
+                +p-block(con)
+
+        mixin p-list(con = {})
+            ul.list-group.list-group-flush
+                each item in (con.items || [])
+                    li.list-group-item&attributes(attrs(item))
+                        +u-contents(item)
+
+        mixin p-footer(con = {})
+            .card-footer&attributes(attrs(con))
+                +u-contents(con)
+
+        +u-contents(context)
+
++u-example(ExampleTypes.COMPONENT)
+    +p-label('Card')
+    +g-row({
+        'cols': [
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    '+p-picture': {
+                        'top': true,
+                        'srcs': [
+                            {
+                                'path': 'http://placehold.it/1400x700',
+                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/992x496',
+                                'media': `(min-width: ${self.config.breakpoints.md}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/768x384',
+                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                            }
+                            
+                        ],
+                        'alt': 'Curabitur Suscipit'
+                    },
+                    '+p-block': {
+                        '+p-title': 'Curabitur Suscipit',
+                        '+p-text': 'Anteger vulputate metus quis hendrerit ultrices. Sed nec diam dui.',
+                        '+button': {
+                            'attrs': {
+                                'class': 'btn btn-primary'
+                            },
+                            'content': 'Gravida Cem'
+                        }
+                    }
+                }
+            },
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    '+p-picture': {
+                        'srcs': [
+                            {
+                                'path': 'http://placehold.it/1400x700',
+                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/992x496',
+                                'media': `(min-width: ${self.config.breakpoints.md}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/768x384',
+                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                            }
+                        ],
+                        'alt': 'Curabitur Suscipit'
+                    },
+                    '+p-overlay': {
+                        '+p-title': 'Curabitur Suscipit',
+                        '+p-text': 'Anteger vulputate metus quis hendrerit ultrices. Sed nec diam dui.',
+                        '+p-link': 'Gravida Cem'
+                    }
+                }
+            },
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    '+p-header': 'Curabitur Suscipit',
+                    '+p-list': {
+                        'items': [
+                            'Aliquam erat volutpat',
+                            'Duis ac odio viverra',
+                            'Curabitur efficitur',
+                            'In efficitur tortor cursus'
+                        ]
+                    },
+                    '+p-picture': {
+                        'bottom': true,
+                        'srcs': [
+                            {
+                                'path': 'http://placehold.it/1400x700',
+                                'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/992x496',
+                                'media': `(min-width: ${self.config.breakpoints.md}px)`
+                            },
+                            {
+                                'path': 'http://placehold.it/768x384',
+                                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                            }
+                        ],
+                        'alt': 'Curabitur Suscipit'
+                    }
+                }
+            }
+        ]
+    })
+    +g-row({
+        'cols': [
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    '+p-header': {
+                        '+p-nav-tabs': {
+                            'items': [
+                                {
+                                    'link': {
+                                        'attrs': {
+                                            'class': 'active'
+                                        },
+                                        'content': 'Curabitur'
+                                    }
+                                },
+                                'Gravida',
+                                'Suscipit'
+                            ]
+                        }
+                    },
+                    '+p-block': {
+                        '+p-blockquote': {
+                            '+p': 'Sed porta aliquet ultrices. Pellentesque blandit elit sapien, sit amet dictum elit venenatis quis.',
+                            'footer': {
+                                'content': 'tincidunt interdum',
+                                '+cite': 'Curabitur Suscipit'
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    '+p-block': {
+                        '+p-title': 'Suspendisse',
+                        '+p-text': 'Ut suscipit non nunc non vestibulum. Pellentesque tincidunt interdum nisi eu faucibus.',
+                        '+p-link~0': 'Lacus Maximus',
+                        '+p-link~1': 'Nam Mauris'
+                    }
+                }
+            },
+            {
+                'attrs': {
+                    'class': 'col-xs-12 col-md-6 col-lg-4'
+                },
+                '+c-card': {
+                    'attrs': {
+                        'class': 'text-xs-center'
+                    },
+                    '+p-header': 'Sed porta aliquet',
+                    '+p-block': {
+                        '+p-title': 'Aenean convallis',
+                        '+p-text': 'Suspendisse magna ex, elementum ut mi id, accumsan ullamcorper purus. Sed porta aliquet ultrices.',
+                        '+button': {
+                            'attrs': {
+                                'class': 'btn btn-primary'
+                            },
+                            'content': 'Ullamcorper Nibh'
+                        }
+                    },
+                    '+p-footer': 'Aenean accumsan'
+                }
+            }
+        ]
+    })

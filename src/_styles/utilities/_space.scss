@@ -1,0 +1,44 @@
+// http://v4-alpha.getbootstrap.com/utilities/spacing/
+
+/*
+    This is an extension of Bootstrap's spacing utilities. The addition of breakpoints allows for responsive overrides.
+
+    The format is the same with only the addition of the breakpoint abbreviation and a dash as a prefix.
+*/
+
+@each $break, $point in $grid-breakpoints {
+    @include media-breakpoint-up($break) {
+        @each $prop, $abbr in (padding: p, margin: m) {
+            @each $size, $lengths in $spacers {
+                $length-x: map-get($lengths, x);
+                $length-y: map-get($lengths, y);
+
+                .#{$break}-#{$abbr}-#{$size} { #{$prop}:        $length-y $length-x !important; }
+                .#{$break}-#{$abbr}t-#{$size} { #{$prop}-top:    $length-y !important; }
+                .#{$break}-#{$abbr}r-#{$size} { #{$prop}-right:  $length-x !important; }
+                .#{$break}-#{$abbr}b-#{$size} { #{$prop}-bottom: $length-y !important; }
+                .#{$break}-#{$abbr}l-#{$size} { #{$prop}-left:   $length-x !important; }
+
+                .#{$break}-#{$abbr}x-#{$size} {
+                    #{$prop}-right:  $length-x !important;
+                    #{$prop}-left:   $length-x !important;
+                }
+
+                .#{$break}-#{$abbr}y-#{$size} {
+                    #{$prop}-top:    $length-y !important;
+                    #{$prop}-bottom: $length-y !important;
+                }
+            }
+
+            @if $prop == 'margin' {
+                .#{$break}-#{$abbr}r-auto { #{$prop}-right: auto !important; }
+                .#{$break}-#{$abbr}l-auto { #{$prop}-left:  auto !important; }
+
+                .#{$break}-#{$abbr}x-auto {
+                    #{$prop}-right:  auto !important;
+                    #{$prop}-left:   auto !important;
+                }
+            }
+        }
+    }
+}

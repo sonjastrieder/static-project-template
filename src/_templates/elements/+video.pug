@@ -1,0 +1,20 @@
+mixin e-video(context = {})
+    //-
+        Source
+        {
+            path: String,
+            type: String(mime-type)
+        }
+
+        Video
+        {
+            [srcs: Array<Source>,]
+            [src: Source]
+        }
+
+    video(class= prefix('video'))&attributes(attrs(context))
+        if context.srcs
+            each src in context.srcs
+                source(src= src.path, type= src.type)
+        if context.src
+            source(src= context.src.path, type= context.src.type)

@@ -1,0 +1,111 @@
+mixin m-hero(context = {})
+    //-
+        Hero
+        {
+            [align: String,]
+            [alignment: String,]
+            [background: Picture,]
+            [headline: Contents,]
+            [details: Contents,]
+            [link: Contents]
+        }
+    
+    -
+        align = context.align || 'center';
+        alignment = {
+            'center': 'col-md-8 md-mx-auto',
+            'right': 'col-md-8 md-ml-auto text-md-left col-xl-6',
+            'left': 'col-md-8 text-md-left col-xl-6',
+            'custom': context.alignment
+        };
+    
+    .container-fluid(class= prefix('hero'))&attributes(attrs(context))
+        if context.background
+            +e-picture(context.background)
+        .row
+            .container
+                .row
+                    .col-xs-12.text-xs-center(class= prefix('hero-content'))&attributes({'class': alignment[align]})
+                        div(class= prefix('hero-cell'))
+                            if context.headline
+                                if isShorthand(context.headline)
+                                    h1(class= prefix('hero-headline'))
+                                        +u-contents(context.headline)
+                                else
+                                    div(class= prefix('hero-headline'))&attributes(attrs(context.headline))
+                                        +u-contents(context.headline)
+                            if context.details
+                                if isShorthand(context.details)
+                                    h4(class= prefix('hero-details'))
+                                        +u-contents(context.details)
+                                else
+                                    div(class= prefix('hero-details'))&attributes(attrs(context.details))
+                                        +u-contents(context.details)
+                            if context.link
+                                a(href="javascript:void(0)", class= prefix('hero-link'))&attributes(attrs(context.link), isShorthand(context.link) ? {'class': 'btn btn-primary'} : undefined)
+                                    +u-contents(context.link)
+
++u-example(ExampleTypes.MODULE)
+    +m-grid({
+        'container': {
+            'attrs': {
+                'class': 'xs-py-0'
+            }
+        },
+        'rows': [
+            {
+                'cols': [
+                    {
+                        'attrs': {
+                            'class': 'col-xs-12 xs-py-0'
+                        },
+                        '+p-label': {
+                            'attrs': {
+                                'class': 'xs-mt-md'
+                            },
+                            'content': 'Hero'
+                        }
+                    }
+                ]
+            }
+        ]
+    })
+    +m-hero({
+        'background': {
+            'srcs': [
+                {
+                    'path': 'http://placehold.it/1920x600',
+                    'media': `(min-width: ${self.config.breakpoints.tx}px)`
+                },
+                {
+                    'path': 'http://placehold.it/1700x600',
+                    'media': `(min-width: ${self.config.breakpoints.dx}px)`
+                },
+                {
+                    'path': 'http://placehold.it/1400x600',
+                    'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                },
+                {
+                    'path': 'http://placehold.it/1200x600',
+                    'media': `(min-width: ${self.config.breakpoints.lg}px)`
+                },
+                {
+                    'path': 'http://placehold.it/992x450',
+                    'media': `(min-width: ${self.config.breakpoints.md}px)`
+                },
+                {
+                    'path': 'http://placehold.it/768x450',
+                    'media': `(min-width: ${self.config.breakpoints.sm}px)`
+                },
+                {
+                    'path': 'http://placehold.it/544x300',
+                    'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                }
+                
+            ],
+            'alt': 'Curabitur Suscipit'
+        },
+        'headline': 'Curabitur Suscipit',
+        'details': 'Massa justo tempor erat, non viverra mi augue at dui. Integer hendrerit pretium tincidunt.',
+        'link': 'Pulvinar Rhoncus'
+    })

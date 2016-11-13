@@ -1,0 +1,115 @@
+mixin e-radio-checkbox(context = {})
+    //-
+        Radio/Checkbox
+        {
+            [dir: String[ltr | rtl],]
+            type: String[radio | checkbox],
+            [input: Object,]
+            label: Contents
+        }
+    
+    -
+        input = context.input || {};
+        label = isShorthand(context.label) ? {'content': context.label} : context.label;
+
+    label.custom-control(class= `custom-${context.type} custom-control-${context.dir || 'ltr'} ${prefix('control')}`)&attributes(attributes, attrs(context))
+        input.custom-control-input(type= context.type)&attributes(attrs(input))
+        span.custom-control-indicator
+        span.custom-control-description&attributes(attrs(context.label))
+            +u-contents(context.label)
+
++u-example(ExampleTypes.ELEMENT)
+    +p-label('Custom Radio & Checkbox')
+    .form-group
+        +e-radio-checkbox({
+            'type': 'radio',
+            'input': {
+                'attrs': {
+                    'name': 'ex-custom-radio-1'
+                }
+            },
+            'label': 'Radio 1'
+        })
+        +e-radio-checkbox({
+            'type': 'radio',
+            'input': {
+                'attrs': {
+                    'name': 'ex-custom-radio-1'
+                }
+            },
+            'label': 'Radio 2'
+        })
+        +e-radio-checkbox({
+            'type': 'radio',
+            'input': {
+                'attrs': {
+                    'name': 'ex-custom-radio-1'
+                }
+            },
+            'label': 'Radio 3'
+        })
+    .form-group.custom-controls-stacked.has-success
+        +e-radio-checkbox({
+            'type': 'checkbox',
+            'label': 'Checkbox 1'
+        })
+        +e-radio-checkbox({
+            'type': 'checkbox',
+            'label': 'Checkbox 2'
+        })
+        +e-radio-checkbox({
+            'type': 'checkbox',
+            'label': 'Checkbox 3'
+        })
+    .form-group.custom-controls-stacked.has-warning
+        +e-radio-checkbox({
+            'dir': 'rtl',
+            'type': 'radio',
+            'input': {
+                'attrs': {
+                    'name': 'ex-custom-radio-2'
+                }
+            },
+            'label': 'Radio 1'
+        })
+        +e-radio-checkbox({
+            'dir': 'rtl',
+            'type': 'radio',
+            'input': {
+                'attrs': {
+                    'name': 'ex-custom-radio-2'
+                }
+            },
+            'label': 'Radio 2'
+        })
+        +e-radio-checkbox({
+            'dir': 'rtl',
+            'type': 'radio',
+            'input': {
+                'attrs': {
+                    'name': 'ex-custom-radio-2'
+                }
+            },
+            'label': 'Radio 3'
+        })
+    .form-group.has-danger
+        +e-radio-checkbox({
+            'dir': 'rtl',
+            'type': 'checkbox',
+            'input': {
+                'attrs': {
+                    'disabled': true
+                }
+            },
+            'label': 'Checkbox 1'
+        })
+        +e-radio-checkbox({
+            'dir': 'rtl',
+            'type': 'checkbox',
+            'label': 'Checkbox 2'
+        })
+        +e-radio-checkbox({
+            'dir': 'rtl',
+            'type': 'checkbox',
+            'label': 'Checkbox 3'
+        })

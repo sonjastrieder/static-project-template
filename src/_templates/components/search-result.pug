@@ -1,0 +1,38 @@
+mixin c-search-result(context = {})
+    .card(class= prefix('search-result'))&attributes(flatten({'data': {'equal': {'group': 'search-result'}}}))
+        +e-picture({
+            'attrs': {
+                'class': 'card-img-top'
+            },
+            'srcs': [
+                {
+                    'path': 'http://placehold.it/1400x700',
+                    'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                },
+                {
+                    'path': 'http://placehold.it/992x496',
+                    'media': `(min-width: ${self.config.breakpoints.md}px)`
+                },
+                {
+                    'path': 'http://placehold.it/768x384',
+                    'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                }
+            ],
+            'alt': 'Curabitur Suscipit',
+            'url': 'javascript:void(0)'
+        })
+        .card-block
+            h4.card-title
+                a(href="javascript:void(0)", class= prefix('inherit'))
+                    +u-contents(context.headline)
+            if context.details
+                p.card-text
+                    +u-contents(context.details)
+            if !context.options
+                a.card-link(href="javascript:void(0)") Learn More
+        if context.options
+            ul.list-group.list-group-flush
+                each option in (context.options || [])
+                    li.list-group-item&attributes(attrs(option))
+                        a(href="javascript:void(0)")
+                            +u-contents(option)

@@ -1,56 +1,82 @@
 {
   "name": "static-project-template",
   "version": "0.0.1",
+  "description": "A generator for creating static sites. Helps you harness the power of your favorite tools: Pug, Gulp, ES6/2015, and much more!",
+  "keywords": [
+    "frontend",
+    "html5",
+    "pug",
+    "static site",
+    "static",
+    "sass",
+    "browsersync",
+    "browserify",
+    "bootstrap",
+    "style guide",
+    "pattern library"
+  ],
+  "homepage": "https://github.com/fellswoop/static-project-template",
+  "bugs": "https://github.com/fellswoop/static-project-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fellswoop/static-project-template.git"
+  },
+  "author": {
+    "name": "Fellswoop",
+    "email": "dev@fellswoop.com",
+    "url": "http://www.fellswoop.com/"
+  },
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.2",
+    "bootstrap": "^4.0.0-alpha.5",
     "browsernizr": "^2.1.0",
-    "eqcss": "^1.2.1",
-    "jquery": "2.2.4",
-    "jquery-scrollstop": "^1.2.0",
-    "jquery.resizeend": "^0.2.1",
+    "lodash": "^4.15.0",
+    "moment": "^2.15.2",
     "picturefill": "^3.0.2",
+    "placekeeper": "^1.0.7",
+    "slick-carousel": "^1.6.0",
     "svg4everybody": "^2.1.0",
-    "tether": "^1.3.7"
+    "tether": "^1.3.7",
+    "velocity-animate": "^1.3.1"
   },
   "devDependencies": {
-    "autoprefixer": "~6.4.1",
-    "babel-core": "~6.14.0",
-    "babel-eslint": "~6.1.2",
+    "autoprefixer": "~6.5.1",
+    "babel-core": "~6.18.2",
+    "babel-eslint": "~7.1.0",
     "babel-plugin-add-module-exports": "~0.2.1",
-    "babel-preset-es2015": "~6.14.0",
+    "babel-preset-es2015": "~6.18.0",
     "babelify": "~7.3.0",
-    "browser-sync": "~2.15.0",
-    "browserify": "~13.1.0",
+    "browser-sync": "~2.17.5",
+    "browserify": "~13.1.1",
     "browserify-shim": "^3.8.12",
     "del": "~2.2.2",
     "envify": "~3.4.1",
     "foldero": "~0.1.1",
-    "glob": "~7.0.6",
+    "glob": "~7.1.1",
     "gulp": "~3.9.1",
     "gulp-changed": "~1.3.2",
     "gulp-cssnano": "~2.1.2",
     "gulp-data": "~1.2.1",
     "gulp-eslint": "~3.0.1",
-    "gulp-htmlmin": "~2.0.0",
+    "gulp-htmlmin": "~3.0.0",
     "gulp-if": "~2.0.1",
-    "gulp-imagemin": "~3.0.3",
+    "gulp-imagemin": "~3.1.1",
     "gulp-inject": "^4.1.0",
-    "gulp-load-plugins": "~1.2.4",
-    "gulp-newer": "~1.2.0",
+    "gulp-load-plugins": "~1.4.0",
+    "gulp-newer": "~1.3.0",
     "gulp-notify": "~2.2.0",
     "gulp-plumber": "~1.1.0",
-    "gulp-postcss": "~6.1.1",
-    "gulp-pug": "^3.0.4",
+    "gulp-postcss": "~6.2.0",
+    "gulp-pug": "^3.1.0",
     "gulp-rename": "~1.2.2",
     "gulp-run-sequence": "^0.3.2",
     "gulp-sass": "~2.3.2",
-    "gulp-sourcemaps": "~1.6.0",
+    "gulp-sourcemaps": "~2.2.0",
     "gulp-svg-sprite": "^1.3.6",
     "gulp-uglify": "~2.0.0",
     "gulp-util": "~3.0.7",
     "imagemin-pngquant": "~5.0.0",
     "imagemin-svgo": "~5.2.0",
-    "lodash": "~4.15.0",
+    "lodash": "~4.16.6",
     "minimist": "~1.2.0",
     "pug": "^2.0.0-beta6",
     "rimraf": "~2.5.4",
@@ -60,10 +86,49 @@
     "wrench": "~1.5.9"
   },
   "scripts": {
-    "clean-deps": "rimraf node_modules"
+    "clean": "rimraf node_modules tmp build"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=6"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+    "slick-carousel": "./node_modules/slick-carousel/slick/slick.min.js",
+    "tether": "./node_modules/tether/dist/js/tether.min.js",
+    "velocity": "./node_modules/velocity-animate/velocity.min.js",
+    "velocity-ui": "./node_modules/velocity-animate/velocity.ui.min.js"
+  },
+  "browserify-shim": {
+    "bootstrap": {
+      "depends": [
+        "jquery:$",
+        "tether:Tether"
+      ]
+    },
+    "jquery": "global:$",
+    "slick-carousel": {
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "tether": "Tether",
+    "velocity": {
+      "depends": [
+        "jquery:$"
+      ],
+      "exports": "Velocity"
+    },
+    "velocity-ui": {
+      "depends": [
+        "jquery:$",
+        "velocity:Velocity"
+      ]
+    }
   },
   "config": {
     "host": "localhost",
@@ -83,6 +148,15 @@
       "js": "main**.js",
       "css": "main**.scss"
     },
-    "prefix": "fs"
+    "prefix": "fs",
+    "breakpoints": {
+      "xs": 0,
+      "sm": 544,
+      "md": 768,
+      "lg": 992,
+      "xl": 1200,
+      "dx": 1400,
+      "tx": 1700
+    }
   }
 }

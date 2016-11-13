@@ -1,0 +1,338 @@
+{
+    "title": "Home",
+    "+m-hero": {
+        "background": {
+            "srcs": [
+                {
+                    "path": "http://placehold.it/1700x600",
+                    "media": "(min-width: 1400px)"
+                },
+                {
+                    "path": "http://placehold.it/992x450",
+                    "media":"`(min-width: 768px)"
+                },
+                {
+                    "path": "http://placehold.it/544x300",
+                    "media": "(min-width: 0px)"
+                }
+            ],
+            "alt": "Curabitur Suscipit"
+        },
+        "headline": "Suspendisse ut nunc lobortis",
+        "details": "Curabitur dapibus felis at rutrum",
+        "link": "Learn More"
+    },
+    "+m-grid": {
+        "rows": [
+            {
+                "cols": [
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 text-xs-center col-md-10 float-md-none md-mx-auto col-lg-8 col-dx-6"
+                        },
+                        "+h2": "Sed euismod accumsan",
+                        "+p.lead": "Curabitur dapibus felis at rutrum auctor. Nulla id orci egestas, posuere quam in, aliquet purus. Quisque mollis purus a eros tincidunt vestibulum. Aliquam erat volutpat. Proin aliquam leo non neque placerat, id aliquam quam accumsan.",
+                        "+a": {
+                            "attrs": {
+                                "class": "btn btn-primary",
+                                "href": "javascript:void(0)"
+                            },
+                            "content": "Learn More"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "+m-grid": {
+        "rows": [
+            {
+                "cols": [
+                    {
+                        "attrs": {
+                            "class": "col-xs-12"
+                        },
+                        "+div.card-group": {
+                            "+c-card": {
+                                "+p-picture": {
+                                    "top": true,
+                                    "srcs": [
+                                        {
+                                            "path": "http://placehold.it/1400x700",
+                                            "media": "(min-width: 1200px)"
+                                        },
+                                        {
+                                            "path": "http://placehold.it/992x496",
+                                            "media": "(min-width: 768px)"
+                                        },
+                                        {
+                                            "path": "http://placehold.it/768x384",
+                                            "media": "(min-width: 0px)"
+                                        }
+                                    ],
+                                    "alt": "Curabitur Suscipit",
+                                    "url": "javascript:void(0)"
+                                },
+                                "+p-block": {
+                                    "+p-text": "Nullam non urna in risus consequat ultricies.",
+                                    "+button": {
+                                        "attrs": {
+                                            "class": "btn btn-primary"
+                                        },
+                                        "content": "Learn More"
+                                    }
+                                }
+                            },
+                            "+c-card": {
+                                "+p-picture": {
+                                    "top": true,
+                                    "srcs": [
+                                        {
+                                            "path": "http://placehold.it/1400x700",
+                                            "media": "(min-width: 1200px)"
+                                        },
+                                        {
+                                            "path": "http://placehold.it/992x496",
+                                            "media": "(min-width: 768px)"
+                                        },
+                                        {
+                                            "path": "http://placehold.it/768x384",
+                                            "media": "(min-width: 0px)"
+                                        }
+                                    ],
+                                    "alt": "Curabitur Suscipit",
+                                    "url": "javascript:void(0)"
+                                },
+                                "+p-block": {
+                                    "+p-text": "Suspendisse nulla nunc, porttitor a ligula ut, tempor facilisis risus. Sed euismod accumsan urna quis molestie.",
+                                    "+button": {
+                                        "attrs": {
+                                            "class": "btn btn-primary"
+                                        },
+                                        "content": "Learn More"
+                                    }
+                                }
+                            },
+                            "+c-card": {
+                                "+p-picture": {
+                                    "top": true,
+                                    "srcs": [
+                                        {
+                                            "path": "http://placehold.it/1400x700",
+                                            "media": "(min-width: 1200px)"
+                                        },
+                                        {
+                                            "path": "http://placehold.it/992x496",
+                                            "media": "(min-width: 768px)"
+                                        },
+                                        {
+                                            "path": "http://placehold.it/768x384",
+                                            "media": "(min-width: 0px)"
+                                        }
+                                    ],
+                                    "alt": "Curabitur Suscipit",
+                                    "url": "javascript:void(0)"
+                                },
+                                "+p-block": {
+                                    "+p-text": "Nunc nec ante sit amet arcu rhoncus volutpat. Ut ac urna nisi. Aliquam ut tincidunt velit.",
+                                    "+button": {
+                                        "attrs": {
+                                            "class": "btn btn-primary"
+                                        },
+                                        "content": "Learn More"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "+m-grid": {
+        "attrs": {
+            "prefix": "bg-dark-gray color-white"
+        },
+        "rows": [
+            {
+                "cols": [
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 col-md-6 col-lg-4 offset-lg-1"
+                        },
+                        "+p-picture": {
+                            "srcs": [
+                                {
+                                    "path": "http://placehold.it/1400x700",
+                                    "media": "(min-width: 1200px)"
+                                },
+                                {
+                                    "path": "http://placehold.it/992x496",
+                                    "media": "(min-width: 768px)"
+                                },
+                                {
+                                    "path": "http://placehold.it/768x384",
+                                    "media": "(min-width: 0px)"
+                                }
+                            ],
+                            "alt": "Curabitur Suscipit"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 col-md-6 col-lg-5 offset-lg-1"
+                        },
+                        "+e-blockquote": {
+                            "attrs": {
+                                "class": "blockquote-reverse xs-mb-0"
+                            },
+                            "+p": "Donec quis purus eleifend, accumsan justo nec, suscipit nisl. Cras vulputate lorem libero, et tincidunt augue pellentesque et. Pellentesque pharetra efficitur libero, vestibulum volutpat erat bibendum eget.",
+                            "footer": {
+                                "content": "Aliquam euismod ",
+                                "+cite": "et justo at blandit"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "+m-grid": {
+        "attrs": {
+            "prefix": "bg-dark-gray color-white"
+        },
+        "rows": [
+            {
+                "cols": [
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 col-md-6 push-md-6 col-lg-4 push-lg-7"
+                        },
+                        "+p-picture": {
+                            "srcs": [
+                                {
+                                    "path": "http://placehold.it/1400x700",
+                                    "media": "(min-width: 1200px)"
+                                },
+                                {
+                                    "path": "http://placehold.it/992x496",
+                                    "media": "(min-width: 768px)"
+                                },
+                                {
+                                    "path": "http://placehold.it/768x384",
+                                    "media": "(min-width: 0px)"
+                                }
+                            ],
+                            "alt": "Curabitur Suscipit"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 col-md-6 pull-md-6 col-lg-5 pull-lg-3"
+                        },
+                        "+e-blockquote": {
+                            "attrs": {
+                                "class": "xs-mb-0"
+                            },
+                            "+p": "Donec quis purus eleifend, accumsan justo nec, suscipit nisl. Cras vulputate lorem libero, et tincidunt augue pellentesque et. Pellentesque pharetra efficitur libero, vestibulum volutpat erat bibendum eget.",
+                            "footer": {
+                                "content": "Aliquam euismod ",
+                                "+cite": "et justo at blandit"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "+m-grid": {
+        "attrs": {
+            "class": "text-xs-center"
+        },
+        "rows": [
+            {
+                "cols": [
+                    {
+                        "attrs": {
+                            "class": "col-xs-12"
+                        },
+                        "+h2.xs-mb-0": "Nulla lacinia leo a blandit"
+                    },
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 col-md-4"
+                        },
+                        "+e-icon": {
+                            "attrs": {
+                                "prefix": "featured-icon"
+                            },
+                            "name": "linkedin"
+                        },
+                        "+h5": "Nam congue sagittis libero",
+                        "+p": "Donec sed risus iaculis tellus ornare lobortis a sed risus.",
+                        "+a": {
+                            "attrs": {
+                                "class": "btn btn-outline-primary",
+                                "href": "javascript:void(0)"
+                            },
+                            "content": "Learn More"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 col-md-4"
+                        },
+                        "+e-icon": {
+                            "attrs": {
+                                "prefix": "featured-icon"
+                            },
+                            "name": "youtube"
+                        },
+                        "+h5": "Curabitur facilisis tincidunt sem",
+                        "+p": "Donec sed risus iaculis tellus ornare lobortis a sed risus.",
+                        "+a": {
+                            "attrs": {
+                                "class": "btn btn-outline-primary",
+                                "href": "javascript:void(0)"
+                            },
+                            "content": "Learn More"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "class": "col-xs-12 col-md-4"
+                        },
+                        "+e-icon": {
+                            "attrs": {
+                                "prefix": "featured-icon"
+                            },
+                            "name": "facebook"
+                        },
+                        "+h5": "Vivamus eleifend hendrerit",
+                        "+p": "Donec sed risus iaculis tellus ornare lobortis a sed risus.",
+                        "+a": {
+                            "attrs": {
+                                "class": "btn btn-outline-primary",
+                                "href": "javascript:void(0)"
+                            },
+                            "content": "Learn More"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "class": "col-xs-12"
+                        },
+                        "+h6": "Sed euismod accumsan urna quis molestie. Suspendisse ut nunc lobortis.",
+                        "+a": {
+                            "attrs": {
+                                "class": "btn btn-primary xs-mt-sm",
+                                "href": "javascript:void(0)"
+                            },
+                            "content": "How to Buy"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

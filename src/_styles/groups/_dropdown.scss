@@ -1,0 +1,31 @@
+// http://v4-alpha.getbootstrap.com/components/dropdowns/
+
+.dropdown {
+    background-clip: border-box;
+}
+
+.dropdown-caret {
+    width: sqrt(($dropdown-caret-size * $dropdown-caret-size) * 2) + px;
+    height: (sqrt(($dropdown-caret-size * $dropdown-caret-size) * 2) / 2) + px;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        width: $dropdown-caret-size;
+        height: $dropdown-caret-size;
+        border: $dropdown-border-width solid $dropdown-border-color;
+        border-top-left-radius: $border-radius;
+        display: block;
+        background-color: $dropdown-bg;
+        @include box-shadow($dropdown-box-shadow);
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: rotate(45deg) translate(-50%, -50%);
+        transform-origin: 0 0;
+    }
+}

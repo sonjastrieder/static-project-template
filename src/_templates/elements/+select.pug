@@ -1,0 +1,48 @@
+mixin e-select(context = {})
+    //-
+        No config really necessary, "multiple" attribute not supported.
+        Pass options in as block content or as children.
+
+    select.custom-select(class= prefix('select'))&attributes(attributes, attrs(context))
+        if !block
+            +u-contents(context)
+        else
+            block
+
++u-example(ExampleTypes.ELEMENT)
+    +p-label('Custom Select')
+    .form-group
+        +e-select
+            option Select...
+            optgroup(label="Options Group 1")
+                option(value="1") Option 1
+                option(value="2") Option 2
+                option(value="3") Option 3
+            optgroup(label="Options Group 2")
+                option(value="a") Option A
+                option(value="b") Option B
+                option(value="c") Option C
+    .form-group
+        +e-select({
+            '+option~0': {
+                'content': 'Select...'
+            },
+            '+option~1': {
+                'attributes': {
+                    'value': 1
+                },
+                'content': 'Option 1'
+            },
+            '+option~2': {
+                'attributes': {
+                    'value': 2
+                },
+                'content': 'Option 2'
+            },
+            '+option~3': {
+                'attributes': {
+                    'value': 3
+                },
+                'content': 'Option 3'
+            }
+        })

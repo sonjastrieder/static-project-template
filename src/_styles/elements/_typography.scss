@@ -1,0 +1,12 @@
+.#{prefix('inherit')},
+.#{prefix('inherit')}:hover,
+.#{prefix('inherit')}:active,
+.#{prefix('inherit')}:focus,
+.#{prefix('inherit')}:visited {
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 1em;
+    text-decoration: inherit;
+    color: currentColor;
+}

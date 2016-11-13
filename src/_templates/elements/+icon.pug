@@ -1,0 +1,47 @@
+mixin e-icon(context = {})
+    //-
+        Icon (accepts String shorthand)
+        {
+            name: String
+        }
+
+    - context = isShorthand(context) ? {'name': context} : context;
+    
+    i(class= prefix('icon', `icon-${context.name}`))&attributes(attributes, attrs(context))
+        svg
+            use(xlink:href= `#icon-${context.name}`)
+
++u-example(ExampleTypes.ELEMENT)
+    +p-label('Icon')
+    +c-card({
+        '+p-block': {
+            '+e-icon': {
+                'attrs': {
+                    'prefix': 'featured-icon'
+                },
+                'name': 'google-plus'
+            },
+            '+p-title': {
+                'content': 'Volutpat erat ut sagittis ',
+                '+e-icon': 'rss'
+            },
+            '+p-text': {
+                'content~0': 'Duis massa erat, vulputate et libero ullamcorper, egestas accumsan tortor. Mauris ',
+                '+a': {
+                    'attrs': {
+                        'href': 'javascript:void(0)'
+                    },
+                    'content': 'volutpat ',
+                    '+e-icon': 'twitter'
+                },
+                'content~1': ' lacinia arcu nec molestie. Maecenas vel scelerisque nisl.'
+            },
+            '+button': {
+                'attrs': {
+                    'class': 'btn btn-primary'
+                },
+                '+span': 'Vitae Blandit',
+                '+e-icon': 'instagram'
+            }
+        }
+    })

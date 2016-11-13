@@ -1,0 +1,56 @@
+// http://v4-alpha.getbootstrap.com/layout/grid/
+
+.container-fluid {
+    position: relative;
+
+    & > .row {
+        padding-right: $spacer / 2;
+        padding-left: $spacer / 2;
+    }
+}
+
+.row {
+    position: relative;
+
+    &.#{prefix('center')} {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.container,
+[class*="col-"] {
+    position: relative;
+
+    @each $breakpoint in map-keys($grid-gutter-widths) {
+        @include media-breakpoint-up($breakpoint) {
+            padding-top: (map-get($grid-gutter-widths, $breakpoint) / 2);
+            padding-bottom: (map-get($grid-gutter-widths, $breakpoint) / 2);
+        }
+    }
+}
+
+[class*="col-"] [class*="col-"] {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@include media-breakpoint-up(md) {
+    .container-fluid {
+        & > .row {
+            padding-right: $spacer / 4;
+            padding-left: $spacer / 4;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .container-fluid {
+        & > .row {
+            padding-right: 0;
+            padding-left: 0;
+        }   
+    }
+}

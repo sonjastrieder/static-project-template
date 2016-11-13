@@ -1,0 +1,8 @@
+.#{page('style-guide')} {
+    .#{prefix('label')} {
+        margin-bottom: $spacer / 2;
+        display: block;
+        @include font-size(24px);
+        color: $color-dark-gray;
+    }
+}

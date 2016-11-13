@@ -1,0 +1,28 @@
+-
+    const ExampleTypes = {
+        'ELEMENT': 'ELEMENT',
+        'GROUP': 'GROUP',
+        'COMPONENT': 'COMPONENT',
+        'MODULE': 'MODULE',
+        'UTILITY': 'UTILITY'
+    };
+
+    self.examples = {
+        'ELEMENT': [],
+        'GROUP': [],
+        'COMPONENT': [],
+        'MODULE': [],
+        'UTILITY': []
+    };
+
+mixin u-example(type)
+    //-
+        Block content is required. It will be attached to the provided context and pushed to cooresponding example list.
+
+    -
+        example = {'block': random()};
+
+        self.examples[type].push(example);
+
+    +u-block(example.block)
+        block

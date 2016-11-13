@@ -1,0 +1,104 @@
+mixin g-dropdown(context = {})
+    //-
+        Documentation: http://v4-alpha.getbootstrap.com/components/dropdowns/
+
+        DropdownMenuItem (accepts String shorthand)
+        {
+            [element: String(DOM Node)]
+        }
+
+        DropdownMenuHeader extends DropdownMenuItem
+
+        DropdownMenu
+        {
+            [caret: Boolean,]
+            [+p-header: DropdownMenuHeader,]
+            [+p-item: DropdownMenuItem,]
+            [+p-divider: null | Object]
+        }
+
+        Dropdown
+        {
+            [dir: String[up | down],]
+            +p-toggle: Contents,
+            menu: DropdownMenu
+        }
+    
+    - menu = context.menu || {};
+
+    div(class= `drop${context.dir || 'down'} ${prefix('dropdown')}`)&attributes(attributes, attrs(context))
+        mixin p-toggle(con = {})
+            - con = isShorthand(con) ? {'attrs': {'class': 'btn btn-default'}, 'content': con} : con;
+
+            button.dropdown-toggle&attributes(flatten({'data': {'toggle': 'dropdown'}, 'aria': {'expanded': 'false', 'haspopup': 'true'}}), attrs(con))
+                +u-contents(con)
+
+        +u-contents(context)
+        .dropdown-menu&attributes(attrs(menu))
+            if menu.caret
+                .dropdown-caret
+
+            mixin p-header(con = {})
+                #{con.element || 'h6'}.dropdown-header&attributes(attrs(con))
+                    +u-contents(con)
+
+            mixin p-item(con = {})
+                - con = isShorthand(con) ? {'element': 'a', 'attrs': {'href': 'javascript:void(0)'}, 'content': con} : con;
+
+                #{con.element || 'button'}.dropdown-item&attributes(attrs(con))
+                    +u-contents(con)
+
+            mixin p-divider(con = {})
+                .dropdown-divider&attributes(attrs(con))
+
+            +u-contents(menu)
+
++u-example(ExampleTypes.GROUP)
+    +p-label('Dropdown')
+    .form-group
+        +g-dropdown({
+            '+p-toggle': 'Toggle',
+            'menu': {
+                '+p-header': 'Proin sit amet',
+                '+p-item~0': 'Amet Sodales',
+                '+p-item~1': 'Vestibulum Ante',
+                '+p-item~2': 'Ultrices Posuere',
+                '+p-divider': null,
+                '+p-item~3': 'Amet Sodales',
+                '+p-item~4': 'Vestibulum Ante',
+                '+p-item~5': 'Ultrices Posuere'
+            }
+        })
+    .form-group
+        +u-block('example-custom-dropdown')
+            .col-xs-12
+                h4 Etiam consequat
+                p.lead orem ipsum dolor sit amet, consectetur adipiscing elit.
+                button.btn.btn-primary Sed Facilisis
+        +g-dropdown({
+            'attrs': {
+                'class': 'btn-group'
+            },
+            '+button~0': {
+                'attrs': {
+                    'class': 'btn btn-primary'
+                },
+                'content': 'Button'
+            },
+            '+button~1': {
+                'attrs': {
+                    'class': 'btn btn-secondary'
+                },
+                'content': 'Action'
+            },
+            '+p-toggle': {
+                'attrs': {
+                    'class': 'btn btn-secondary dropdown-toggle-split'
+                },
+                '+span.sr-only': 'Toggle'
+            },
+            'menu': {
+                'caret': true,
+                'block': 'example-custom-dropdown'
+            }
+        })

@@ -1,8 +1,0 @@
-mixin c-hero(context = {})
-    .container-fluid(class= prefix('hero'))&attributes(attributes, attrs(context.attributes))
-        .row
-            .container
-                .row
-                    .col-xs-12.col-md-6
-                        h1= context.headline
-                        p.lead= context.paragraph

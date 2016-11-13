@@ -1,0 +1,17 @@
+// http://v4-alpha.getbootstrap.com/components/card/
+
+.card-header {
+    .nav {
+        float: left;
+    }
+}
+
+.card-title {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.card-img-overlay {
+    padding: 0;
+}

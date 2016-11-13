@@ -1,0 +1,4 @@
+.#{prefix('footer')} {
+    @extend .#{prefix('bg-xlight-gray')};
+    text-align: center;
+}

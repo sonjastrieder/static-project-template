@@ -16,21 +16,9 @@ npm install [package name] --save
 Once installed, you can access scripts within your JavaScript files like so:
 
 ```js
-// Example using jquery
+import _ from 'lodash';
 
-// ES5
-var $ = require('jquery');
-
-$(function() {
-  console.log('...');
-});
-
-// ES6
-import $ from 'jquery';
-
-$(() => {
-  console.log('...');
-});
+console.log(_.now());
 ```
 
 #### Using Non-CommonJS modules with browserify-shim
@@ -46,7 +34,7 @@ Now you can install your desired npm package:
 ```
 // Example: jQuery plugin
 
-npm install --save -E slick-carousel
+npm install [package name] --save
 ```
 
 ***Step 1: Setup browserify-shim***
@@ -54,33 +42,28 @@ npm install --save -E slick-carousel
 Add the following to your `package.json` file:
 
 ```json
-"browserify": {
-    "transform": [ "browserify-shim" ]
-},
 "browser": {
-    "slick-carousel": "./node_modules/slick-carousel/slick/slick.js"
+    "package-name": "./node_modules/package-name/dist/package.min.js"
 },
 "browserify-shim": {
-    "slick-carousel": {
-        "exports": null,
-        "depends": "jquery:$"
+    "package-name": {
+        "exports": "PackageName",
+        "depends": [
+			"jquery:$"
+		]
     }
 }
 ```
-> Note: [slick-carousel](http://kenwheeler.github.io/slick/) requires jQuery, hence the `"depends": "jquery:$"`
 
 ***Step 2: Import file to your project***
 
 Now you can include your desired module/lib within your `src/_scripts/main.js` file:
 
 ```js
-// ES5
-require('slick-carousel');
-
 // ES6
-import 'slick-carousel';
+import 'package-name';
 
-...
-
-$('...').slick(); // Activates slick plugin
+$('...').packageName();
 ```
+
+Due to some jQuery plugins not behaving correctly even after following the above steps, jQuery has been added as an external CDN global dependency.

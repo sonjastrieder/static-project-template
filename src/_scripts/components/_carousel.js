@@ -8,7 +8,6 @@
 */
 
 import _ from 'lodash';
-import $ from 'jquery';
 import 'slick-carousel';
 
 import {prefix} from '../utilities/_helpers';

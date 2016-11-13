@@ -1,10 +1,34 @@
 {
   "name": "static-project-template",
   "version": "0.0.1",
+  "description": "A generator for creating static sites. Helps you harness the power of your favorite tools: Pug, Gulp, ES6/2015, and much more!",
+  "keywords": [
+    "frontend",
+    "html5",
+    "pug",
+    "static site",
+    "static",
+    "sass",
+    "browsersync",
+    "browserify",
+    "bootstrap",
+    "style guide",
+    "pattern library"
+  ],
+  "homepage": "https://github.com/fellswoop/static-project-template",
+  "bugs": "https://github.com/fellswoop/static-project-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fellswoop/static-project-template.git"
+  },
+  "author": {
+    "name": "Fellswoop",
+    "email": "dev@fellswoop.com",
+    "url": "http://www.fellswoop.com/"
+  },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
     "browsernizr": "^2.1.0",
-    "jquery": "^3.1.1",
     "lodash": "^4.15.0",
     "moment": "^2.15.2",
     "picturefill": "^3.0.2",
@@ -62,7 +86,7 @@
     "wrench": "~1.5.9"
   },
   "scripts": {
-    "clean-deps": "rimraf node_modules"
+    "clean": "rimraf node_modules tmp build"
   },
   "engines": {
     "node": ">=6"
@@ -74,7 +98,6 @@
   },
   "browser": {
     "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-    "jquery": "./node_modules/jquery/dist/jquery.min.js",
     "slick-carousel": "./node_modules/slick-carousel/slick/slick.min.js",
     "tether": "./node_modules/tether/dist/js/tether.min.js",
     "velocity": "./node_modules/velocity-animate/velocity.min.js",
@@ -87,7 +110,7 @@
         "tether:Tether"
       ]
     },
-    "jquery": "$",
+    "jquery": "global:$",
     "slick-carousel": {
       "depends": [
         "jquery:$"
@@ -95,10 +118,10 @@
     },
     "tether": "Tether",
     "velocity": {
-      "exports": "Velocity",
       "depends": [
         "jquery:$"
-      ]
+      ],
+      "exports": "Velocity"
     },
     "velocity-ui": {
       "depends": [

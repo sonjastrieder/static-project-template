@@ -12,8 +12,6 @@
     As a performance optimization, if the elements are hidden on load/resize they will be skipped. But that means that you may need to manually trigger the equalize functionality on specific/custom events. The exported function accepts a string which should match the group name, this allows the functionality to filter out all other elements, as another performance optimization.
 */
 
-import $ from 'jquery';
-
 import {onLoad, onResizeEnd} from '../utilities/_helpers';
 
 let $els = $('[data-equal-group]');

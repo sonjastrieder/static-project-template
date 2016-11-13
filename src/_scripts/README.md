@@ -37,7 +37,7 @@ Now you can install your desired npm package:
 npm install [package name] --save
 ```
 
-***Step 1: Setup browserify-shim***
+***Step 1: Add to browserify-shim config***
 
 Add the following to your `package.json` file:
 

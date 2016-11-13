@@ -49,22 +49,22 @@ mixin c-card(context = {})
         }
 
     .card(class= prefix('card'))&attributes(attributes, attrs(context))
-        mixin p-header(con = {})
+        mixin p-header(ctx = {})
             mixin p-nav-pills(c = {})
                 +g-nav(c)(class="nav-pills card-header-pills")
 
             mixin p-nav-tabs(c = {})
                 +g-nav(c)(class="nav-tabs card-header-tabs")
 
-            - con = isShorthand(con) ? {'element': 'h3', 'content': con} : con;
+            - ctx = isShorthand(ctx) ? {'element': 'h3', 'content': ctx} : ctx;
 
-            #{con.element || 'div'}.card-header&attributes(attrs(con))
-                +u-contents(con)
+            #{ctx.element || 'div'}.card-header&attributes(attrs(ctx))
+                +u-contents(ctx)
         
-        mixin p-picture(con = {})
-            +e-picture(con)(class= (con.top ? 'card-img-top' : (con.bottom ? 'card-img-bottom' : 'card-img')))
+        mixin p-picture(ctx = {})
+            +e-picture(ctx)(class= (ctx.top ? 'card-img-top' : (ctx.bottom ? 'card-img-bottom' : 'card-img')))
 
-        mixin p-block(con = {})
+        mixin p-block(ctx = {})
             mixin p-title(c = {})
                 #{c.element || 'h4'}.card-title&attributes(attrs(c))
                     +u-contents(c)
@@ -84,22 +84,22 @@ mixin c-card(context = {})
                 a.card-link(href="javascript:void(0)")&attributes(attrs(c))
                     +u-contents(c)
 
-            .card-block&attributes(attrs(con))
-                +u-contents(con)
+            .card-block&attributes(attrs(ctx))
+                +u-contents(ctx)
         
-        mixin p-overlay(con = {})
+        mixin p-overlay(ctx = {})
             .card-img-overlay
-                +p-block(con)
+                +p-block(ctx)
 
-        mixin p-list(con = {})
+        mixin p-list(ctx = {})
             ul.list-group.list-group-flush
-                each item in (con.items || [])
+                each item in (ctx.items || [])
                     li.list-group-item&attributes(attrs(item))
                         +u-contents(item)
 
-        mixin p-footer(con = {})
-            .card-footer&attributes(attrs(con))
-                +u-contents(con)
+        mixin p-footer(ctx = {})
+            .card-footer&attributes(attrs(ctx))
+                +u-contents(ctx)
 
         +u-contents(context)
 

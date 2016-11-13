@@ -27,29 +27,29 @@ mixin g-dropdown(context = {})
     - menu = context.menu || {};
 
     div(class= `drop${context.dir || 'down'} ${prefix('dropdown')}`)&attributes(attributes, attrs(context))
-        mixin p-toggle(con = {})
-            - con = isShorthand(con) ? {'attrs': {'class': 'btn btn-default'}, 'content': con} : con;
+        mixin p-toggle(ctx = {})
+            - ctx = isShorthand(ctx) ? {'attrs': {'class': 'btn btn-default'}, 'content': ctx} : ctx;
 
-            button.dropdown-toggle&attributes(flatten({'data': {'toggle': 'dropdown'}, 'aria': {'expanded': 'false', 'haspopup': 'true'}}), attrs(con))
-                +u-contents(con)
+            button.dropdown-toggle&attributes(flatten({'data': {'toggle': 'dropdown'}, 'aria': {'expanded': 'false', 'haspopup': 'true'}}), attrs(ctx))
+                +u-contents(ctx)
 
         +u-contents(context)
         .dropdown-menu&attributes(attrs(menu))
             if menu.caret
                 .dropdown-caret
 
-            mixin p-header(con = {})
-                #{con.element || 'h6'}.dropdown-header&attributes(attrs(con))
-                    +u-contents(con)
+            mixin p-header(ctx = {})
+                #{ctx.element || 'h6'}.dropdown-header&attributes(attrs(ctx))
+                    +u-contents(ctx)
 
-            mixin p-item(con = {})
-                - con = isShorthand(con) ? {'element': 'a', 'attrs': {'href': 'javascript:void(0)'}, 'content': con} : con;
+            mixin p-item(ctx = {})
+                - ctx = isShorthand(ctx) ? {'element': 'a', 'attrs': {'href': 'javascript:void(0)'}, 'content': ctx} : ctx;
 
-                #{con.element || 'button'}.dropdown-item&attributes(attrs(con))
-                    +u-contents(con)
+                #{ctx.element || 'button'}.dropdown-item&attributes(attrs(ctx))
+                    +u-contents(ctx)
 
-            mixin p-divider(con = {})
-                .dropdown-divider&attributes(attrs(con))
+            mixin p-divider(ctx = {})
+                .dropdown-divider&attributes(attrs(ctx))
 
             +u-contents(menu)
 

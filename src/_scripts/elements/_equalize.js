@@ -55,7 +55,7 @@ const resize = () => {
         groups[group] = groups[group] ? groups[group].add($el) : $el;
     });
 
-    _.forEach(Object.keys(groups), null, (group) => equalize(groups[group]));
+    _.forEach(Object.keys(groups), (group) => equalize(groups[group]));
 };
 
 if (!!$els.length) {

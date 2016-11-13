@@ -31,6 +31,9 @@ const isBreakpointAndUp = (breakpoint) => breakpoints.indexOf(breakpoint) <= bre
 
 const isBreakpointAndDown = (breakpoint) => breakpoints.indexOf(breakpoint) >= breakpoints.indexOf(getBreakpoint());
 
+const _call = (callbacks) => _.forEach(callbacks, (callback) => callback());
+
+let scrollStopped = true;
 let callbacks = {
     'load': [],
     'resize': [],
@@ -38,7 +41,7 @@ let callbacks = {
         'start': [],
         'every': [
             _.debounce(() => {
-                call(callbacks.scroll.stop);
+                _call(callbacks.scroll.stop);
 
                 scrollStopped = true;
             }, 250)
@@ -47,23 +50,19 @@ let callbacks = {
     }
 };
 
-const call = (callbacks) => _.forEach(callbacks, (callback) => callback());
-
 $(window).on({
-    'load': _.bind(call, null, callbacks.load),
-    'resize': _.debounce(_.bind(call, null, callbacks.resize), 250)
+    'load': _.bind(_call, null, callbacks.load),
+    'resize': _.debounce(_.bind(_call, null, callbacks.resize), 250)
 });
-
-let scrollStopped = true;
 
 $(document).on('scroll', (scroll) => {
     if (scrollStopped) {
-        call(callbacks.scroll.start);
+        _call(callbacks.scroll.start);
 
         scrollStopped = false;
     }
 
-    call(callbacks.scroll.every);
+    _call(callbacks.scroll.every);
 });
 
 export default {

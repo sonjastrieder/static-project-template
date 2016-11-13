@@ -1,0 +1,64 @@
+//- Custom Configuration
+block config
+    //- Setup site's base URL to match the "baseUrl" key within `package.json`
+    //- Otherwise default to relative pathing
+    - baseUrl = self.config.baseUrl || './';
+
+include ../utilities/helpers
+include ../utilities/+contents
+include ../utilities/+example
+include ../utilities/+block
+include ../utilities/includes
+
+doctype html
+
+<!--[if lte IE 8]>
+<html class="lt-ie-9 lt-ie-10 no-js" lang="en">
+<![endif]-->
+<!--[if lte IE 9]>
+<html class="lt-ie-10 no-js" lang="en">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+head
+    meta(charset="utf-8")
+    meta(class= prefix('breakpoint'))
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    meta(name="description", content= self.page && self.page.description ? self.page.description : self.data.global.description)
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="format-detection", content="telephone=no")
+    
+    each size in self.data.global.favicon.apple
+        link(rel="apple-touch-icon", sizes= `${size}x${size}`, href= `/images/favicon/apple-icon-${size}x${size}.png`)
+    each size in self.data.global.favicon.android
+        link(rel="icon", type="image/png", sizes= `${size}x${size}`,  href= `/images/favicon/android-icon-${size}x${size}.png`)
+    each size in self.data.global.favicon.sizes
+        link(rel="icon", type="image/png", sizes= `${size}x${size}`, href= `/images/favicon/favicon-${size}x${size}.png`)
+    link(rel="manifest", href="/manifest.json")
+    meta(name="msapplication-TileColor", content= self.data.global.favicon.color)
+    each size in self.data.global.favicon.microsoft
+        meta(name="msapplication-TileImage", content= `/images/favicon/ms-icon-${size}x${size}.png`)
+    meta(name="theme-color", content= self.data.global.favicon.color)
+    
+    title= self.page && self.page.title ? `${self.data.global.title} | ${self.page.title}` : self.data.global.title
+
+    block styles
+        link(rel="stylesheet", href= `${baseUrl}styles/main.vendor.css`)
+        link(rel="stylesheet", href= `${baseUrl}styles/main.custom.css`)
+
+body(class= (self.page ? prefix('page', (self.page.class ? 'page-' + self.page.class : undefined)) : undefined))
+    +u-block('legacy')
+
+    .sr-only
+        include ../sprite.svg
+
+    block body
+
+    block scripts
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+        script(src= `${baseUrl}scripts/main.vendor.js`)
+        script(src= `${baseUrl}scripts/main.custom.js`)
+
+</html>

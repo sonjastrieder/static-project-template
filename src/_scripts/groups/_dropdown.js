@@ -12,7 +12,9 @@ if (!!$dropdowns.length) {
     let prevent = false;
 
     $dropdowns.on('hide.bs.dropdown', (e) => {
-        (prevent && e.preventDefault());
+        if (prevent) {
+            e.preventDefault();
+        }
 
         prevent = false;
     });

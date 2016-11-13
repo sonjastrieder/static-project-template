@@ -1,4 +1,11 @@
 {
     "title": "Static Project Template",
-    "description": ""
+    "description": "",
+    "favicon": {
+        "apple": [57, 60, 72, 76, 114, 120, 144, 152, 180],
+        "android": [192],
+        "microsoft": [144],
+        "sizes": [16, 32, 96],
+        "color": "#ffffff"
+    }
 }

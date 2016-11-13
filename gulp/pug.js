@@ -57,7 +57,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                             if (!args.hasOwnProperty('page') || (args.hasOwnProperty('page') && args.page === fileName)) {
                                 pages.push({
                                     'data': json,
-                                    'template': path.join(dirs.source, dirs.templates, 'layouts', `${json.layout || '+shell'}.pug`),
+                                    'template': path.join(dirs.source, dirs.templates, 'layouts', `${json.layout || 'shell'}.pug`),
                                     'path': path.join(dest, json.path, 'index.html')
                                 });
                             }

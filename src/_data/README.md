@@ -63,7 +63,7 @@ The data files found in the pages folder are handled uniquely. To allow for dyna
 
 Optional properties: `layout`, `path`, `title`
 
-The page layout defaults to using "+shell.pug" but can be overwritten to point to any file in the layouts folder.
+The page layout defaults to using "shell.pug" but can be overwritten to point to any file in the layouts folder.
 
 The path for a page defaults to the data file's name. This can be overwritten via the `path` property. Set a folder structure string, ex: "/foo/bar"
 

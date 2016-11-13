@@ -22,7 +22,7 @@ mixin e-switch(context = {})
         span(class= prefix('switch-description'))&attributes(attrs(context.label))
             +u-contents(context.label)
 
-+u-example(ExampleTypes.ELEMENT)
++u-example({'type': ExampleTypes.ELEMENT})
     +p-label('Switch')
     .form-group
         +e-switch('Switch 1')

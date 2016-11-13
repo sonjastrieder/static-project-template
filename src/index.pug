@@ -3,7 +3,22 @@ extends _templates/layouts/+base
 block body
     -
         pages = self.data.pages || {};
-        pages = pathsort(Object.keys(pages).map((key) => pages[key]));
+        pages = Object.keys(pages).map((key) => pages[key]);
+        pages = pages.sort((a, b) => {
+            a = a.path.split('/');
+            b = b.path.split('/');
+
+            let l = Math.max(a.length, b.length);
+            
+            for (let i = 0; i < l; i += 1) {
+                if (!(i in a)) {return -1;}
+                if (!(i in b)) {return +1;}
+                if (a[i].toUpperCase() > b[i].toUpperCase()) {return +1;}
+                if (a[i].toUpperCase() < b[i].toUpperCase()) {return -1;}
+                if (a.length < b.length) {return -1;}
+                if (a.length > b.length) {return +1;}
+            }
+        });
 
     +u-block('index')
         h1

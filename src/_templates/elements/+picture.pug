@@ -32,7 +32,7 @@ mixin e-picture(context = {})
         if context.url
             a(href= context.url, class= prefix('cover'))
 
-+u-example(ExampleTypes.ELEMENT)
++u-example({'type': ExampleTypes.ELEMENT})
     +p-label('Picture')
     +e-picture({
         'srcs': [

@@ -12,6 +12,8 @@
     As a performance optimization, if the elements are hidden on load/resize they will be skipped. But that means that you may need to manually trigger the equalize functionality on specific/custom events. The exported function accepts a string which should match the group name, this allows the functionality to filter out all other elements, as another performance optimization.
 */
 
+import _ from 'lodash';
+
 import {onLoad, onResizeEnd} from '../utilities/_helpers';
 
 let $els = $('[data-equal-group]');
@@ -41,9 +43,7 @@ const equalize = ($group) => {
     }
 };
 
-const filter = (group) => {
-    equalize($els.filter(`[data-equal-group=${group}]`));
-};
+const filter = (group) => equalize($els.filter(`[data-equal-group=${group}]`));
 
 const resize = () => {
     let groups = {};
@@ -55,9 +55,7 @@ const resize = () => {
         groups[group] = groups[group] ? groups[group].add($el) : $el;
     });
 
-    Object.keys(groups).forEach((group) => {
-        equalize(groups[group]);
-    });
+    _.forEach(Object.keys(groups), null, (group) => equalize(groups[group]));
 };
 
 if (!!$els.length) {

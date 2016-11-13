@@ -78,6 +78,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
             'self': true
         };
         let locals = {
+            'require': require,
             'config': config,
             'debug': true,
             'data': data

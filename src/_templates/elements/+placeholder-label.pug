@@ -12,7 +12,7 @@ mixin e-placeholder-label(context = {})
         span(class= prefix('placeholder-label-text'))
             +u-contents(context.label)
 
-+u-example(ExampleTypes.ELEMENT)
++u-example({'type': ExampleTypes.ELEMENT})
     +p-label('Placeholder Label')
     .form-group
         +e-placeholder-label('Email Address')

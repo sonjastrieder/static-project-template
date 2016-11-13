@@ -29,7 +29,7 @@ mixin g-table(context = {})
                                 #{(!index ? 'th' : 'td')}&attributes(attrs(cell))
                                     +u-contents(cell)
 
-+u-example(ExampleTypes.GROUP)
++u-example({'type': ExampleTypes.GROUP})
     +p-label('Table')
     +g-table({
         'head': {

@@ -18,7 +18,7 @@ mixin e-radio-checkbox(context = {})
         span.custom-control-description&attributes(attrs(context.label))
             +u-contents(context.label)
 
-+u-example(ExampleTypes.ELEMENT)
++u-example({'type': ExampleTypes.ELEMENT})
     +p-label('Custom Radio & Checkbox')
     .form-group
         +e-radio-checkbox({

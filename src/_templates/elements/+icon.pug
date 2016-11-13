@@ -11,7 +11,7 @@ mixin e-icon(context = {})
         svg
             use(xlink:href= `#icon-${context.name}`)
 
-+u-example(ExampleTypes.ELEMENT)
++u-example({'type': ExampleTypes.ELEMENT})
     +p-label('Icon')
     +c-card({
         '+p-block': {

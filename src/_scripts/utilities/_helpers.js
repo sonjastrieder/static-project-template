@@ -4,15 +4,15 @@ import _ from 'lodash';
 
 import {prefix, breakpoints} from '../_vars';
 
-const lowerDash = (str) => str.trim().toLowerCase().replace(/[\s_]/g, '-');
+const toDashCase = (str = '') => str.trim().toLowerCase().replace(/[\s_]/g, '-');
 
-const prefixStrs = (...strings) => strings.map((str) => `${prefix}-${lowerDash(str)}`).join(' ');
+const _prefix = (...strings) => strings.map((str) => `${prefix}-${toDashCase(str)}`).join(' ');
 
-const urlParams = () => {
+const parameters = () => {
     let params = {};
     let pairs = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
 
-    pairs.forEach((pair) => {
+    _.forEach(pairs, (pair) => {
         let hash = pair.split('=');
 
         params[hash[0]] = hash[1] ? unescape(hash[1]) : true;
@@ -21,11 +21,9 @@ const urlParams = () => {
     return params;
 };
 
-const urlParam = (key) => urlParams()[key];
+const $breakpoint = $(`.${_prefix('breakpoint')}`);
 
-const breakpoint = document.getElementById(`${prefixStrs('breakpoint')}`);
-
-const getBreakpoint = () => document.defaultView.getComputedStyle(breakpoint, null).getPropertyValue('font-family');
+const getBreakpoint = () => $breakpoint.css('font-family');
 
 const isBreakpoint = (breakpoint) => breakpoint ? breakpoint === getBreakpoint() : getBreakpoint();
 
@@ -33,71 +31,56 @@ const isBreakpointAndUp = (breakpoint) => breakpoints.indexOf(breakpoint) <= bre
 
 const isBreakpointAndDown = (breakpoint) => breakpoints.indexOf(breakpoint) >= breakpoints.indexOf(getBreakpoint());
 
-let loadCallbacks = [];
+let callbacks = {
+    'load': [],
+    'resize': [],
+    'scroll': {
+        'start': [],
+        'every': [
+            _.debounce(() => {
+                call(callbacks.scroll.stop);
 
-window.addEventListener('load', () => {
-    loadCallbacks.forEach((callback) => callback());
+                scrollStopped = true;
+            }, 250)
+        ],
+        'stop': []
+    }
+};
+
+const call = (callbacks) => _.forEach(callbacks, (callback) => callback());
+
+$(window).on({
+    'load': _.bind(call, null, callbacks.load),
+    'resize': _.debounce(_.bind(call, null, callbacks.resize), 250)
 });
-
-const onLoad = (callback) => loadCallbacks.push(callback);
-
-let resizeEndCallbacks = [];
-
-window.addEventListener('resize', _.debounce(() => {
-    resizeEndCallbacks.forEach((callback) => callback());
-}, 250));
-
-const onResizeEnd = (callback) => resizeEndCallbacks.push(callback);
 
 let scrollStopped = true;
-let scrollStartCallbacks = [];
-let scrollCallbacks = [];
-let scrollStopCallbacks = [];
 
-const debouncedScroll = _.debounce(() => {
-    if (!!scrollStopCallbacks.length) {
-        scrollStopCallbacks.forEach((callback) => callback());
-    }
-
-    scrollStopped = true;
-}, 250);
-
-document.addEventListener('scroll', () => {
+$(document).on('scroll', (scroll) => {
     if (scrollStopped) {
-        if (!!scrollStartCallbacks.length) {
-            scrollStartCallbacks.forEach((callback) => callback());
-        }
+        call(callbacks.scroll.start);
 
         scrollStopped = false;
-    } else {
-        debouncedScroll();
     }
 
-    if (!!scrollCallbacks.length) {
-        scrollCallbacks.forEach((callback) => callback());
-    }
+    call(callbacks.scroll.every);
 });
 
-const onScrollStart = (callback) => scrollStartCallbacks.push(callback);
-
-const onScroll = (callback) => scrollCallbacks.push(callback);
-
-const onScrollStop = (callback) => scrollStopCallbacks.push(callback);
-
 export default {
-    'lowerDash': lowerDash,
-    'prefix': prefixStrs,
-    'urlParams': urlParams,
-    'urlParam': urlParam,
+    'toDashCase': toDashCase,
+    'prefix': _prefix,
+    'url': {
+        'parameters': parameters,
+        'parameter': (key) => parameters()[key]
+    },
     'breakpoint': {
-        'get': getBreakpoint,
         'is': isBreakpoint,
         'up': isBreakpointAndUp,
         'down': isBreakpointAndDown
     },
-    'onLoad': onLoad,
-    'onResizeEnd': onResizeEnd,
-    'onScrollStart': onScrollStart,
-    'onScroll': onScroll,
-    'onScrollStop': onScrollStop
+    'onLoad': (callback) => callbacks.load.push(callback),
+    'onResizeEnd': (callback) => callbacks.resize.push(callback),
+    'onScrollStart': (callback) => callbacks.scroll.start.push(callback),
+    'onScroll': (callback) => callbacks.scroll.every.push(callback),
+    'onScrollStop': (callback) => callbacks.scroll.stop.push(callback)
 };

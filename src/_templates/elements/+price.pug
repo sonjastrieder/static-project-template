@@ -18,7 +18,7 @@ mixin e-price(context = {})
             small(class= prefix('price-cents'))
                 +u-contents(context.cents)
 
-+u-example(ExampleTypes.ELEMENT)
++u-example({'type': ExampleTypes.ELEMENT})
     +p-label('Price')
     h3
         +e-price({

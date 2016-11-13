@@ -23,7 +23,7 @@ mixin c-collapse(context = {})
                 else
                     +u-contents(context.details)
 
-+u-example(ExampleTypes.COMPONENT)
++u-example({'type': ExampleTypes.COMPONENT})
     +p-label('Collapse')
     +c-collapse({
         'headline': 'Nunc id venenatis leo?',

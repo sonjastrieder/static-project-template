@@ -15,14 +15,16 @@
         'UTILITY': []
     };
 
-mixin u-example(type)
+mixin u-example(context = {})
     //-
         Block content is required. It will be attached to the provided context and pushed to cooresponding example list.
 
-    -
-        example = {'block': random()};
+        Example
+        {
+            type: String(ExampleType)
+        }
 
-        self.examples[type].push(example);
+    - self.examples[context.type].push((context.block = random(), context));
 
-    +u-block(example.block)
+    +u-block(context.block)
         block

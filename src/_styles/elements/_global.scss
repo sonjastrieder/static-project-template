@@ -8,8 +8,12 @@ html {
     overflow-y: auto;
 }
 
-##{prefix('breakpoint')} {
-    font-family: 'xs';
+.#{prefix('breakpoint')} {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        @include media-breakpoint-up($breakpoint) {
+            font-family: $breakpoint;
+        }
+    }
 }
 
 [href^="tel:"] {
@@ -58,40 +62,4 @@ textarea {
 
 .#{prefix('hidden')} {
     display: none !important;
-}
-
-@include media-breakpoint-up(sm) {
-    ##{prefix('breakpoint')} {
-        font-family: 'sm';
-    }
-}
-
-@include media-breakpoint-up(md) {
-    ##{prefix('breakpoint')} {
-        font-family: 'md';
-    }
-}
-
-@include media-breakpoint-up(lg) {
-    ##{prefix('breakpoint')} {
-        font-family: 'lg';
-    }
-}
-
-@include media-breakpoint-up(xl) {
-    ##{prefix('breakpoint')} {
-        font-family: 'xl';
-    }
-}
-
-@include media-breakpoint-up(dx) {
-    ##{prefix('breakpoint')} {
-        font-family: 'dx';
-    }
-}
-
-@include media-breakpoint-up(tx) {
-    ##{prefix('breakpoint')} {
-        font-family: 'tx';
-    }
 }

@@ -9,7 +9,7 @@ mixin u-block(id)
     if !block
         +u-contents({'block': id})
 
-+u-example(ExampleTypes.UTILITY)
++u-example({'type': ExampleTypes.UTILITY})
     +p-label('Block')
     //- Store
     +u-block('example-block')

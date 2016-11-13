@@ -11,7 +11,7 @@ mixin g-row(context = {})
             div&attributes(attrs(column))
                 +u-contents(column)
 
-+u-example(ExampleTypes.GROUP)
++u-example({'type': ExampleTypes.GROUP})
     +p-label('Row')
     +g-row({
         'cols': [

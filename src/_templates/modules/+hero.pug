@@ -45,7 +45,7 @@ mixin m-hero(context = {})
                                 a(href="javascript:void(0)", class= prefix('hero-link'))&attributes(attrs(context.link), isShorthand(context.link) ? {'class': 'btn btn-primary'} : undefined)
                                     +u-contents(context.link)
 
-+u-example(ExampleTypes.MODULE)
++u-example({'type': ExampleTypes.MODULE})
     +m-grid({
         'container': {
             'attrs': {

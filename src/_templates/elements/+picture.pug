@@ -10,20 +10,17 @@ mixin e-picture(context = {})
         Picture
         {
             [srcs: Array<Source>,]
-            [src: Source,]
-            [default: Number,]
+            [src: String,]
             alt: String,
             [url: String]
         }
     
-    -
-        sources = context.srcs || [{'path': context.src}];
-        source = sources[context.default || 0];
+    - sources = context.srcs || [{'path': context.src}];
 
     picture(class= prefix('picture'))&attributes(attributes, attrs(context))
-        each src in sources
-            source(srcset= src.path, media= (src.media || (src.break ? `(min-width: ${self.config.breakpoints[src.break]}px)` : '(min-width: 0px)')))
-        img.img-fluid(srcset= source.path, alt= context.alt)
+        each source in sources
+            source(srcset= source.path, media= (source.media || (source.break ? `(min-width: ${self.config.breakpoints[source.break]}px)` : '(min-width: 0px)')))
+        img.img-fluid(srcset= sources[0].path, alt= context.alt)
         if context.url
             a(href= context.url, class= prefix('cover'))
 

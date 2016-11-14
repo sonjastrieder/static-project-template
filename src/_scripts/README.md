@@ -32,14 +32,12 @@ Browserify doesn't support Non-CommonJS scripts out of the box (jQuery plugins, 
 Now you can install your desired npm package:
 
 ```
-// Example: jQuery plugin
-
 npm install [package name] --save
 ```
 
 ***Step 1: Add to browserify-shim config***
 
-Add the following to your `package.json` file:
+Add entries to the "browser" and "browserify-shim" objects in `package.json`:
 
 ```json
 "browser": {
@@ -57,7 +55,7 @@ Add the following to your `package.json` file:
 
 ***Step 2: Import file to your project***
 
-Now you can include your desired module/lib within your `src/_scripts/main.js` file:
+Now you can include your desired module/lib within your script:
 
 ```js
 // ES6
@@ -66,4 +64,4 @@ import 'package-name';
 $('...').packageName();
 ```
 
-Due to some jQuery plugins not behaving correctly even after following the above steps, jQuery has been added as an external CDN global dependency.
+Due to some jQuery plugins not working with Browserify + Browserify Shim, jQuery has been added as a CDN reference.

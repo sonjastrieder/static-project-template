@@ -2,10 +2,17 @@
     "title": "Static Project Template",
     "description": "",
     "favicon": {
-        "apple": [57, 60, 72, 76, 114, 120, 144, 152, 180],
-        "android": [192],
-        "microsoft": [144],
-        "sizes": [16, 32, 96],
-        "color": "#ffffff"
+        "apple": {
+            "sizes": [57, 60, 72, 76, 114, 120, 144, 152, 180],
+            "rel": "apple-touch-icon",
+            "img": "apple-icon"
+        },
+        "android": {
+            "sizes": [192],
+            "img": "android-icon"
+        },
+        "favicon": {
+            "sizes": [16, 32, 96]
+        }
     }
 }

@@ -30,17 +30,14 @@ head
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(name="format-detection", content="telephone=no")
     
-    each size in self.data.global.favicon.apple
-        link(rel="apple-touch-icon", sizes= `${size}x${size}`, href= `/images/favicon/apple-icon-${size}x${size}.png`)
-    each size in self.data.global.favicon.android
-        link(rel="icon", type="image/png", sizes= `${size}x${size}`,  href= `/images/favicon/android-icon-${size}x${size}.png`)
-    each size in self.data.global.favicon.sizes
-        link(rel="icon", type="image/png", sizes= `${size}x${size}`, href= `/images/favicon/favicon-${size}x${size}.png`)
+    each group, key in self.data.global.favicon
+        each size in group.sizes
+            link(type="image/png", rel= (group.rel || 'icon'), sizes= `${size}x${size}`, href= `/images/favicon/${group.img || key}-${size}x${size}.png`)
+    
+    meta(name="msapplication-TileImage", content="/images/favicon/ms-icon-144x144.png")
+    meta(name="msapplication-TileColor", content="#ffffff")
+    meta(name="theme-color", content="#ffffff")
     link(rel="manifest", href="/manifest.json")
-    meta(name="msapplication-TileColor", content= self.data.global.favicon.color)
-    each size in self.data.global.favicon.microsoft
-        meta(name="msapplication-TileImage", content= `/images/favicon/ms-icon-${size}x${size}.png`)
-    meta(name="theme-color", content= self.data.global.favicon.color)
     
     title= self.page && self.page.title ? `${self.data.global.title} | ${self.page.title}` : self.data.global.title
 

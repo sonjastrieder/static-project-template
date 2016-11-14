@@ -24,7 +24,10 @@ mixin u-example(context = {})
             type: String(ExampleType)
         }
 
-    - self.examples[context.type].push((context.block = random(), context));
+    -
+        context.block = random();
+
+        self.examples[context.type].push(context);
 
     +u-block(context.block)
         block

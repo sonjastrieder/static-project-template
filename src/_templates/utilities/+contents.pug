@@ -33,7 +33,7 @@ mixin u-contents(context = {})
                 if /-/.test(template)
                     +#{template}(val)(class= className)
                 else
-                    if selfClosing.indexOf(template) >= 0
+                    if _.includes(selfClosing, template)
                         #{template}(class= className)&attributes(attrs((val || {})))/
                     else
                         #{template}(class= className)&attributes(attrs((val || {})))

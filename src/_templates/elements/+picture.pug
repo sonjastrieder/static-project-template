@@ -3,7 +3,8 @@ mixin e-picture(context = {})
         Source
         {
             path: String,
-            media: String
+            [media: String(See below for example),]
+            [break: String(Breakpoint Abbreviation)]
         }
 
         Picture
@@ -14,21 +15,15 @@ mixin e-picture(context = {})
             alt: String,
             [url: String]
         }
+    
+    -
+        sources = context.srcs || [{'path': context.src}];
+        source = sources[context.default || 0];
 
     picture(class= prefix('picture'))&attributes(attributes, attrs(context))
-        if context.srcs
-            if context.srcs.length > 1
-                each src in context.srcs
-                    source(srcset= src.path, media= src.media)
-                - src = context.srcs[context.default || 0]
-                img.img-fluid(srcset= src.path, alt= context.alt)
-            else
-                - src = context.srcs[context.default || 0]
-                source(srcset= src.path, media= src.media)
-                img.img-fluid(srcset= src.path, alt= context.alt)
-        if context.src
-            source(srcset= context.src)
-            img.img-fluid(srcset= context.src, alt= context.alt)
+        each src in sources
+            source(srcset= src.path, media= (src.media || (src.break ? `(min-width: ${self.config.breakpoints[src.break]}px)` : '(min-width: 0px)')))
+        img.img-fluid(srcset= source.path, alt= context.alt)
         if context.url
             a(href= context.url, class= prefix('cover'))
 
@@ -42,12 +37,16 @@ mixin e-picture(context = {})
             },
             {
                 'path': 'http://placehold.it/992x496',
-                'media': `(min-width: ${self.config.breakpoints.md}px)`
+                'break': 'md'
             },
             {
-                'path': 'http://placehold.it/768x384',
-                'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                'path': 'http://placehold.it/768x384'
             }
         ],
         'alt': 'Curabitur Suscipit'
+    })
+    +e-picture({
+        'src': 'http://placehold.it/992x496',
+        'alt': 'Curabitur Suscipit',
+        'url': 'javascript:void(0)'
     })

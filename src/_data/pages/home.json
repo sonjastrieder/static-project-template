@@ -5,15 +5,14 @@
             "srcs": [
                 {
                     "path": "http://placehold.it/1700x600",
-                    "media": "(min-width: 1400px)"
+                    "break": "dx"
                 },
                 {
                     "path": "http://placehold.it/992x450",
-                    "media":"`(min-width: 768px)"
+                    "break": "md"
                 },
                 {
-                    "path": "http://placehold.it/544x300",
-                    "media": "(min-width: 0px)"
+                    "path": "http://placehold.it/544x300"
                 }
             ],
             "alt": "Curabitur Suscipit"
@@ -59,15 +58,14 @@
                                     "srcs": [
                                         {
                                             "path": "http://placehold.it/1400x700",
-                                            "media": "(min-width: 1200px)"
+                                            "break": "xl"
                                         },
                                         {
                                             "path": "http://placehold.it/992x496",
-                                            "media": "(min-width: 768px)"
+                                            "break": "md"
                                         },
                                         {
-                                            "path": "http://placehold.it/768x384",
-                                            "media": "(min-width: 0px)"
+                                            "path": "http://placehold.it/768x384"
                                         }
                                     ],
                                     "alt": "Curabitur Suscipit",
@@ -89,15 +87,14 @@
                                     "srcs": [
                                         {
                                             "path": "http://placehold.it/1400x700",
-                                            "media": "(min-width: 1200px)"
+                                            "break": "xl"
                                         },
                                         {
                                             "path": "http://placehold.it/992x496",
-                                            "media": "(min-width: 768px)"
+                                            "break": "md"
                                         },
                                         {
-                                            "path": "http://placehold.it/768x384",
-                                            "media": "(min-width: 0px)"
+                                            "path": "http://placehold.it/768x384"
                                         }
                                     ],
                                     "alt": "Curabitur Suscipit",
@@ -119,15 +116,14 @@
                                     "srcs": [
                                         {
                                             "path": "http://placehold.it/1400x700",
-                                            "media": "(min-width: 1200px)"
+                                            "break": "xl"
                                         },
                                         {
                                             "path": "http://placehold.it/992x496",
-                                            "media": "(min-width: 768px)"
+                                            "break": "md"
                                         },
                                         {
-                                            "path": "http://placehold.it/768x384",
-                                            "media": "(min-width: 0px)"
+                                            "path": "http://placehold.it/768x384"
                                         }
                                     ],
                                     "alt": "Curabitur Suscipit",
@@ -164,15 +160,14 @@
                             "srcs": [
                                 {
                                     "path": "http://placehold.it/1400x700",
-                                    "media": "(min-width: 1200px)"
+                                    "break": "xl"
                                 },
                                 {
                                     "path": "http://placehold.it/992x496",
-                                    "media": "(min-width: 768px)"
+                                    "break": "md"
                                 },
                                 {
-                                    "path": "http://placehold.it/768x384",
-                                    "media": "(min-width: 0px)"
+                                    "path": "http://placehold.it/768x384"
                                 }
                             ],
                             "alt": "Curabitur Suscipit"
@@ -212,15 +207,14 @@
                             "srcs": [
                                 {
                                     "path": "http://placehold.it/1400x700",
-                                    "media": "(min-width: 1200px)"
+                                    "break": "xl"
                                 },
                                 {
                                     "path": "http://placehold.it/992x496",
-                                    "media": "(min-width: 768px)"
+                                    "break": "md"
                                 },
                                 {
-                                    "path": "http://placehold.it/768x384",
-                                    "media": "(min-width: 0px)"
+                                    "path": "http://placehold.it/768x384"
                                 }
                             ],
                             "alt": "Curabitur Suscipit"

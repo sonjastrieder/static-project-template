@@ -1,5 +1,8 @@
 'use strict';
 
+// Utilities
+import './utilities/_generate-html';
+
 // Elements
 import './elements/_equalize';
 import './elements/_placeholder-label';

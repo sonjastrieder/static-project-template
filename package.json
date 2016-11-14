@@ -83,7 +83,10 @@
     "vinyl-buffer": "~1.0.0",
     "vinyl-source-stream": "~1.1.0",
     "watchify": "~3.7.0 ",
-    "wrench": "~1.5.9"
+    "wrench": "~1.5.9",
+    "xmlfmt": "^1.0.0",
+    "clipboard": "^1.5.12",
+    "prismjs": "^1.5.1"
   },
   "scripts": {
     "clean": "rimraf node_modules tmp build"

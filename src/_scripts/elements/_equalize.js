@@ -13,6 +13,7 @@
 */
 
 import _ from 'lodash';
+import $ from 'jquery';
 
 import {onLoad, onResizeEnd} from '../utilities/_helpers';
 

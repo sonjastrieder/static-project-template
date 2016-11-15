@@ -3,9 +3,9 @@
 // Elements
 import './elements/_equalize';
 import './elements/_placeholder-label';
+import './elements/_prevent';
 
 // Groups
-import './groups/_dropdown';
 
 // Components
 import './components/_carousel';

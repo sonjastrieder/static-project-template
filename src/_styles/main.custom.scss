@@ -1,40 +1,40 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
-@import "./vars";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
-@import "./mix";
+@import './vars';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import './mix';
 
 // Elements
-@import "./elements/global";
-@import "./elements/button";
-@import "./elements/icon";
-@import "./elements/sprite";
-@import "./elements/picture";
-@import "./elements/placeholder-label";
-@import "./elements/price";
-@import "./elements/radio-checkbox";
-@import "./elements/switch";
-@import "./elements/typography";
-@import "./elements/video";
+@import './elements/global';
+@import './elements/button';
+@import './elements/icon';
+@import './elements/sprite';
+@import './elements/picture';
+@import './elements/placeholder-label';
+@import './elements/price';
+@import './elements/radio-checkbox';
+@import './elements/switch';
+@import './elements/typography';
+@import './elements/video';
 
 // Groups
-@import "./groups/dropdown";
+@import './groups/dropdown';
 
 // Components
-@import "./components/card";
-@import "./components/carousel";
+@import './components/card';
+@import './components/carousel';
 
 // Modules
-@import "./modules/grid";
-@import "./modules/header";
-@import "./modules/footer";
-@import "./modules/hero";
-@import "./modules/legacy";
+@import './modules/grid';
+@import './modules/header';
+@import './modules/footer';
+@import './modules/hero';
+@import './modules/legacy';
 
 // Utilities
-@import "./utilities/color";
-@import "./utilities/space";
+@import './utilities/color';
+@import './utilities/space';
 
 // Pages
-@import "./pages/style-guide";
+@import './pages/style-guide';

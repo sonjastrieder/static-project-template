@@ -1,6 +1,7 @@
 'use strict';
 
 import _ from 'lodash';
+import $ from 'jquery';
 
 import {prefix, breakpoints} from '../_vars';
 

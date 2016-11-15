@@ -51,6 +51,39 @@ Renders:
 
     <a href="javascript:void(0)" class="btn btn-primary fs-foo fs-bar">Example</a>
 
+#### Data/Aria
+
+For more complicated attributes, it's possible to pass nested objects. These objects will be flattened, with their keys being concatenated.
+
+    "+div": {
+        "attrs": {
+            "data": {
+                "equal": {
+                    "group": "example",
+                    "min": 768
+                }
+            }
+        }
+    }
+
+Renders:
+
+    <div data-equal-group="example" data-equal-min="768"></div>
+
+However, there are times when you want to be able to pass config objects that don't get flattened, such as for the carousel.
+
+    "+c-carousel": {
+        "attrs": {
+            "!carousel": {
+                "slidesToShow": 1,
+                "arrows": false
+            }
+        },
+        "slides": [...]
+    }
+
+Notice the "!" preceeding the "carousel" key, this tells the attrs utility to leave the value object alone.
+
 ### Content
 
 To render text directly use the "content" key. These can be used multiple times within the same object and render in the same order as specified so feel free to mix in other blocks, mixins, and elements.

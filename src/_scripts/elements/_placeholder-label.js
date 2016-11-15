@@ -4,6 +4,8 @@
     This is functionality for the placeholder label element which swaps state on focus and when the input has a value.
 */
 
+import $ from 'jquery';
+
 import {prefix} from '../utilities/_helpers';
 
 let $inputs = $(`.${prefix('placeholder-label')} .form-control`);

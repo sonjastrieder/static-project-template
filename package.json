@@ -98,7 +98,9 @@
   },
   "browser": {
     "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-    "slick-carousel": "./node_modules/slick-carousel/slick/slick.min.js",
+    "jquery": "./node_modules/jquery/dist/jquery.min.js",
+    "lodash": "./node_modules/lodash/lodash.min.js",
+    "slick": "./node_modules/slick-carousel/slick/slick.min.js",
     "tether": "./node_modules/tether/dist/js/tether.min.js",
     "velocity": "./node_modules/velocity-animate/velocity.min.js",
     "velocity-ui": "./node_modules/velocity-animate/velocity.ui.min.js"
@@ -111,7 +113,7 @@
       ]
     },
     "jquery": "global:$",
-    "slick-carousel": {
+    "slick": {
       "depends": [
         "jquery:$"
       ]

@@ -1,14 +1,15 @@
 'use strict';
 
 /*
-    This is a general initialization of Slick.js carousels.
-    Documentation: http://kenwheeler.github.io/slick/
+    This is a general initialization of Lory.js carousels.
+    Documentation: https://github.com/meandmax/lory
 
     Custom configuration is passed in using the data-carousel attribute. Options are merged with defaults found below.
 */
 
 import _ from 'lodash';
-import 'slick-carousel';
+import $ from 'jquery';
+import 'slick';
 
 import {prefix} from '../utilities/_helpers';
 

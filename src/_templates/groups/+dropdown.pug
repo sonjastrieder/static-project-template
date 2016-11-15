@@ -74,7 +74,7 @@ mixin g-dropdown(context = {})
             .col-xs-12
                 h4 Etiam consequat
                 p.lead orem ipsum dolor sit amet, consectetur adipiscing elit.
-                button.btn.btn-primary Sed Facilisis
+                button.btn.btn-primary&attributes(flatten({'data': {'prevent': 'hide.bs.dropdown'}})) Sed Facilisis
         +g-dropdown({
             'attrs': {
                 'class': 'btn-group'

@@ -1,8 +1,8 @@
 'use strict';
 
 /*
-    This is a general initialization of Lory.js carousels.
-    Documentation: https://github.com/meandmax/lory
+    This is a general initialization of Slick.js carousels.
+    Documentation: http://kenwheeler.github.io/slick/
 
     Custom configuration is passed in using the data-carousel attribute. Options are merged with defaults found below.
 */

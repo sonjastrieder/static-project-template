@@ -1,5 +1,9 @@
 'use strict';
 
+/*
+    Prevent default Bootstrap behavior from within by using data-prevent attribute and pass the event to be prevented.
+*/
+
 import $ from 'jquery';
 import 'bootstrap';
 

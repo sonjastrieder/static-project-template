@@ -201,7 +201,8 @@ block content
                         h2 Components
                     each example in self.examples[ExampleTypes.COMPONENT]
                         .col-xs-12
-                            +u-contents(example)
+                            div(data-style-guide-item, class= prefix('style-guide-item'))
+                                +u-contents(example)
                 .row
                     .col-xs-12
                         h2 Modules

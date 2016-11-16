@@ -6,18 +6,18 @@ let $styleGuideItems = $('[data-style-guide-item]');
 
 if ($styleGuideItems.length > 0) {
 
-    let hljs = require('highlightjs');
+    require('prismjs');
     let Clipboard = require('clipboard/dist/clipboard.min');
 
     $styleGuideItems.each(function(index) {
         let $item = $(this);
         let itemHtml = $item.html();
-        let highlightedHtml = hljs.highlight('html', itemHtml);
+        let highlightedHtml = Prism.highlight(itemHtml, Prism.languages.html);
         let styleGuideItem = `
             <button class="btn" data-clipboard-target="#style-guide-item-${index}">Copy</button>
             <pre>
                 <code class="hljs" id="style-guide-item-${index}">
-                    ${highlightedHtml.value}
+                    ${highlightedHtml}
                 </code>
             </pre>
         `;

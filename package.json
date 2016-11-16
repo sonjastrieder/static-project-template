@@ -35,6 +35,7 @@
     "moment": "^2.16.0",
     "picturefill": "^3.0.2",
     "placekeeper": "^1.0.7",
+    "prismjs": "^1.5.1",
     "slick-carousel": "^1.6.0",
     "svg4everybody": "^2.1.2",
     "tether": "^1.3.7",

@@ -29,6 +29,8 @@
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
     "browsernizr": "^2.1.0",
+    "clipboard": "^1.5.12",
+    "highlightjs": "^9.8.0",
     "lodash": "^4.16.6",
     "moment": "^2.16.0",
     "picturefill": "^3.0.2",
@@ -83,10 +85,7 @@
     "vinyl-buffer": "~1.0.0",
     "vinyl-source-stream": "~1.1.0",
     "watchify": "~3.7.0 ",
-    "wrench": "~1.5.9",
-    "xmlfmt": "^1.0.0",
-    "clipboard": "^1.5.12",
-    "prismjs": "^1.5.1"
+    "wrench": "~1.5.9"
   },
   "scripts": {
     "clean": "rimraf node_modules tmp build"

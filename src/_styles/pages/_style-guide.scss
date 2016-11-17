@@ -8,4 +8,12 @@
     .#{prefix('style-guide-item')} {
         border: 1px solid grey;
     }
+    .#{prefix('style-guide-item-html')} {
+        position: relative;
+        .btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
 }

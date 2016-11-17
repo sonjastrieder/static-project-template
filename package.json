@@ -30,7 +30,6 @@
     "bootstrap": "^4.0.0-alpha.5",
     "browsernizr": "^2.1.0",
     "clipboard": "^1.5.12",
-    "highlightjs": "^9.8.0",
     "lodash": "^4.16.6",
     "moment": "^2.16.0",
     "picturefill": "^3.0.2",

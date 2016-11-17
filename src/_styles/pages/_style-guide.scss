@@ -16,4 +16,18 @@
             top: 0;
         }
     }
+    pre[class*="language-"] {
+        box-shadow: none;
+        border-left: 0;
+        border-top: 1px solid grey;
+        &:before,
+        &:after {
+            height: 0;
+        }
+    }
+    code {
+        .tag {
+            font-size: 100%;
+        }
+    }
 }

@@ -25,7 +25,7 @@ if ($styleGuideItems.length > 0) {
         let renderText = escapeHTML(beautifyHTML(itemHtml));
         let $styleGuideItem = $(`
             <div class="fs-style-guide-item-html">
-                <button class="btn" data-clipboard-target="#style-guide-item-${index}">Copy</button>
+                <button class="btn btn-primary" data-clipboard-target="#style-guide-item-${index}">Copy</button>
                 <pre class="language-html">
                     <code class="language-html" id="style-guide-item-${index}"></code>
                 </pre>

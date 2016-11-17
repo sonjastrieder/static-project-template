@@ -8,21 +8,26 @@ if ($styleGuideItems.length > 0) {
 
     require('prismjs');
     let Clipboard = require('clipboard/dist/clipboard.min');
+    let beautifyHTML = require('xmlfmt');
+    const escapeHTML = (s) => {
+        return s.replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    };
 
     $styleGuideItems.each(function(index) {
         let $item = $(this);
-        let itemHtml = $item.html();
-        let highlightedHtml = Prism.highlight(itemHtml, Prism.languages.markup);
-        let $highlightedHtml = $.parseHTML(highlightedHtml);
-        let styleGuideItem = `
+        let itemHtml = $item.wrapInner('<div></div>').html();
+        let renderText =  escapeHTML(beautifyHTML(itemHtml));
+        let $styleGuideItem = $(`
             <button class="btn" data-clipboard-target="#style-guide-item-${index}">Copy</button>
-            <pre class="language-markup">
-                <code class="language-markup" id="style-guide-item-${index}">
-                    ${highlightedHtml}
-                </code>
+            <pre class="language-html">
+                <code class="language-html" id="style-guide-item-${index}"></code>
             </pre>
-        `;
-        $item.append(styleGuideItem);
+        `);
+        $item.append($styleGuideItem);
+        $styleGuideItem.find('code').html(renderText);
     });
 
     new Clipboard(`.${prefix('style-guide-item')} .btn`);

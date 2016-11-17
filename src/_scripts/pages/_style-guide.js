@@ -12,11 +12,12 @@ if ($styleGuideItems.length > 0) {
     $styleGuideItems.each(function(index) {
         let $item = $(this);
         let itemHtml = $item.html();
-        let highlightedHtml = Prism.highlight(itemHtml, Prism.languages.html);
+        let highlightedHtml = Prism.highlight(itemHtml, Prism.languages.markup);
+        let $highlightedHtml = $.parseHTML(highlightedHtml);
         let styleGuideItem = `
             <button class="btn" data-clipboard-target="#style-guide-item-${index}">Copy</button>
-            <pre>
-                <code class="hljs" id="style-guide-item-${index}">
+            <pre class="language-markup">
+                <code class="language-markup" id="style-guide-item-${index}">
                     ${highlightedHtml}
                 </code>
             </pre>

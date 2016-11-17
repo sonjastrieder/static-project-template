@@ -2,14 +2,14 @@
 // an element, group, component, or module needs to have a top-level html element, because $.html() selects the first element, so if there are siblings, will only select the first
 
 import {prefix} from '../utilities/_helpers';
+import Prism from 'prismjs';
+import Clipboard from 'clipboard/dist/clipboard.min';
+import xmlfmt from 'xmlfmt';
 
 let $styleGuideItems = $('[data-style-guide-item]');
 
 if ($styleGuideItems.length > 0) {
 
-    require('prismjs');
-    let Clipboard = require('clipboard/dist/clipboard.min');
-    let beautifyHTML = require('xmlfmt');
     const escapeHTML = (s) => {
         return s.replace(/&/g, '&amp;')
             .replace(/"/g, '&quot;')
@@ -22,7 +22,7 @@ if ($styleGuideItems.length > 0) {
         let $itemClone = $item.clone();
         $itemClone.children('label').remove();
         let itemHtml = $itemClone.html();
-        let renderText = escapeHTML(beautifyHTML(itemHtml));
+        let renderText = escapeHTML(xmlfmt(itemHtml));
         let $styleGuideItem = $(`
             <div class="fs-style-guide-item-html">
                 <button class="btn btn-primary" data-clipboard-target="#style-guide-item-${index}">Copy</button>

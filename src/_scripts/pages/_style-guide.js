@@ -23,18 +23,13 @@ if ($styleGuideItems.length > 0) {
         $itemClone.children('label').remove();
         let itemHtml = $itemClone.html();
         let renderText = escapeHTML(xmlfmt(itemHtml));
-        let $styleGuideItem = $(`
-            <div class="fs-style-guide-item-html">
-                <button class="btn btn-primary" data-clipboard-target="#style-guide-item-${index}">Copy</button>
-                <pre class="language-html">
-                    <code class="language-html" id="style-guide-item-${index}"></code>
-                </pre>
-            </div>
-        `);
-        $item.append($styleGuideItem);
-        $styleGuideItem.find('code').html(renderText);
+        $item.find('code').html(renderText);
     });
 
-    new Clipboard(`.${prefix('style-guide-item')} .btn`);
+    new Clipboard(`.${prefix('style-guide-item')} .btn`, {
+        target: function(trigger) {
+            return trigger.nextElementSibling;
+        }
+    });
 
 }

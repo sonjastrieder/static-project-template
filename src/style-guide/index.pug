@@ -8,9 +8,18 @@ append config
         };
 
 block content
+
     mixin p-label(context = {})
         label(class= prefix('label'))&attributes(attrs(context))
             +u-contents(context)
+
+    mixin p-style-guide-item(context = {})
+        div(data-style-guide-item, class= prefix('style-guide-item'))
+            block
+            .fs-style-guide-item-html
+                button.btn.btn-primary Copy
+                pre.language-html
+                    code.language-html
 
     .container-fluid
         .row
@@ -23,9 +32,10 @@ block content
                         h2 Global
                     .col-xs-12
                         +p-label('Typography')
-                        div(data-style-guide-item, class= prefix('style-guide-item'))
+                        +p-style-guide-item()
                             h1.display-1 Display Headline 1
-                        h1.display-2 Display Headline 2
+                        +p-style-guide-item()
+                            h1.display-2 Display Headline 2
                         h1.display-3 Display Headline 3
                         h1.display-4 Display Headline 4
                         h1 Headline 1
@@ -201,7 +211,7 @@ block content
                         h2 Components
                     each example in self.examples[ExampleTypes.COMPONENT]
                         .col-xs-12
-                            div(data-style-guide-item, class= prefix('style-guide-item'))
+                            +p-style-guide-item()
                                 +u-contents(example)
                 .row
                     .col-xs-12

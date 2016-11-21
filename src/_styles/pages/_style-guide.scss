@@ -22,6 +22,8 @@
         box-shadow: none;
         border-left: 0;
         border-top: 1px solid grey;
+        background-image: none;
+        padding-top: 40px;
         &:before,
         &:after {
             height: 0;
@@ -30,6 +32,8 @@
     code {
         .tag {
             font-size: 100%;
+            white-space: nowrap;
+            padding: 3px 0;
         }
     }
 }

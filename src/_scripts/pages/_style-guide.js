@@ -17,12 +17,37 @@ if ($styleGuideItems.length > 0) {
             .replace(/>/g, '&gt;');
     };
 
+    // http://stackoverflow.com/questions/6628019/string-processing-to-add-trailing-slash-to-self-closing-tags-img-br-etc
+    // innerHTML method defaults to not keeping closing slash on self closing tags
+    // this causes issues with xmlfmt, as without the closing slash the whitespace is incorrect
+    const addClosingSlashes = (htmlString) => {
+        var elemTypes = [
+        "area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source"];
+        var inString, outString = htmlString;
+        for (var i=0; i<elemTypes.length; i++) {
+          var index1 = 0, index2;
+          inString = outString;
+          outString = '';
+          while ((index1 = inString.indexOf("<" + elemTypes[i])) != -1) {
+            if ((index2 = inString.indexOf(">", index1)) != -1 && inString.substring(index2 - 1, index2 + 1) != '/>') {
+              outString += inString.substring(0, index2) + " />";
+              inString = inString.substring(index2+1);
+              }
+            else {
+              break;
+              }
+            }
+          outString += inString;
+          }
+        return outString;
+    };
+
     $styleGuideItems.each(function(index) {
         let $item = $(this);
         let $itemClone = $item.clone();
         $itemClone.children('label').remove();
         let itemHtml = $itemClone.html();
-        let renderText = escapeHTML(xmlfmt(itemHtml));
+        let renderText = escapeHTML(xmlfmt(addClosingSlashes(itemHtml)));
         $item.find('code').html(renderText);
     });
 

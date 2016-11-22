@@ -1,9 +1,5 @@
 'use strict';
 
-// import and require global js here
-// if using a library or plugin for specific functionality
-// include it in the file
-
 // Add tests: https://www.npmjs.com/package/browsernizr
 import 'browsernizr/test/css/flexbox';
 import 'browsernizr';
@@ -16,6 +12,7 @@ import svg4everybody from 'svg4everybody';
 // Bootstrap
 window.$ = window.jQuery = $;
 window.Tether = Tether;
+require('bootstrap/js/dist/tooltip');
 
 // IE Polyfill
 svg4everybody();

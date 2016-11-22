@@ -5,10 +5,25 @@ import {prefix} from '../utilities/_helpers';
 import Prism from 'prismjs';
 import Clipboard from 'clipboard/dist/clipboard.min';
 import xmlfmt from 'xmlfmt';
+require('bootstrap/js/dist/tooltip');
 
 let $styleGuideItems = $('[data-style-guide-item]');
 
 if ($styleGuideItems.length > 0) {
+
+    // tooltips
+    // http://stackoverflow.com/questions/37381640/tooltips-highlight-animation-with-clipboard-js-click/37395225#answer-37395225
+    function setTooltip(btn, message) {
+        $(btn).tooltip('hide')
+            .attr('data-original-title', message)
+            .tooltip('show');
+    }
+    function hideTooltip(btn) {
+        setTimeout(function() {
+            $(btn).tooltip('hide');
+        }, 1000);
+    }
+    // end tooltips
 
     const escapeHTML = (s) => {
         return s.replace(/&/g, '&amp;')
@@ -51,10 +66,25 @@ if ($styleGuideItems.length > 0) {
         $item.find('code').html(renderText);
     });
 
-    new Clipboard(`.${prefix('style-guide-item')} .btn`, {
+    const clipboard = new Clipboard(`.${prefix('style-guide-item')} .btn`, {
         target: function(trigger) {
             return trigger.nextElementSibling;
         }
+    });
+
+    $(`.${prefix('style-guide-item')} .btn`).tooltip({
+        trigger: 'click',
+        placement: 'bottom'
+    });
+
+    clipboard.on('success', function(e) {
+        setTooltip(e.trigger, 'Copied!');
+        hideTooltip(e.trigger);
+    });
+
+    clipboard.on('error', function(e) {
+        setTooltip(e.trigger, 'Failed!');
+        hideTooltip(e.trigger);
     });
 
 }

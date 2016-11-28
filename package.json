@@ -100,7 +100,6 @@
   },
   "browser": {
     "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-    "jquery": "./node_modules/jquery/dist/jquery.min.js",
     "lodash": "./node_modules/lodash/lodash.min.js",
     "slick": "./node_modules/slick-carousel/slick/slick.min.js",
     "tether": "./node_modules/tether/dist/js/tether.min.js",
@@ -110,27 +109,27 @@
   "browserify-shim": {
     "bootstrap": {
       "depends": [
-        "jquery:$",
-        "tether:Tether"
+        "jquery",
+        "tether"
       ]
     },
-    "jquery": "global:$",
+    "jquery": "global:jQuery",
     "slick": {
       "depends": [
-        "jquery:$"
+        "jquery"
       ]
     },
     "tether": "Tether",
     "velocity": {
       "depends": [
-        "jquery:$"
+        "jquery"
       ],
       "exports": "Velocity"
     },
     "velocity-ui": {
       "depends": [
-        "jquery:$",
-        "velocity:Velocity"
+        "jquery",
+        "velocity"
       ]
     }
   },

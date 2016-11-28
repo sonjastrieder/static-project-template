@@ -10,6 +10,9 @@ import babelify from 'babelify';
 import vsource from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 
+// https://github.com/thlorenz/browserify-shim#d-diagnose-what-browserify-shim-is-doing
+// process.env.BROWSERIFYSHIM_DIAGNOSTICS=1;
+
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     let dirs = config.directories;
     let entries = config.entries;
@@ -39,7 +42,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
             let rebundle = () => {
                 let startTime = new Date().getTime();
-                
+
                 bundler.bundle()
                     .on('error', (err) => {
                         plugins.util.log(
@@ -48,7 +51,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                             err.stack,
                             '\n'
                         );
-                        
+
                         this.emit('end');
                     })
                     .on('error', plugins.notify.onError(config.defaultNotification))
@@ -69,13 +72,13 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                     // Show which file was bundled and how long it took
                     .on('end', () => {
                         let time = (new Date().getTime() - startTime) / 1000;
-                        
+
                         console.log(
                             plugins.util.colors.cyan(entry)
                             + ' was browserified: '
                             + plugins.util.colors.magenta(time + 's')
                         );
-                        
+
                         return browserSync.reload('*.js');
                     });
             };
@@ -84,7 +87,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
                 bundler.on('update', rebundle); // on any dep update, runs the bundler
                 bundler.on('log', plugins.util.log); // output build logs to terminal
             }
-            
+
             return rebundle();
         });
     };

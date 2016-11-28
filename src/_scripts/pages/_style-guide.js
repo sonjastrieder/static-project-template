@@ -5,6 +5,7 @@ import {prefix} from '../utilities/_helpers';
 import Prism from 'prismjs';
 import Clipboard from 'clipboard/dist/clipboard.min';
 import xmlfmt from 'xmlfmt';
+require('bootstrap/dist/js/bootstrap.min.js');
 
 let $styleGuideItems = $('[data-style-guide-item]');
 

@@ -29,16 +29,16 @@ head
     meta(name="description", content= self.page && self.page.description ? self.page.description : self.data.global.description)
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(name="format-detection", content="telephone=no")
-    
+
     each group, key in self.data.global.favicon
         each size in group.sizes
             link(type="image/png", rel= (group.rel || 'icon'), sizes= `${size}x${size}`, href= `/images/favicon/${group.img || key}-${size}x${size}.png`)
-    
+
     meta(name="msapplication-TileImage", content="/images/favicon/ms-icon-144x144.png")
     meta(name="msapplication-TileColor", content="#ffffff")
     meta(name="theme-color", content="#ffffff")
     link(rel="manifest", href="/manifest.json")
-    
+
     title= self.page && self.page.title ? `${self.data.global.title} | ${self.page.title}` : self.data.global.title
 
     block styles

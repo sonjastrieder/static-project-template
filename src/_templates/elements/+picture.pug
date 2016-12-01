@@ -25,7 +25,7 @@ mixin e-picture(context = {})
             a(href= context.url, class= prefix('cover'))
 
 +u-example({'type': ExampleTypes.ELEMENT})
-    +p-label('Picture')
+    +p-label('Picture (multiple sources)')
     +e-picture({
         'srcs': [
             {
@@ -44,7 +44,7 @@ mixin e-picture(context = {})
     })
 
 +u-example({'type': ExampleTypes.ELEMENT})
-    +p-label('Picture')
+    +p-label('Picture (single source)')
     +e-picture({
         'src': 'http://placehold.it/992x496',
         'alt': 'Curabitur Suscipit',

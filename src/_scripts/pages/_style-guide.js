@@ -63,8 +63,8 @@ if ($styleGuideItems.length > 0) {
     $styleGuideItems.each(function(index) {
         let $item = $(this);
         let $itemClone = $item.clone();
-        $itemClone.children('label').remove();
-        $itemClone.children('.fs-style-guide-item-html').remove();
+        $itemClone.find('.fs-label').remove();
+        $itemClone.find('.fs-style-guide-item-html').remove();
         let itemHtml = $itemClone.html();
         let renderText = escapeHTML(xmlfmt(addClosingSlashes(itemHtml)));
         renderText = renderText.replace('&lt;div&gt;','');

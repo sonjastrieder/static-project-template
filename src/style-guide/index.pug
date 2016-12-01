@@ -35,7 +35,6 @@ block content
                         +p-label('Typography')
                         +p-style-guide-item()
                             h1.display-1 Display Headline 1
-                            h1.display-1 Display Headline TEST
                         +p-style-guide-item()
                             h1.display-2 Display Headline 2
                         +p-style-guide-item()
@@ -141,57 +140,59 @@ block content
                             button.btn.btn-primary Regular
                         +p-style-guide-item()
                             button.btn.btn-primary.btn-sm Small
-                    .col-xs-12.col-md-6.col-lg-8&attributes(flatten({'data': {'equal': {'group': 'style-guide-elements', 'min': self.config.breakpoints.sm}}}))
                         +p-label('Forms')
-                        .row
-                            .col-xs-12.col-sm-6
-                                .form-group
-                                    label(for="ex-text-input-1") Text Input
-                                    input.form-control(type="text", id="ex-text-input-1")
-                                .form-group
-                                    label(for="ex-textarea") Textarea
-                                    textarea.form-control(id="ex-textarea")
-                            .col-xs-12.col-sm-6
-                                .form-group
-                                    .form-check-inline
-                                        label.form-check-label
-                                            input.form-check-input(type="radio", name="ex-radio-1")
-                                            |  Radio 1
-                                    .form-check-inline
-                                        label.form-check-label
-                                            input.form-check-input(type="radio", name="ex-radio-1")
-                                            |  Radio 2
-                                    .form-check-inline
-                                        label.form-check-label
-                                            input.form-check-input(type="radio", name="ex-radio-1")
-                                            |  Radio 3
-                                .form-group
-                                    .form-check-inline
-                                        label.form-check-label
-                                            input.form-check-input(type="checkbox")
-                                            |  Checkbox 1
-                                    .form-check-inline
-                                        label.form-check-label
-                                            input.form-check-input(type="checkbox")
-                                            |  Checkbox 2
-                                    .form-check-inline
-                                        label.form-check-label
-                                            input.form-check-input(type="checkbox")
-                                            |  Checkbox 3
-                                .form-group
-                                    select.form-control
-                                        option Option 1
-                                        option Option 2
-                                        option Option 3
+                        +p-style-guide-item()
+                            .form-group
+                                label(for="ex-text-input-1") Text Input
+                                input.form-control(type="text", id="ex-text-input-1")
+                        +p-style-guide-item()
+                            .form-group
+                                label(for="ex-textarea") Textarea
+                                textarea.form-control(id="ex-textarea")
+                        +p-style-guide-item()
+                            .form-group
+                                .form-check-inline
+                                    label.form-check-label
+                                        input.form-check-input(type="radio", name="ex-radio-1")
+                                        |  Radio 1
+                                .form-check-inline
+                                    label.form-check-label
+                                        input.form-check-input(type="radio", name="ex-radio-1")
+                                        |  Radio 2
+                                .form-check-inline
+                                    label.form-check-label
+                                        input.form-check-input(type="radio", name="ex-radio-1")
+                                        |  Radio 3
+                        +p-style-guide-item()
+                            .form-group
+                                .form-check-inline
+                                    label.form-check-label
+                                        input.form-check-input(type="checkbox")
+                                        |  Checkbox 1
+                                .form-check-inline
+                                    label.form-check-label
+                                        input.form-check-input(type="checkbox")
+                                        |  Checkbox 2
+                                .form-check-inline
+                                    label.form-check-label
+                                        input.form-check-input(type="checkbox")
+                                        |  Checkbox 3
+                        +p-style-guide-item()
+                            .form-group
+                                select.form-control
+                                    option Option 1
+                                    option Option 2
+                                    option Option 3
                     each example in self.examples[ExampleTypes.ELEMENT]
-                        .col-xs-12.col-sm-6.col-md-3.col-lg-4&attributes(flatten({'data': {'equal': {'group': 'style-guide-elements', 'min': self.config.breakpoints.sm}}}))
+                        +p-style-guide-item()
                             +u-contents(example)
                 .row
                     .col-xs-12
                         h2 Groups
                     each example in self.examples[ExampleTypes.GROUP]
                         .col-xs-12.col-md-6.col-xl-4&attributes(flatten({'data': {'equal': {'group': 'style-guide-groups', 'min': self.config.breakpoints.md}}}))
-                            +u-contents(example)
+                            +p-style-guide-item()
+                                +u-contents(example)
                 .row
                     .col-xs-12
                         h2 Components
@@ -203,4 +204,5 @@ block content
                     .col-xs-12
                         h2 Modules
     each example in self.examples[ExampleTypes.MODULE]
-        +u-contents(example)
+        +p-style-guide-item()
+            +u-contents(example)

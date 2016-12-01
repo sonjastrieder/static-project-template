@@ -1,5 +1,4 @@
 // this generates html for the style guide / pattern library elements, groups, components, modules
-// an element, group, component, or module needs to have a top-level html element, because $.html() selects the first element, so if there are siblings, will only select the first
 
 import {prefix} from '../utilities/_helpers';
 import Prism from 'prismjs';
@@ -65,8 +64,11 @@ if ($styleGuideItems.length > 0) {
         let $item = $(this);
         let $itemClone = $item.clone();
         $itemClone.children('label').remove();
+        $itemClone.children('.fs-style-guide-item-html').remove();
         let itemHtml = $itemClone.html();
         let renderText = escapeHTML(xmlfmt(addClosingSlashes(itemHtml)));
+        renderText = renderText.replace('&lt;div&gt;','');
+        renderText = renderText.substring(0,renderText.lastIndexOf('&lt;/div&gt;'));
         $item.find('code').html(renderText);
     });
 

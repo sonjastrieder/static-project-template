@@ -6,12 +6,10 @@ import Prism from 'prismjs';
 import Clipboard from 'clipboard/dist/clipboard.min';
 import xmlfmt from 'xmlfmt';
 import $ from 'jquery';
-// require('bs-tooltip');
-// import 'bs-util';
-// import Util from 'bs-util';
-// import Tooltip from 'bs-tooltip';
-// require('bootstrap/js/dist/util.js');
-require('bootstrap/dist/js/bootstrap.min.js');
+// https://github.com/twbs/bootstrap/issues/20634
+// https://github.com/twbs/bootstrap/issues/19017
+// currently imports all of bootstrap, but should work correctly in a future release of v4
+import {Tooltip} from 'bootstrap';
 
 let $styleGuideItems = $('[data-style-guide-item]');
 

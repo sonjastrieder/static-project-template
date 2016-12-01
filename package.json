@@ -99,18 +99,6 @@
     ]
   },
   "browser": {
-    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-    "bs-alert": "./node_modules/bootstrap/js/dist/alert.js",
-    "bs-button": "./node_modules/bootstrap/js/dist/button.js",
-    "bs-carousel": "./node_modules/bootstrap/js/dist/carousel.js",
-    "bs-collapse": "./node_modules/bootstrap/js/dist/collapse.js",
-    "bs-dropdown": "./node_modules/bootstrap/js/dist/dropdown.js",
-    "bs-modal": "./node_modules/bootstrap/js/dist/modal.js",
-    "bs-popover": "./node_modules/bootstrap/js/dist/popover.js",
-    "bs-scrollspy": "./node_modules/bootstrap/js/dist/scrollspy.js",
-    "bs-tab": "./node_modules/bootstrap/js/dist/tab.js",
-    "bs-tooltip": "./node_modules/bootstrap/js/dist/tooltip.js",
-    "bs-util": "./node_modules/bootstrap/js/dist/util.js",
     "lodash": "./node_modules/lodash/lodash.min.js",
     "slick": "./node_modules/slick-carousel/slick/slick.min.js",
     "tether": "./node_modules/tether/dist/js/tether.min.js",
@@ -118,82 +106,6 @@
     "velocity-ui": "./node_modules/velocity-animate/velocity.ui.min.js"
   },
   "browserify-shim": {
-    "bootstrap": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether"
-      ]
-    },
-    "bs-alert": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether",
-        "bs-util:Util"
-      ]
-    },
-    "bs-button": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether",
-        "bs-util:Util"
-      ]
-    },
-    "bs-carousel": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether",
-        "bs-util:Util"
-      ]
-    },
-    "bs-collapse": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether",
-        "bs-util:Util"
-      ]
-    },
-    "bs-dropdown": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether",
-        "bs-util:Util"
-      ]
-    },
-    "bs-modal": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether",
-        "bs-util:Util"
-      ]
-    },
-    "bs-popover": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether",
-        "bs-util:Util"
-      ]
-    },
-    "bs-scrollspy": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether",
-        "bs-util:Util"
-      ]
-    },
-    "bs-tab": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether",
-        "bs-util:Util"
-      ]
-    },
-    "bs-tooltip": {
-      "depends": [
-        "jquery:jQuery",
-        "tether:Tether",
-        "bs-util:Util"
-      ]
-    },
     "jquery": "global:jQuery",
     "slick": {
       "depends": [

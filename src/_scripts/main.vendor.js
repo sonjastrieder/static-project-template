@@ -5,6 +5,8 @@ import 'browsernizr/test/css/flexbox';
 import 'browsernizr';
 import 'picturefill';
 import 'placekeeper';
+// needed for Bootstrap components
+// if v4 es6 imports are working correctly, this is probably no longer necessary
 import Tether from 'tether';
 import svg4everybody from 'svg4everybody';
 

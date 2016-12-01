@@ -16,12 +16,12 @@ if ($styleGuideItems.length > 0) {
 
     // tooltips
     // http://stackoverflow.com/questions/37381640/tooltips-highlight-animation-with-clipboard-js-click/37395225#answer-37395225
-    function setTooltip(btn, message) {
+    const setTooltip = (btn, message) => {
         $(btn).tooltip('hide')
             .attr('data-original-title', message)
             .tooltip('show');
     }
-    function hideTooltip(btn) {
+    const hideTooltip = (btn) => {
         setTimeout(function() {
             $(btn).tooltip('hide');
         }, 1000);
@@ -68,6 +68,7 @@ if ($styleGuideItems.length > 0) {
         let itemHtml = $itemClone.html();
         let renderText = escapeHTML(xmlfmt(addClosingSlashes(itemHtml)));
         renderText = renderText.replace('&lt;div&gt;','');
+        renderText = renderText.replace(/(\r\n|\n|\r)/,"");
         renderText = renderText.substring(0,renderText.lastIndexOf('&lt;/div&gt;'));
         $item.find('code').html(renderText);
     });

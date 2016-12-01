@@ -190,9 +190,8 @@ block content
                     .col-xs-12
                         h2 Groups
                     each example in self.examples[ExampleTypes.GROUP]
-                        .col-xs-12.col-md-6.col-xl-4&attributes(flatten({'data': {'equal': {'group': 'style-guide-groups', 'min': self.config.breakpoints.md}}}))
-                            +p-style-guide-item()
-                                +u-contents(example)
+                        +p-style-guide-item()
+                            +u-contents(example)
                 .row
                     .col-xs-12
                         h2 Components

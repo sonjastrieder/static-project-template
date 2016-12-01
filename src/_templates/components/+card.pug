@@ -14,7 +14,7 @@ mixin c-card(context = {})
             [top: Boolean,]
             [bottom: Boolean]
         }
-        
+
         CardBlockTitle (accepts String shorthand)
         {
             [element: String(DOM node)]
@@ -60,7 +60,7 @@ mixin c-card(context = {})
 
             #{ctx.element || 'div'}.card-header&attributes(attrs(ctx))
                 +u-contents(ctx)
-        
+
         mixin p-picture(ctx = {})
             +e-picture(ctx)(class= (ctx.top ? 'card-img-top' : (ctx.bottom ? 'card-img-bottom' : 'card-img')))
 
@@ -86,7 +86,7 @@ mixin c-card(context = {})
 
             .card-block&attributes(attrs(ctx))
                 +u-contents(ctx)
-        
+
         mixin p-overlay(ctx = {})
             .card-img-overlay
                 +p-block(ctx)
@@ -105,6 +105,40 @@ mixin c-card(context = {})
 
 +u-example({'type': ExampleTypes.COMPONENT})
     +p-label('Card')
+    +c-card({
+        '+p-picture': {
+            'top': true,
+            'srcs': [
+                {
+                    'path': 'http://placehold.it/1400x700',
+                    'media': `(min-width: ${self.config.breakpoints.xl}px)`
+                },
+                {
+                    'path': 'http://placehold.it/992x496',
+                    'media': `(min-width: ${self.config.breakpoints.md}px)`
+                },
+                {
+                    'path': 'http://placehold.it/768x384',
+                    'media': `(min-width: ${self.config.breakpoints.xs}px)`
+                }
+
+            ],
+            'alt': 'Curabitur Suscipit'
+        },
+        '+p-block': {
+            '+p-title': 'Curabitur Suscipit',
+            '+p-text': 'Anteger vulputate metus quis hendrerit ultrices. Sed nec diam dui.',
+            '+button': {
+                'attrs': {
+                    'class': 'btn btn-primary'
+                },
+                'content': 'Gravida Cem'
+            }
+        }
+    })
+
++u-example({'type': ExampleTypes.COMPONENT})
+    +p-label('Cards 1')
     +g-row({
         'cols': [
             {
@@ -127,7 +161,7 @@ mixin c-card(context = {})
                                 'path': 'http://placehold.it/768x384',
                                 'media': `(min-width: ${self.config.breakpoints.xs}px)`
                             }
-                            
+
                         ],
                         'alt': 'Curabitur Suscipit'
                     },
@@ -208,6 +242,9 @@ mixin c-card(context = {})
             }
         ]
     })
+
++u-example({'type': ExampleTypes.COMPONENT})
+    +p-label('Cards 2')
     +g-row({
         'cols': [
             {

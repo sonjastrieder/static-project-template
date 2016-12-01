@@ -14,7 +14,7 @@ mixin e-picture(context = {})
             alt: String,
             [url: String]
         }
-    
+
     - sources = context.srcs || [{'path': context.src}];
 
     picture(class= prefix('picture'))&attributes(attributes, attrs(context))
@@ -42,6 +42,9 @@ mixin e-picture(context = {})
         ],
         'alt': 'Curabitur Suscipit'
     })
+
++u-example({'type': ExampleTypes.ELEMENT})
+    +p-label('Picture')
     +e-picture({
         'src': 'http://placehold.it/992x496',
         'alt': 'Curabitur Suscipit',

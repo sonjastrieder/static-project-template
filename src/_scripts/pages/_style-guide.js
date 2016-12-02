@@ -73,13 +73,13 @@ if ($styleGuideItems.length > 0) {
         $item.find('code').html(renderText);
     });
 
-    const clipboard = new Clipboard(`.${prefix('style-guide-item')} .btn`, {
+    const clipboard = new Clipboard(`.${prefix('style-guide-copy')}`, {
         target: function(trigger) {
             return trigger.nextElementSibling;
         }
     });
 
-    $(`.${prefix('style-guide-item')} .btn`).tooltip({
+    $(`.${prefix('style-guide-copy')}`).tooltip({
         trigger: 'click',
         placement: 'bottom'
     });

@@ -3,14 +3,14 @@
 // http://stackoverflow.com/questions/39543197/get-the-documents-background-color/39543711#39543711
 // https://www.w3.org/TR/2010/PR-css3-color-20101028/#css2-system
 .fs-tel-link::-moz-selection {
-    color: white;
+    color: $color-white;
     background-color: #4497e8;
     // https://www.w3.org/TR/2010/PR-css3-color-20101028/#css2-system
     // no longer part of spec, but works in most browsers
     background-color: Highlight;
 }
 .fs-tel-link::selection {
-    color: white;
+    color: $color-white;
     background-color: #4497e8;
     background-color: Highlight;
 }

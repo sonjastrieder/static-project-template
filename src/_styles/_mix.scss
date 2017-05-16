@@ -18,12 +18,12 @@
     $x0: 1;
     $x1: $x0;
     $r: strip-unit($r);
- 
+
     @for $i from 1 through 10 {
         $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
         $x0: $x1;
     }
- 
+
     @return $x1;
 }
 
@@ -36,7 +36,7 @@
     border-image-slice: 1;
 }
 
-@mixin font-size($size, $lead: ($size + 4) / $size, $root: $font-size-root) {
+@mixin font-size($size, $lead: ($size + 4) / $size, $root: $font-size-base) {
     font-size: $size;
     font-size: ($size / $root) + rem;
     line-height: $lead;
